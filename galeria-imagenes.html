@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo de Imágenes</title>
+    <title>Catálogo de Artistas - PulsArt Media</title>
     <link rel="stylesheet" href="css/style.css">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Dancing+Script&family=Lobster&family=Lobster+Two&family=Roboto:wght@100&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <link rel="shortcut icon" href="img/logo-final-sin-fondo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <link rel="shortcut icon" href="img/pulsart-logo.png">
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
     <script src="js/cargarAnimacion.js"></script>
     <script src="js/jquery-3.7.0.min.js"></script>
@@ -21,69 +22,305 @@
   <header>
     <nav>
         <div class="boton-mas">
-          <button id="desplegar-menu">
-            <img src="img/asdasd.png" alt="Tres puntos">
+          <button id="desplegar-menu" class="hamburger-icon">
+            <span></span>
+            <span></span>
+            <span></span>
           </button>
         </div>
         <div class="texto-medio">
-          <a href="index.html" class="animate__animated animate__bounceInDown animar">Resto Bar JMF</a>
+          <a href="index.html">PulsArt Media</a>
         </div>
           <div class="logo-nav">
             <a href="index.html">
-            <img src="img/logo-final-sin-fondo.png" alt="Logo del bar">
+            <img src="img/pulsart-logo.png" alt="Logo PulsArt Media" style="width: 80px; height: auto;">
           </a>
           </div>
           <div class="menu-desplegable">
             <ul>
-              <a href="galeria-imagenes.html">Galería de Imagenes</a>
               <a href="servicios.html">Servicios</a>
-              <a href="sugerencias.html">Sugerencias</a>
-              <a href="integrantes.html">Integrantes</a>
+              <a href="integrantes.html">Equipo</a>
+              <a href="galeria-imagenes.html">Artistas</a>
+              <a href="sugerencias.html">Contacto</a>
             </ul>
           </div>
     </nav>
     </header>
         <main>
-          <section id="carrusel">
-            <div class="carrusel">
-              <div class="imagen-fondo-galeria">
-                <img src="img/fondo-catalogo.webp" alt="fondo-galeria">
+          <section class="nosotros">
+            <h1 class="page-title">Catálogo de Artistas</h1>
+            <div class="container-curriculum">
+
+              <div class="persona">
+                <div class="imagen-cara-aracely">
+                  <img src="img/artistas/mrhydelml.jpg" alt="@mrhydelml">
+                </div>
+                <div class="curriculum-detalle">
+                  <h3>@mrhydelml</h3>
+                  <p><b>Funk, Pop y Rock</b></p>
+                  <p>Una banda que se destaca por su sonido fresco, vibrante y renovado, fusionando funk, pop y rock.</p>
+                  <p>Sus canciones son pegadizas, con letras que trasmiten pasión, emoción y mensajes positivos. Una propuesta musical dinámica, versátil, alegre y agradable.</p>
+                </div>
               </div>
-            <div class="container-carrusel">
-                <div class="atras">
-                    <img id="atras" src="img/carrusel/back-white.ico" alt="atras" loading="lazy">
-                </div>
 
-                <div class="imagenes">
-                    <div id="img">
-                        <img src="img/carrusel/imagen2.webp" alt="Imagen 1" class="img" loading="lazy">
-                    </div>
-                    <div id="texto" class="texto">
-                        <h3>Amplio Menú</h3>
-                        <p>Explora un mundo de sabores en nuestro menú. Delicias gastronómicas que te sorprenderán.</p>
-                    </div>
+              <div class="persona">
+                <div class="imagen-cara-aracely">
+                  <img src="img/artistas/chabelari.jpg" alt="@chabelaRi">
                 </div>
-                <div class="adelante" id="adelante">
-                    <img src="img/carrusel/next-white.ico" alt="siguiente" loading="lazy">
+                <div class="curriculum-detalle">
+                  <h3>@chabelaRi</h3>
+                  <p><b>Folklore Renovado</b></p>
+                  <p>La propuesta de fusionar diversos estilos musicales es atrayente, innovadora y sobre todo, auténtica, destacando a Chabela como una referente en una nueva generación de artistas que renuevan el folklore nacional.</p>
+                  <p>Con una excepcional presencia escénica y una exuberante calidad vocal e instrumental.</p>
                 </div>
-                <div class="puntos" id="puntos">
+              </div>
 
+              <div class="persona">
+                <div class="imagen-cara-aracely">
+                  <img src="img/artistas/maniqui.jpg" alt="@maniquí">
                 </div>
+                <div class="curriculum-detalle">
+                  <h3>@maniquí</h3>
+                  <p><b>Pop Electrónico (Argentina)</b></p>
+                  <p>Una banda Argentina vibrante que fusiona elementos electrónicos del pop con un espectáculo escenográfico y de sonido único.</p>
+                  <p>Han recorrido algunos de los escenarios más importantes de la región Argentina, compartiendo espacio con artistas de la talla de Marcelo Moura, Lo Pibitos, Los Palmeras y 1915.</p>
+                </div>
+              </div>
+              
+              <div class="persona">
+                <div class="imagen-cara-aracely">
+                  <img src="img/artistas/tekovete.jpg" alt="@Tekovete">
+                </div>
+                <div class="curriculum-detalle">
+                  <h3>@Tekovete</h3>
+                  <p><b>Rap "jopará- jehe'a"</b></p>
+                  <p>Proyecto musical que fusiona al rap "jopará- jehe'a" desde la guarania y el nuevo cancionero hasta el Hip Hop en una notable influencia poética, buscando reivindicar la importancia de una identidad a través de un lenguaje autóctono.</p>
+                </div>
+              </div>
+
+              <div class="persona">
+                <div class="imagen-cara-aracely">
+                  <img src="img/artistas/docayala.jpg" alt="@DocAyala">
+                </div>
+                <div class="curriculum-detalle">
+                  <h3>@DocAyala</h3>
+                  <p><b>Jazz a la Guaraní</b></p>
+                  <p>Reconocido por su trabajo en la fusión del jazz con la música paraguaya, especialmente en clave de guaraní. Su último álbum, "Jazz a la guaraní", contiene nueve composiciones internacionales reinterpretadas en guaraní.</p>
+                </div>
+              </div>
+
+              <div class="persona">
+                <div class="imagen-cara-aracely">
+                  <img src="img/artistas/rafaelamood.jpg" alt="@RafaelaMood">
+                </div>
+                <div class="curriculum-detalle">
+                  <h3>@RafaelaMood</h3>
+                  <p><b>Fusión Emocional</b></p>
+                  <p>Artista multidisciplinaria, cantante, compositora y actriz. A su sonido ella lo llama "fusión emocional" un encuentro entre la música latinoamericana, el jazz, lo experimental, la poesía y la palabra.</p>
+                  <p>Rafaela, con su hipnótica presencia, guía a través del arte que invita al movimiento, la reflexión y el empoderamiento.</p>
+                </div>
+              </div>
+
+              <div class="persona">
+                <div class="imagen-cara-aracely">
+                  <img src="img/artistas/perse.jpg" alt="@PerSe">
+                </div>
+                <div class="curriculum-detalle">
+                  <h3>@PerSe</h3>
+                  <p><b>Pop/Rock Clásicos</b></p>
+                  <p>Per Se propone un show con canciones propias y versiones de músicas de grandes artistas, mezclando clásicos de pop/rock en castellano y en inglés, con un sonido original.</p>
+                  <p>El carisma y la virtuosidad respalda a este grupo, que con una puesta en escena llena de mística, naturalidad y fluidez.</p>
+                </div>
+              </div>
+
+              <div class="persona">
+                <div class="imagen-cara-aracely">
+                  <img src="img/artistas/natmendoza.jpg" alt="@natmendozamusica">
+                </div>
+                <div class="curriculum-detalle">
+                  <h3>@natmendozamusica</h3>
+                  <p><b>Folclore Latinoamericano</b></p>
+                  <p>Es una voz que conjuga las cuerdas del contrabajo y la poesía de sus canciones llenas del bilingüismo hispano guaraní y tejiendo un tapiz de compromiso social.</p>
+                  <p>Ofrece un show cargado de emociones que te sumergen en un viaje por el folclore de Latinoamérica, conjugando tradición y vanguardia.</p>
+                </div>
+              </div>
+
+              <div class="persona">
+                <div class="imagen-cara-aracely">
+                  <img src="img/artistas/thenavegantes.jpg" alt="@TheNavegantes">
+                </div>
+                <div class="curriculum-detalle">
+                  <h3>@TheNavegantes</h3>
+                  <p><b>Indie Tropical</b></p>
+                  <p>Construye un universo sonoro que combinan varios elementos del neo-soul, reggae, rock y género urbano con distintos ritmos latinoamericanos que caracterizan al sonido que denominan "Indie Tropical".</p>
+                </div>
+              </div>
+
+              <div class="persona">
+                <div class="imagen-cara-aracely">
+                  <img src="img/artistas/decibeles.jpg" alt="@Decibeles">
+                </div>
+                <div class="curriculum-detalle">
+                  <h3>@Decibeles</h3>
+                  <p><b>Rock Garajero</b></p>
+                  <p>Se destaca por su sonido rock garajero, con toques de blues, baladas y cierta psicodelia, trayendo viejos sonidos con una energía renovadora que intenta transmitir positivismo y pasión por la vida.</p>
+                </div>
+              </div>
+
+              <div class="persona">
+                <div class="imagen-cara-aracely">
+                  <img src="img/artistas/djbalarix.jpg" alt="@DjBalarix">
+                </div>
+                <div class="curriculum-detalle">
+                  <h3>@DjBalarix</h3>
+                  <p><b>DJ - Trance, Techno, House</b></p>
+                  <p>Dj Balarix conecta con la escena musical electrónica del género Trance, Dark Psy trance, Progressive, Tech house, Afro-jazz house, Goa, Techno, entre otros.</p>
+                  <p>Valeri de nacionalidad Paraguaya-Chilena, tuvo sus inicios en la música multidisciplinaria a los 11 años.</p>
+                </div>
+              </div>
+
+              <div class="persona">
+                <div class="imagen-cara-aracely">
+                  <img src="img/artistas/djexercitor.jpg" alt="@DjExercitor">
+                </div>
+                <div class="curriculum-detalle">
+                  <h3>@DjExercitor</h3>
+                  <p><b>DJ - Hard Techno / Neo Rave</b></p>
+                  <p>Exercitor es un DJ/productor de Hard Techno y Neo Rave con lanzamientos en sellos europeos como The Finest Techno, DSR Digital, Infamia Records y Brutalism.</p>
+                  <p>Su colaboración con L.D.U. llegó al #1 en las listas Hard Dance/Neo Rave de Beatport.</p>
+                </div>
+              </div>
+
+              <div class="persona">
+                <div class="imagen-cara-aracely">
+                  <img src="img/artistas/domingobogado.jpg" alt="@DomingoBogado">
+                </div>
+                <div class="curriculum-detalle">
+                  <h3>@DomingoBogado</h3>
+                  <p><b>Indie Experimental</b></p>
+                  <p>Este artista explora una propuesta conceptual relacionada a la exploración marítima como recurso metafórico para retratar la fascinación por descubrir el mundo a profundidad.</p>
+                  <p>Su puesta en escena es un viaje que podría ser introspectivo, llena de poesías, sonidos psicodélicos.</p>
+                </div>
+              </div>
+
+              <div class="persona">
+                <div class="imagen-cara-aracely">
+                  <img src="img/artistas/rodrigopampliega.jpg" alt="@RodrigoPampliega">
+                </div>
+                <div class="curriculum-detalle">
+                  <h3>@RodrigoPampliega</h3>
+                  <p><b>Rock Nacional</b></p>
+                  <p>Ha recorrido un extenso camino en la música paraguaya, consolidándose como una figura apasionada y comprometida con el arte.</p>
+                  <p>Desde sus primeros pasos [...] hasta la creación de Dokma, su banda pionera, Pampliega ha logrado forjar un estilo propio que resuena en el rock nacional.</p>
+                </div>
+              </div>
+
+              <div class="persona">
+                <div class="imagen-cara-aracely">
+                  <img src="img/artistas/huguitoruiz.jpg" alt="@huguitoruiz">
+                </div>
+                <div class="curriculum-detalle">
+                  <h3>@huguitoruiz</h3>
+                  <p><b>Covers Rock 80s & 90s</b></p>
+                  <p>Agrupación musical dedicada a revivir los mejores éxitos del rock de los 80s & 90s, como tambien música actual.</p>
+                  <p>Nuestro compromiso es brindarte una experiencia inolvidable en cada actuación.</p>
+                </div>
+              </div>
+
+              <div class="persona">
+                <div class="imagen-cara-aracely">
+                  <img src="img/artistas/lauynayduo.jpg" alt="@lauynayduo">
+                </div>
+                <div class="curriculum-detalle">
+                  <h3>@lauynayduo</h3>
+                  <p><b>Covers Pop / Ambientación</b></p>
+                  <p>Dúo de chicas que comparten música creando una experiencia auditiva que perdura.</p>
+                  <p>Canciones de acuerdo a la temática. Pop en inglés y español, música latina, clásicos de los 80, 90, 2000. Ambientación de bodas, eventos generales.</p>
+                </div>
+              </div>
+
+              <div class="persona">
+                <div class="imagen-cara-aracely">
+                  <img src="img/artistas/trilogiavallenata.jpg" alt="@Trilogia Vallenata">
+                </div>
+                <div class="curriculum-detalle">
+                  <h3>@Trilogia Vallenata</h3>
+                  <p><b>Vallenato en Vivo</b></p>
+                  <p>Combina la fuerza de los clásicos con la frescura de nuevas interpretaciones, llevando al público a un recorrido musical por los temas más representativos del género.</p>
+                  <p>Garantizando siempre una experiencia llena de energía, sentimiento y la esencia auténtica del vallenato.</p>
+                </div>
+              </div>
+
+              <div class="persona">
+                <div class="imagen-cara-aracely">
+                  <img src="img/artistas/armanegra.jpg" alt="@armanegra_py">
+                </div>
+                <div class="curriculum-detalle">
+                  <h3>@armanegra_py</h3>
+                  <p><b>Música Norteña Mexicana</b></p>
+                  <p>Agrupación con influencia de músico norteña mexicana, con su identidad de toque cordillerano, pero con influencias marcadas por agrupaciones como Frontera, Bronco, entre otros.</p>
+                </div>
+              </div>
+
+              <div class="persona">
+                <div class="imagen-cara-aracely">
+                  <img src="img/artistas/innuendo.jpg" alt="@Innuendobandpy">
+                </div>
+                <div class="curriculum-detalle">
+                  <h3>@Innuendobandpy</h3>
+                  <p><b>Cover a Queen</b></p>
+                  <p>Desde 2014, Innuendo (Cover a Queen) ha recorrido distintos escenarios del país: bares, festivales, teatros y eventos privados.</p>
+                  <p>Sus shows se destacan por la conexión con el público y por el cuidado musical en cada interpretación.</p>
+                </div>
+              </div>
+
+              <div class="persona">
+                <div class="imagen-cara-aracely">
+                  <img src="img/artistas/pandemia.jpg" alt="@Pandemia">
+                </div>
+                <div class="curriculum-detalle">
+                  <h3>@Pandemia</h3>
+                  <p><b>Punk Rock</b></p>
+                  <p>Una banda de punk rock de vieja escuela que toca clásicos, como también, transforman músicas modernas de otros géneros a su estilo haciéndolo un show atractivo, novedoso y lleno de adrenalina.</p>
+                </div>
+              </div>
+
+              <div class="persona">
+                <div class="imagen-cara-aracely">
+                  <img src="img/artistas/tortumusic.jpg" alt="@tortumusic_">
+                </div>
+                <div class="curriculum-detalle">
+                  <h3>@tortumusic_</h3>
+                  <p><b>Covers Cumbia / Rock Argentino</b></p>
+                  <p>Con varios años ya de carrera como cantante y compositor, ha visitado los escenarios mas importantes de Asunción y el interior del país. Su estilo se caracteriza por llevar la fiesta y armonia a cada tipo de evento.</p>
+                  <p>Su especialidad son los covers de Rock Argentino, ritmos latinos, bailanta, cumbia y reggaeton.</p>
+                </div>
+              </div>
+
+              <div class="persona">
+                <div class="imagen-cara-aracely">
+                  <img src="img/artistas/magobabril.jpg" alt="@magobabril">
+                </div>
+                <div class="curriculum-detalle">
+                  <h3>@magobabril</h3>
+                  <p><b>Entretenimiento y Espectáculos</b></p>
+                  <p>Artista y figura apasionada, comprometida con el arte y el entretenimiento.</p>
+                </div>
+              </div>
+
             </div>
-            
-        </div>
-      </section>
+          </section>
         </main>
         
         <footer  id="pie">
           <div class="container__footer">
               <div class="box__footer">
                   <a href="index.html" class="logo" >
-                      <img src="img/logo-final-sin-fondo.png" alt="">
+                      <img src="img/pulsart-logo.png" alt="">
                     </a>
                   <div class="terms">
                       <p><b>
-                         Sabor y calidad en cada plato. Gracias por elegirnos.
+                         Somos una empresa enfocada en proteger y fortalecer ideas, resolviendo los inconvenientes acorde a la necesidad del cliente.
                         </b></p>
                   </div>
               </div>
@@ -93,32 +330,37 @@
               <div class="box__footer">
                   <h2>Temas de Interés</h2>
                   <a href="index.html"><u>Inicio</u></a>
-                  <a href="galeria-imagenes.html"><u>Galería de Imágenes</u></a>
-                  <a href="servicios.html"><u>Servicios que ofrecemos</u></a>
-                  <a href="sugerencias.html"><u>Envía una sugerencia</u></a>
+                  <a href="servicios.html"><u>Servicios</u></a>
+                  <a href="integrantes.html"><u>Equipo</u></a>
+                  <a href="galeria-imagenes.html"><u>Artistas</u></a>
+                  <a href="sugerencias.html"><u>Contacto</u></a>
               </div>
               
               <div class="box__footer">
                   <h2>Redes Sociales</h2>
-                  <a href="https://www.facebook.com/profile.php?id=100094435800731" target="_blank"> <i class="fab fa-facebook-square"></i> Facebook</a>
-                  <a href="https://twitter.com/restobarJMF" target="_blank"><i class="fab fa-twitter-square"></i> Twitter</a>
-                  <a href="https://www.instagram.com/restobar_jmf/" target="_blank"><i class="fab fa-instagram-square"></i> Instagram</a>
+                  <a href="#" target="_blank"> <i class="fab fa-facebook-square"></i> Facebook</a>
+                  <a href="#" target="_blank"><i class="fab fa-twitter-square"></i> Twitter</a>
+                  <a href="https://www.instagram.com/PulsArtmediapy/" target="_blank"><i class="fab fa-instagram-square"></i> Instagram</a>
               </div>
         
               <div class="box__footer">
                 <h2>Contactenos</h2>
-                <a href="#">restobarjmf@gmail.com</a>
-                <a href="#"> +595 972-905-982</a>
+                <a href="mailto:PulsArtmediapy@gmail.com">PulsArtmediapy@gmail.com</a>
+                <a href="tel:+595982250227">+595 982-250-227</a>
+                <a href="#">ROMA 857 - Asunción</a>
             </div>
         
           </div>
         
           <div class="box__copyright">
               <hr>
-              <p>Todos los derechos reservados © 2023 <b>RestobarJMF</b></p>
+              <p>Todos los derechos reservados © 2025 <b>PulsArt Media</b></p>
           </div>
         
         </footer>
         <script src="js/script.js"></script>
+  <a href="https://api.whatsapp.com/send?phone=595982250227&text=Hola,%20quisiera%20hacer%20una%20consulta." class="whatsapp-float" target="_blank">
+    <img src="img/whatsapp.png" alt="WhatsApp" class="whatsapp-icon">
+  </a>
 </body>
 </html>
