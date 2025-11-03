@@ -38,7 +38,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // =================================================================
     // MODO OSCURO / CLARO (Eliminado)
     // =================================================================
-    // La lógica del 'theme-switch' se ha eliminado.
 
 
     // =================================================================
@@ -89,79 +88,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     // =================================================================
-    // CARRUSEL DE CLIENTES (Página: galeria-imagenes.html)
+    // CARRUSEL DE CLIENTES (Eliminado)
     // =================================================================
-    const carrusel = document.getElementById('carrusel');
 
-    if (carrusel) {
-        // Contenido actualizado con los clientes del PDF
-        // RECUERDA: Debes agregar estas imágenes a tu carpeta 'img/clientes/'
-        const imagenes = [
-          {
-            "url": "img/clientes/mr-hydelml.jpg",
-            "nombre": "mr.hydelml",
-            "descripcion": "Cliente de PulsArt Media"
-          },
-          {
-            "url": "img/clientes/gobekli-tepepy.jpg",
-            "nombre": "Gobekli.tepepy",
-            "descripcion": "Cliente de PulsArt Media"
-          },
-          {
-            "url": "img/clientes/karmapy.jpg",
-            "nombre": "Karmapy",
-            "descripcion": "Cliente de PulsArt Media"
-          },
-          {
-            "url": "img/clientes/decibelespy.jpg",
-            "nombre": "Decibelespy",
-            "descripcion": "Cliente de PulsArt Media"
-          },
-          {
-            "url": "img/clientes/livio-sanchez.jpg",
-            "nombre": "Livio Sanchez",
-            "descripcion": "Cliente de PulsArt Media"
-          },
-          {
-            "url": "img/clientes/doc-ayala.jpg",
-            "nombre": "Doc.Ayala",
-            "descripcion": "Cliente de PulsArt Media"
-          }
-        ];
-
-        const atras = document.getElementById('atras');
-        const adelante = document.getElementById('adelante');
-        const imagen = document.getElementById('img');
-        const puntos = document.getElementById('puntos');
-        const texto = document.getElementById('texto');
-        let actual = 0;
-
-        const mostrarImagenActual = () => {
-            if (imagen && texto && puntos) {
-                imagen.innerHTML = `<img class="img animate__animated animate__fadeIn" src="${imagenes[actual].url}" alt="${imagenes[actual].nombre}" loading="lazy">`;
-                texto.innerHTML = `<h3 class="animate__animated animate__fadeIn">${imagenes[actual].nombre}</h3><p class="animate__animated animate__fadeIn">${imagenes[actual].descripcion}</p>`;
-                
-                puntos.innerHTML = "";
-                for (let i = 0; i < imagenes.length; i++) {
-                    puntos.innerHTML += `<p class="${i === actual ? 'bold' : ''}">.<p>`;
-                }
-            }
-        }
-
-        if (adelante) {
-            adelante.addEventListener('click', () => {
-                actual = (actual + 1) % imagenes.length;
-                mostrarImagenActual();
-            });
-        }
-
-        if (atras) {
-            atras.addEventListener('click', () => {
-                actual = (actual - 1 + imagenes.length) % imagenes.length;
-                mostrarImagenActual();
-            });
-        }
-        
-        mostrarImagenActual();
-    }
 });

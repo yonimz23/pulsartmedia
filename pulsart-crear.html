@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membresías Creativas - El Ecosistema para Creadores</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFBF8;
+            color: #1a202c;
+        }
+        .bg-brand-primary { background-color: #004d40; }
+        .text-brand-primary { color: #004d40; }
+        .bg-brand-accent { background-color: #ffc107; }
+        .text-brand-accent { color: #ffc107; }
+        .border-brand-primary { border-color: #004d40; }
+        .tab-active {
+            border-bottom: 2px solid #004d40;
+            color: #004d40;
+            font-weight: 700;
+        }
+        .btn-primary {
+            background-color: #004d40;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #00382e;
+        }
+        .btn-primary:disabled {
+            background-color: #004d40;
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 40vh;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="py-4 px-6 text-center shadow-md bg-white/80 backdrop-blur-sm sticky top-0 z-50">
+        <h1 class="text-2xl font-bold text-brand-primary">PulsArt Media + Estación Crear</h1>
+        <p class="text-md text-gray-600">Presentan: Membresías Creativas</p>
+    </header>
+
+    <main class="container mx-auto px-4 py-8 md:py-16">
+
+        <section id="hero" class="text-center mb-16 md:mb-24">
+            <h2 class="text-4xl md:text-6xl font-black text-gray-800 leading-tight mb-4">La carrera de un artista no debería ser un rompecabezas.</h2>
+            <p class="max-w-3xl mx-auto text-lg md:text-xl text-gray-600 mb-8">Pierdes tiempo, energía y foco coordinando estudio, fotógrafo, abogado y redes sociales. Nosotros unimos las piezas por ti.</p>
+            <div class="p-6 border-2 border-dashed border-gray-300 rounded-lg max-w-4xl mx-auto">
+                 <h3 class="text-2xl font-bold text-brand-primary mb-4">Te presentamos el primer Ecosistema Creativo 360º de Paraguay.</h3>
+                 <p class="text-gray-700">Recupera hasta el 50% de tu tiempo y dedícate a lo único que importa: crear. Desde la grabación y el registro legal hasta la estrategia digital y el lanzamiento. Todo en un solo lugar, con un solo equipo.</p>
+            </div>
+        </section>
+
+        <section id="plans" class="mb-16 md:mb-24">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Encuentra el Plan Perfecto para tu Momento Creativo</h2>
+                <p class="text-lg text-gray-600 mt-2">Compara el valor y elige el impulso que necesitas hoy.</p>
+            </div>
+            
+            <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg mb-8">
+                 <div class="flex justify-center items-center mb-4">
+                    <label for="priceToggle" class="mr-3 font-semibold text-gray-700">Ver precios:</label>
+                    <div class="flex items-center bg-gray-200 rounded-full p-1">
+                        <button id="founderPriceBtn" class="px-4 py-1 text-sm font-bold rounded-full bg-brand-primary text-white">Fundador</button>
+                        <button id="regularPriceBtn" class="px-4 py-1 text-sm font-semibold rounded-full text-gray-600">Regular</button>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="plansChart"></canvas>
+                </div>
+            </div>
+
+            <div id="plan-details" class="mt-12">
+                <div class="border-b border-gray-300 flex justify-center space-x-4 sm:space-x-8 mb-8">
+                    <button data-plan="semilla" class="plan-tab pb-2 text-gray-500 tab-active">🌱 Semilla</button>
+                    <button data-plan="brote" class="plan-tab pb-2 text-gray-500">🌿 Brote</button>
+                    <button data-plan="raiz" class="plan-tab pb-2 text-gray-500">🌳 Raíz</button>
+                    <button data-plan="bosque" class="plan-tab pb-2 text-gray-500">🌲 Bosque</button>
+                </div>
+                <div id="details-content" class="max-w-4xl mx-auto">
+                </div>
+            </div>
+        </section>
+
+        <section id="project-strategist" class="mb-16 md:mb-24 bg-brand-accent/20 p-8 rounded-xl shadow-inner">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-4">✨ Estratega de Proyecto IA</h2>
+            <p class="text-center text-gray-700 mb-8 max-w-3xl mx-auto">Convierte tu idea vaga en un Plan de Acción concreto y descubre qué Membresía te impulsa más rápido. La IA de Gemini analiza tus necesidades y te guía.</p>
+
+            <div class="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md">
+                <label for="project-idea" class="block text-lg font-semibold text-gray-700 mb-2">Describe tu Próximo Proyecto Creativo (ej: Un álbum de cumbia futurista)</label>
+                <textarea id="project-idea" rows="3" class="w-full p-3 border border-gray-300 rounded-md focus:ring-brand-primary focus:border-brand-primary" placeholder="Ej: Necesito grabar y lanzar mi primer sencillo de pop rock, incluyendo un video promocional y registrar las letras."></textarea>
+                <button id="generate-strategy-btn" class="w-full btn-primary font-bold py-3 mt-4 flex items-center justify-center">
+                    <span id="btn-text">Generar Plan Estratégico ✨</span>
+                    <span id="loading-spinner" class="hidden ml-2 h-5 w-5 border-2 border-white border-t-brand-accent rounded-full animate-spin"></span>
+                </button>
+            </div>
+
+            <div id="strategy-output" class="max-w-4xl mx-auto mt-8 hidden">
+                <h3 class="text-2xl font-bold text-brand-primary mb-4 text-center">Plan de Acción Recomendado por IA</h3>
+                <div id="ai-response-card" class="bg-white p-6 rounded-lg shadow-xl border-l-4 border-brand-primary">
+                    <p class="text-gray-500 text-center">Esperando estrategia...</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="founders" class="bg-brand-primary text-white rounded-2xl p-8 md:p-12 text-center shadow-2xl">
+            <h2 class="text-4xl md:text-5xl font-black mb-4 text-brand-accent">Conviértete en Miembro Fundador.</h2>
+            <p class="text-xl text-gray-200 max-w-3xl mx-auto mb-8">Una comunidad se construye con pioneros. Los primeros 20 artistas tendrán un estatus y beneficios únicos, para siempre.</p>
+            
+            <div id="founder-spots" class="mb-8">
+                <p class="text-2xl font-bold">Cupos de Fundador restantes:</p>
+                <div class="text-6xl font-black text-white my-2 bg-black bg-opacity-20 rounded-lg py-2 px-4 inline-block">
+                    <span id="spots-left">20</span> / 20
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
+                <div class="bg-white/10 p-6 rounded-lg">
+                    <h3 class="font-bold text-lg text-brand-accent mb-2">Precio Congelado</h3>
+                    <p class="text-gray-300 text-sm">Tu precio de fundador se congela por 12 meses, con opción a renovar por 12 más. Inmune a futuros aumentos.</p>
+                </div>
+                <div class="bg-white/10 p-6 rounded-lg">
+                    <h3 class="font-bold text-lg text-brand-accent mb-2">Acceso "Golden Hour"</h3>
+                    <p class="text-gray-300 text-sm">Reserva espacios y servicios con 2 semanas de anticipación preferencial sobre el resto de miembros.</p>
+                </div>
+                <div class="bg-white/10 p-6 rounded-lg">
+                    <h3 class="font-bold text-lg text-brand-accent mb-2">Masterclass Exclusiva</h3>
+                    <p class="text-gray-300 text-sm">Acceso garantizado a una sesión anual de alto valor con un profesional invitado de la industria.</p>
+                </div>
+                <div class="bg-white/10 p-6 rounded-lg">
+                    <h3 class="font-bold text-lg text-brand-accent mb-2">Kit y Badge de Fundador</h3>
+                    <p class="text-gray-300 text-sm">Recibe un kit de bienvenida premium y un badge digital para destacar tu estatus en redes sociales.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="cta" class="mt-16 md:mt-24">
+            <div class="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-lg border border-gray-200">
+                <h2 class="text-3xl font-bold text-center text-gray-800 mb-2">¿Serás uno de los 20 Fundadores?</h2>
+                <p class="text-center text-gray-600 mb-6">Completa tu pre-inscripción ahora. Nos pondremos en contacto para finalizar el proceso y asegurar tu lugar en la comunidad.</p>
+                <form id="pre-registration-form" action="https://formspree.io/f/mjkpqrzn" method="POST" class="space-y-4">
+                    <div>
+                        <label for="name" class="block text-sm font-semibold text-gray-700">Nombre Completo</label>
+                        <input type="text" id="name" name="name" required class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-brand-primary focus:border-brand-primary">
+                    </div>
+                     <div>
+                        <label for="email" class="block text-sm font-semibold text-gray-700">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" required class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-brand-primary focus:border-brand-primary">
+                    </div>
+                     <div>
+                        <label for="phone" class="block text-sm font-semibold text-gray-700">Teléfono</label>
+                        <input type="tel" id="phone" name="phone" required class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-brand-primary focus:border-brand-primary">
+                    </div>
+                    <div>
+                        <label for="plan-interest" class="block text-sm font-semibold text-gray-700">Plan de Interés</label>
+                        <select id="plan-interest" name="plan-interest" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-primary focus:border-brand-primary">
+                            <option value="semilla">🌱 Plan Semilla</option>
+                            <option value="brote">🌿 Plan Brote</option>
+                            <option value="raiz">🌳 Plan Raíz</option>
+                            <option value="bosque">🌲 Plan Bosque</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="w-full btn-primary font-bold py-3 px-4 rounded-md text-lg">Quiero ser Fundador</button>
+                </form>
+                <div id="form-success" class="hidden mt-4 text-center p-4 bg-green-100 text-green-800 rounded-md">
+                    ¡Gracias! Hemos recibido tu pre-inscripción. Te contactaremos muy pronto.
+                </div>
+                <div id="form-error" class="hidden mt-4 text-center p-4 bg-red-100 text-red-800 rounded-md">
+                    Hubo un error al enviar tu solicitud. Por favor, revisa tus datos e intenta de nuevo.
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer class="text-center py-8 mt-12 border-t border-gray-200">
+        <p class="text-gray-500">&copy; 2025 Membresías Creativas. Una alianza de PulsArt Media & Estación Crear.</p>
+    </footer>
+
+    <script>
+        const plansData = {
+            semilla: {
+                name: '🌱 Plan Semilla',
+                idealFor: 'Artistas emergentes o en etapa de exploración.',
+                prices: { founder: 350000, regular: 450000 },
+                saving: 600000,
+                planKey: 'semilla',
+                features: [
+                    '1 asesoría de 1 hora para orientación de proyecto (semestral)',
+                    '1 sesión fotográfica de estudio (50 fotos)',
+                    '1 hora de uso de estudio o salón multitasking',
+                    '10% de descuento en eventos y servicios seleccionados'
+                ]
+            },
+            brote: {
+                name: '🌿 Plan Brote',
+                idealFor: 'Artistas en desarrollo que quieren avanzar con apoyo técnico y creativo.',
+                prices: { founder: 550000, regular: 650000 },
+                saving: 1050000,
+                planKey: 'brote',
+                features: [
+                    '1 asesoría integral semestral de 2 horas',
+                    'Registro de hasta 1 expediente al mes (hasta 10 obras)',
+                    '2 horas de uso de sala taller o estudio',
+                    '1 asesoría básica sobre redes sociales o identidad visual',
+                    '15% de descuento en servicios y eventos seleccionados'
+                ]
+            },
+            raiz: {
+                name: '🌳 Plan Raíz',
+                idealFor: 'Artistas activos que buscan consolidar su presencia.',
+                prices: { founder: 950000, regular: 1100000 },
+                saving: 2550000,
+                planKey: 'raiz',
+                features: [
+                    'Asesoría integral semestral + seguimiento creativo',
+                    'Registro de hasta 2 expedientes al mes (hasta 20 obras)',
+                    '1 sesión fotográfica de estudio (80 fotos) y video promocional',
+                    '3 horas de uso de sala taller o estudio',
+                    'Asesoría sobre redes y estrategia digital + seguimiento',
+                    'Acceso preferencial sin costo a encuentros de miembros'
+                ]
+            },
+            bosque: {
+                name: '🌲 Plan Bosque',
+                idealFor: 'Artistas profesionales, colectivos o proyectos con actividad constante.',
+                prices: { founder: 1500000, regular: 1850000 },
+                saving: 7100000,
+                planKey: 'bosque',
+                features: [
+                    'Asesoría integral trimestral + Acompañamiento mensual',
+                    'Registro de hasta 4 expedientes de obras mensuales',
+                    '4 horas de uso de sala taller o estudio',
+                    '1 sesión audiovisual completa (foto o video de campaña)',
+                    'Representación en eventos/booking (según condiciones)',
+                    'Diseño de pieza gráfica mensual para redes',
+                    '20% de descuento en servicios y participación prioritaria'
+                ]
+            }
+        };
+
+        let myChart;
+        let currentPriceType = 'founder';
+        const apiKey = "";
+        const apiUrlText = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+        const apiUrlTts = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent?key=${apiKey}`;
+
+        const formatCurrency = (value) => new Intl.NumberFormat('es-PY', { style: 'currency', currency: 'PYG', maximumFractionDigits: 0 }).format(value);
+
+        const renderChart = (priceType) => {
+            const ctx = document.getElementById('plansChart').getContext('2d');
+            const labels = Object.values(plansData).map(p => p.name.split(' ')[1]);
+            const investmentData = Object.values(plansData).map(p => p.prices[priceType]);
+            const savingsData = Object.values(plansData).map(p => p.saving);
+
+            if (myChart) {
+                myChart.destroy();
+            }
+
+            myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Inversión Mensual',
+                            data: investmentData,
+                            backgroundColor: '#004d40',
+                            borderColor: '#00382e',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Ahorro Estimado',
+                            data: savingsData,
+                            backgroundColor: '#ffc107',
+                            borderColor: '#e0a800',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value, index, values) {
+                                    return value / 1000 + 'K';
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed.y !== null) {
+                                        label += formatCurrency(context.parsed.y);
+                                    }
+                                    return label;
+                                }
+                            }
+                        },
+                        legend: {
+                            position: 'top',
+                        }
+                    }
+                }
+            });
+        };
+
+        const renderPlanDetails = (planKey) => {
+            const plan = plansData[planKey];
+            const contentEl = document.getElementById('details-content');
+            
+            let audioButtonHtml = '';
+            if (planKey === 'bosque') {
+                audioButtonHtml = `
+                    <div class="mt-4 text-center">
+                        <button id="tts-button" class="bg-brand-accent text-gray-900 font-bold py-2 px-4 rounded-full shadow-md hover:bg-yellow-400 flex items-center justify-center mx-auto transition-colors">
+                            <span id="tts-btn-icon">📢</span>
+                            <span id="tts-btn-text" class="ml-2">Escuchar Mensaje Premium</span>
+                        </button>
+                        <audio id="tts-audio-player" class="hidden w-full mt-4" controls></audio>
+                        <p id="tts-message" class="text-sm text-gray-500 mt-2 hidden">¡Mensaje cargado! Presiona Play.</p>
+                        <p id="tts-error" class="text-sm text-red-500 mt-2 hidden">Error al cargar audio.</p>
+                    </div>
+                `;
+            }
+
+            contentEl.innerHTML = `
+                <div class="bg-white p-6 md:p-8 rounded-lg shadow-md border border-gray-200 transition-opacity duration-300">
+                    <h3 class="text-2xl font-bold text-brand-primary">${plan.name}</h3>
+                    <p class="text-gray-600 mb-4 italic">${plan.idealFor}</p>
+                    <div class="mb-6 text-center">
+                        <p class="text-gray-500 text-sm">Precio Fundador</p>
+                        <p class="text-4xl font-bold text-gray-800">${formatCurrency(plan.prices.founder)}<span class="text-lg font-normal text-gray-500">/mes</span></p>
+                        <p class="text-sm text-gray-500">Precio Regular: ${formatCurrency(plan.prices.regular)}</p>
+                    </div>
+                    <ul class="space-y-3">
+                        ${plan.features.map(feature => `
+                            <li class="flex items-start">
+                                <span class="text-green-500 mr-2 mt-1">✓</span>
+                                <span>${feature}</span>
+                            </li>
+                        `).join('')}
+                    </ul>
+                     <div class="mt-6 bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 rounded-r-lg">
+                        <p class="font-bold">Ahorras en este plan aprox. ${formatCurrency(plan.saving)}</p>
+                    </div>
+                    ${audioButtonHtml}
+                </div>
+            `;
+            
+            if (planKey === 'bosque') {
+                document.getElementById('tts-button').addEventListener('click', handleTtsGeneration);
+            }
+        };
+
+        const callGeminiApi = async (prompt, maxRetries = 5) => {
+            const systemPrompt = "Eres un estratega de negocios y un consultor creativo. Tu tarea es tomar la idea de proyecto de un artista y generar un Plan de Acción concreto de 4 pasos, además de recomendar el Plan de Membresía Creativa (Semilla, Brote, Raíz o Bosque) más adecuado para lograr ese objetivo. La respuesta debe ser en formato Markdown y concisa. Los planes se basan en el nivel de profesionalismo: Semilla (exploración), Brote (lanzamiento de primer trabajo), Raíz (consolidación y escalamiento), Bosque (carrera profesional de negocio, recursos ilimitados).";
+            const payload = {
+                contents: [{ parts: [{ text: prompt }] }],
+                systemInstruction: { parts: [{ text: systemPrompt }] },
+            };
+
+            for (let attempt = 0; attempt < maxRetries; attempt++) {
+                try {
+                    const response = await fetch(apiUrlText, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (response.ok) {
+                        const result = await response.json();
+                        const text = result.candidates?.[0]?.content?.parts?.[0]?.text;
+                        if (text) {
+                            return text;
+                        } else {
+                            throw new Error("Respuesta de API vacía o inválida.");
+                        }
+                    }
+
+                    if (response.status >= 400 && response.status < 500) {
+                        console.error('Error de cliente API Gemini:', response.status, await response.text());
+                        throw new Error(`Error de cliente API: ${response.status}`);
+                    }
+                    
+                } catch (error) {
+                    console.warn(`Intento ${attempt + 1} fallido para callGeminiApi:`, error.message);
+                    if (attempt === maxRetries - 1) {
+                        console.error("Fallaron todos los intentos para callGeminiApi");
+                        throw error; 
+                    }
+                    await new Promise(resolve => setTimeout(resolve, Math.pow(2, attempt) * 1000));
+                }
+            }
+            throw new Error("No se pudo conectar con el Estratega IA después de varios intentos.");
+        };
+
+        const handleStrategyGeneration = async () => {
+            const ideaInput = document.getElementById('project-idea');
+            const outputCard = document.getElementById('ai-response-card');
+            const outputSection = document.getElementById('strategy-output');
+            const btn = document.getElementById('generate-strategy-btn');
+            const btnText = document.getElementById('btn-text');
+            const loadingSpinner = document.getElementById('loading-spinner');
+
+            const idea = ideaInput.value.trim();
+            if (!idea) {
+                outputCard.innerHTML = '<p class="text-red-500 text-center">Por favor, describe tu idea de proyecto.</p>';
+                outputSection.classList.remove('hidden');
+                return;
+            }
+
+            btnText.textContent = 'Analizando...';
+            loadingSpinner.classList.remove('hidden');
+            btn.disabled = true;
+
+            outputSection.classList.remove('hidden');
+            outputCard.innerHTML = '<p class="text-gray-500 text-center flex items-center justify-center"><span class="h-4 w-4 border-2 border-brand-primary border-t-transparent rounded-full animate-spin mr-2"></span> Generando estrategia de proyecto...</p>';
+
+            try {
+                const responseText = await callGeminiApi(`Mi idea de proyecto es: ${idea}`);
+                
+                const htmlContent = responseText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                                                 .replace(/\n\s*-\s/g, '</li><li class="mb-1 ml-4 list-disc text-gray-700">')
+                                                 .replace(/#+\s*(.*?)\n/g, '<h4 class="text-lg font-semibold text-brand-primary mt-4 mb-2">$1</h4>')
+                                                 .replace(/\n/g, '<br/>')
+                                                 .replace(/<br\/><li>/g, '<li>');
+
+                outputCard.innerHTML = `<div class="p-2">${htmlContent}</div>`;
+            } catch (error) {
+                console.error('API Error:', error);
+                outputCard.innerHTML = '<p class="text-red-500 text-center">Error al conectar con el Estratega IA. Intenta de nuevo más tarde.</p>';
+            } finally {
+                btnText.textContent = 'Generar Plan Estratégico ✨';
+                loadingSpinner.classList.add('hidden');
+                btn.disabled = false;
+            }
+        };
+
+        const base64ToArrayBuffer = (base64) => {
+            const binary_string = window.atob(base64);
+            const len = binary_string.length;
+            const bytes = new Uint8Array(len);
+            for (let i = 0; i < len; i++) {
+                bytes[i] = binary_string.charCodeAt(i);
+            }
+            return bytes.buffer;
+        };
+
+        const pcmToWav = (pcm16, sampleRate) => {
+            const numChannels = 1;
+            const bytesPerSample = 2;
+            const blockAlign = numChannels * bytesPerSample;
+            const byteRate = sampleRate * blockAlign;
+            const dataSize = pcm16.length * bytesPerSample;
+            const buffer = new ArrayBuffer(44 + dataSize);
+            const view = new DataView(buffer);
+
+            let offset = 0;
+            const writeString = (str) => {
+                for (let i = 0; i < str.length; i++) {
+                    view.setUint8(offset + i, str.charCodeAt(i));
+                }
+                offset += str.length;
+            };
+
+            writeString('RIFF'); offset += 4;
+            view.setUint32(offset, 36 + dataSize, true); offset += 4;
+            writeString('WAVE'); offset += 4;
+            writeString('fmt '); offset += 4;
+            view.setUint32(offset, 16, true); offset += 4; 
+            view.setUint16(offset, 1, true); offset += 2; 
+            view.setUint16(offset, numChannels, true); offset += 2;
+            view.setUint32(offset, sampleRate, true); offset += 4;
+            view.setUint32(offset, byteRate, true); offset += 4;
+            view.setUint16(offset, blockAlign, true); offset += 2;
+            view.setUint16(offset, 16, true); offset += 2; 
+            writeString('data'); offset += 4;
+            view.setUint32(offset, dataSize, true); offset += 4;
+
+            const pcm8 = new Uint8Array(buffer, 44);
+            const pcm16Bytes = new Uint8Array(pcm16.buffer);
+            pcm8.set(pcm16Bytes);
+
+            return new Blob([view], { type: 'audio/wav' });
+        };
+
+        const callTtsApi = async (text, maxRetries = 5) => {
+            const payload = {
+                contents: [{ parts: [{ text: text }] }],
+                generationConfig: {
+                    responseModalities: ["AUDIO"],
+                    speechConfig: {
+                        voiceConfig: {
+                            prebuiltVoiceConfig: { voiceName: "Kore" }
+                        }
+                    }
+                },
+                model: "gemini-2.5-flash-preview-tts"
+            };
+
+            for (let attempt = 0; attempt < maxRetries; attempt++) {
+                try {
+                    const response = await fetch(apiUrlTts, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (response.ok) {
+                        const result = await response.json();
+                        const part = result?.candidates?.[0]?.content?.parts?.[0];
+                        const audioData = part?.inlineData?.data;
+                        const mimeType = part?.inlineData?.mimeType;
+
+                        if (audioData && mimeType && mimeType.startsWith("audio/")) {
+                            const sampleRateMatch = mimeType.match(/rate=(\d+)/);
+                            const sampleRate = sampleRateMatch ? parseInt(sampleRateMatch[1], 10) : 16000;
+                            const pcmData = base64ToArrayBuffer(audioData);
+                            const pcm16 = new Int16Array(pcmData);
+                            const wavBlob = pcmToWav(pcm16, sampleRate);
+                            return URL.createObjectURL(wavBlob);
+                        } else {
+                            throw new Error("Respuesta de API TTS inválida o sin datos de audio.");
+                        }
+                    }
+                    
+                    if (response.status >= 400 && response.status < 500) {
+                        console.error('Error de cliente API TTS:', response.status, await response.text());
+                        throw new Error(`Error de cliente API TTS: ${response.status}`);
+                    }
+
+                } catch (error) {
+                    console.warn(`Intento ${attempt + 1} fallido para callTtsApi:`, error.message);
+                    if (attempt === maxRetries - 1) {
+                        console.error("Fallaron todos los intentos para callTtsApi");
+                        throw error; 
+                    }
+                    await new Promise(resolve => setTimeout(resolve, Math.pow(2, attempt) * 1000));
+                }
+            }
+            throw new Error("No se pudo generar el audio después de varios intentos.");
+        };
+
+        const handleTtsGeneration = async () => {
+            const ttsButton = document.getElementById('tts-button');
+            const ttsAudio = document.getElementById('tts-audio-player');
+            const ttsText = document.getElementById('tts-btn-text');
+            const ttsIcon = document.getElementById('tts-btn-icon');
+            const ttsMessage = document.getElementById('tts-message');
+            const ttsError = document.getElementById('tts-error');
+
+            const pitch = "Este es el Plan Bosque. Si estás aquí, ya no eres un amateur. Tratas tu carrera como un negocio y exiges recursos ilimitados, representación, y acompañamiento integral mensual. En el Plan Bosque, te brindamos el ecosistema completo para dominar la industria creativa. Es hora de escalar. Es hora de ir por todo.";
+
+            ttsButton.disabled = true;
+            ttsText.textContent = 'Cargando Audio...';
+            ttsIcon.innerHTML = '<span class="h-4 w-4 border-2 border-gray-900 border-t-transparent rounded-full animate-spin"></span>';
+            ttsError.classList.add('hidden');
+            ttsMessage.classList.add('hidden');
+            ttsAudio.classList.add('hidden');
+
+            try {
+                const audioUrl = await callTtsApi(pitch);
+                ttsAudio.src = audioUrl;
+                ttsAudio.classList.remove('hidden');
+                ttsMessage.classList.remove('hidden');
+                ttsText.textContent = 'Reproducir Mensaje Premium';
+                ttsIcon.textContent = '▶️';
+            } catch (error) {
+                console.error('TTS Error:', error);
+                ttsError.textContent = 'Error: No se pudo cargar el mensaje de audio.';
+                ttsError.classList.remove('hidden');
+                ttsText.textContent = 'Error de Audio';
+                ttsIcon.textContent = '🚫';
+            } finally {
+                ttsButton.disabled = false;
+            }
+        };
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderChart(currentPriceType);
+            renderPlanDetails('semilla');
+
+            const founderBtn = document.getElementById('founderPriceBtn');
+            const regularBtn = document.getElementById('regularPriceBtn');
+            const planTabs = document.querySelectorAll('.plan-tab');
+            const form = document.getElementById('pre-registration-form');
+            const successMessage = document.getElementById('form-success');
+            const errorMessage = document.getElementById('form-error'); 
+            const strategyBtn = document.getElementById('generate-strategy-btn');
+
+            const spotsLeftEl = document.getElementById('spots-left');
+            let spots = 20;
+            const interval = setInterval(() => {
+                if (spots > 14) {
+                    spots--;
+                    spotsLeftEl.textContent = spots;
+                } else {
+                    clearInterval(interval);
+                }
+            }, 3000);
+
+            founderBtn.addEventListener('click', () => {
+                currentPriceType = 'founder';
+                renderChart(currentPriceType);
+                founderBtn.classList.add('bg-brand-primary', 'text-white');
+                founderBtn.classList.remove('text-gray-600');
+                regularBtn.classList.remove('bg-brand-primary', 'text-white');
+                regularBtn.classList.add('text-gray-600');
+            });
+
+            regularBtn.addEventListener('click', () => {
+                currentPriceType = 'regular';
+                renderChart(currentPriceType);
+                regularBtn.classList.add('bg-brand-primary', 'text-white');
+                regularBtn.classList.remove('text-gray-600');
+                founderBtn.classList.remove('bg-brand-primary', 'text-white');
+                founderBtn.classList.add('text-gray-600');
+            });
+            
+            planTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    planTabs.forEach(t => t.classList.remove('tab-active'));
+                    tab.classList.add('tab-active');
+                    const planKey = tab.getAttribute('data-plan');
+                    renderPlanDetails(planKey);
+                });
+            });
+
+            strategyBtn.addEventListener('click', handleStrategyGeneration);
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault(); 
+
+                const formData = new FormData(form);
+                const submitButton = form.querySelector('button[type="submit"]');
+                const originalButtonText = submitButton.textContent;
+
+                successMessage.classList.add('hidden');
+                errorMessage.classList.add('hidden');
+                
+                submitButton.disabled = true;
+                submitButton.textContent = 'Enviando...';
+
+                try {
+                    const response = await fetch(form.action, {
+                        method: form.method,
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+
+                    if (response.ok) {
+                        form.classList.add('hidden');
+                        successMessage.classList.remove('hidden');
+                    } else {
+                        errorMessage.classList.remove('hidden');
+                        submitButton.disabled = false;
+                        submitButton.textContent = originalButtonText;
+                    }
+                } catch (error) {
+                    console.error('Error al enviar formulario:', error);
+                    errorMessage.classList.remove('hidden');
+                    submitButton.disabled = false;
+                    submitButton.textContent = originalButtonText;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
