@@ -45,9 +45,6 @@ a {
     background-position: center;
   }
 
-  /* ***** LÍNEA ELIMINADA DE AQUÍ ***** */
-  /* header nav .logo-nav img { display: none !important; } */
-
   .container__footer {
     flex-direction: column;
     align-items: center;
@@ -152,9 +149,6 @@ header nav .texto-medio a {
     font-size: 30px !important;
 }
  
-  /* ***** LÍNEA ELIMINADA DE AQUÍ ***** */
-  /* header nav .logo-nav img { display: none; } */
-
   .container__footer {
     flex-direction: column;
     align-items: center;
@@ -272,6 +266,10 @@ header nav .texto-medio a {
 .nosotros .container-curriculum .persona .curriculum-detalle.marcos_martinez h3 {
   margin-top: 15px;
 }
+/* AQUI ELIMINAMOS EL MARGIN-RIGHT QUE EMPUJABA EL LOGO */
+  nav .logo-nav {
+    margin-right: 0; 
+  }
 }
 /*Barra de navegación*/
 
@@ -374,12 +372,12 @@ nav .logo-nav {
   display: flex;
   align-items: center;
   margin-left: auto;
-  margin-right: 50px;
+  margin-right: 50px; /* Mantenemos este para escritorio */
 }
 
-/* REGLA DEL LOGO (YA ESTABA CORREGIDA) */
+/* REGLA DEL LOGO - AQUÍ ESTÁ EL CAMBIO CLAVE */
 nav .logo-nav img {
-  right: 50px;
+  right: 15px; /* AJUSTADO A 15px */
   vertical-align: middle;
   display: inline-block;
   z-index: 3;
