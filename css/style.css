@@ -45,9 +45,8 @@ a {
     background-position: center;
   }
 
-  header nav .logo-nav img {
-    display: none !important;
-  }
+  /* ***** LÍNEA ELIMINADA DE AQUÍ ***** */
+  /* header nav .logo-nav img { display: none !important; } */
 
   .container__footer {
     flex-direction: column;
@@ -152,9 +151,9 @@ header nav .texto-medio a {
 header nav .texto-medio a {
     font-size: 30px !important;
 }
- header nav .logo-nav img {
-    display: none;
-  }
+ 
+  /* ***** LÍNEA ELIMINADA DE AQUÍ ***** */
+  /* header nav .logo-nav img { display: none; } */
 
   .container__footer {
     flex-direction: column;
@@ -378,22 +377,19 @@ nav .logo-nav {
   margin-right: 50px;
 }
 
-/* ***** ESTA ES LA REGLA MODIFICADA ***** */
+/* REGLA DEL LOGO (YA ESTABA CORREGIDA) */
 nav .logo-nav img {
   right: 50px;
-  /* width: 100px;  <-- SE ELIMINÓ EL ANCHO FIJO */
   vertical-align: middle;
   display: inline-block;
   z-index: 3;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  
-  /* --- NUEVAS LÍNEAS AÑADIDAS --- */
-  height: 50px;  /* Altura fija de 50px (puedes ajustar a 45px o 55px si prefieres) */
+  height: 50px;  /* Altura fija de 50px */
   width: auto;   /* El ancho se ajustará automáticamente */
 }
-/* ***** FIN DE LA MODIFICACIÓN ***** */
+
 
 nav .boton-mas button {
   background: transparent;
