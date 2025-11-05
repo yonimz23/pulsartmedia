@@ -22,6 +22,127 @@ a {
   display: inline-block;
   text-decoration: none;
 }
+
+/* --- ESTILOS PARA LAS NUEVAS SECCIONES DEL HOME --- */
+/* --- (MOVIDO AQUÍ PARA CORREGIR CASCADA) --- */
+.home-summary {
+    padding: 60px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+.home-services {
+    background-color: #f9f9f9; /* Fondo gris claro */
+}
+.home-artists {
+    background-color: #FFFFFF; /* Fondo blanco */
+}
+.home-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #FF6600;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+}
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas en escritorio */
+    gap: 30px;
+}
+.summary-card {
+    background-color: #FFFFFF;
+    border: 1px solid #eeeeee;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    text-align: center;
+    padding: 25px;
+    overflow: hidden; /* Para contener la imagen */
+}
+.home-services .summary-card {
+    background-color: #FFFFFF;
+}
+.home-artists .summary-card {
+    background-color: #fdfdfd;
+}
+.summary-card img {
+    width: 250px; /* ***** TAMAÑO DE IMAGEN REDUCIDO ***** */
+    height: 250px; /* ***** TAMAÑO DE IMAGEN REDUCIDO ***** */
+    object-fit: cover; /* Llenar el espacio */
+    border-radius: 50%; /* Círculo */
+    border: 3px solid #FF6600;
+    margin-bottom: 20px;
+}
+.summary-card h3 {
+    font-size: 1.5rem;
+    color: #000000;
+    margin-bottom: 10px;
+}
+.summary-card p {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.6;
+}
+.summary-cta-container {
+    text-align: center;
+    margin-top: 50px;
+}
+.summary-cta-button {
+    background-color: #FF6600; 
+    color: white; 
+    padding: 15px 30px; 
+    border-radius: 5px; 
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-block; 
+    transition: background-color 0.3s ease;
+}
+.summary-cta-button:hover {
+    background-color: #e65c00;
+}
+
+/* ***** CAMBIO AQUÍ: Fondo de Membresías ***** */
+#home-memberships {
+    background-color: #f9f9f9; /* Fondo gris claro */
+    color: #000000; /* Texto negro */
+    padding: 60px 20px;
+    text-align: center;
+}
+#home-memberships h2 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #FF6600; /* Título Naranja */
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+#home-memberships p {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    line-height: 1.6;
+    color: #333; /* Texto gris oscuro */
+}
+#home-memberships .cta-button-container {
+    text-align: center;
+}
+#home-memberships .cta-button {
+    background-color: #FF6600; 
+    color: white; 
+    padding: 15px 30px; 
+    border-radius: 5px; 
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-block; 
+    transition: background-color 0.3s ease;
+}
+#home-memberships .cta-button:hover {
+    background-color: #e65c00;
+}
+
+
 @media screen and (max-width: 768px) {
   body{
     overflow-x: hidden;
@@ -64,7 +185,7 @@ a {
   }
   .box__footer .logo img {
     /* Ajustes para hacer el logo del footer circular en pantallas medianas */
-    max-width: 100px; /* Reducido para mejor proporción en móvil */
+    width: 100px; /* <-- CORREGIDO DE MAX-WIDTH A WIDTH */
     height: 100px; /* Altura igual al ancho para ser circular */
     border-radius: 50%;
     object-fit: cover;
@@ -142,6 +263,7 @@ a {
   /* REGLA AGREGADA: para que las imágenes del index también sean circulares en móvil */
   .summary-card img {
       height: 200px; /* ***** TAMAÑO DE IMAGEN REDUCIDO ***** */
+      width: 200px; /* <-- AÑADIDO PARA CORREGIR */
       border-radius: 50%; /* <-- AGREGADO PARA HACER CIRCULAR EN MÓVIL */
   }
 }
@@ -192,7 +314,7 @@ header nav .texto-medio a {
   }
   .box__footer .logo img {
     /* Ajustes para hacer el logo del footer circular en pantallas pequeñas */
-    max-width: 80px; /* Más pequeño para móviles */
+    width: 80px; /* <-- CORREGIDO DE MAX-WIDTH A WIDTH */
     height: 80px; /* Altura igual al ancho para ser circular */
     border-radius: 50%;
     object-fit: cover;
@@ -914,123 +1036,5 @@ footer {
     transition: background-color 0.3s ease;
 }
 .nosotros .container-curriculum .persona.servicio-item .curriculum-detalle .cta-button:hover {
-    background-color: #e65c00;
-}
-
-/* --- ESTILOS PARA LAS NUEVAS SECCIONES DEL HOME --- */
-.home-summary {
-    padding: 60px 20px;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-.home-services {
-    background-color: #f9f9f9; /* Fondo gris claro */
-}
-.home-artists {
-    background-color: #FFFFFF; /* Fondo blanco */
-}
-.home-title {
-    text-align: center;
-    font-size: 2.5rem;
-    font-weight: 900;
-    color: #FF6600;
-    text-transform: uppercase;
-    margin-bottom: 50px;
-}
-.summary-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Tres columnas en escritorio */
-    gap: 30px;
-}
-.summary-card {
-    background-color: #FFFFFF;
-    border: 1px solid #eeeeee;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    text-align: center;
-    padding: 25px;
-    overflow: hidden; /* Para contener la imagen */
-}
-.home-services .summary-card {
-    background-color: #FFFFFF;
-}
-.home-artists .summary-card {
-    background-color: #fdfdfd;
-}
-.summary-card img {
-    width: 250px; /* ***** TAMAÑO DE IMAGEN REDUCIDO ***** */
-    height: 250px; /* ***** TAMAÑO DE IMAGEN REDUCIDO ***** */
-    object-fit: cover; /* Llenar el espacio */
-    border-radius: 50%; /* Círculo */
-    border: 3px solid #FF6600;
-    margin-bottom: 20px;
-}
-.summary-card h3 {
-    font-size: 1.5rem;
-    color: #000000;
-    margin-bottom: 10px;
-}
-.summary-card p {
-    font-size: 1rem;
-    color: #333;
-    line-height: 1.6;
-}
-.summary-cta-container {
-    text-align: center;
-    margin-top: 50px;
-}
-.summary-cta-button {
-    background-color: #FF6600; 
-    color: white; 
-    padding: 15px 30px; 
-    border-radius: 5px; 
-    font-weight: 700;
-    font-size: 1.1rem;
-    text-decoration: none;
-    text-transform: uppercase;
-    display: inline-block; 
-    transition: background-color 0.3s ease;
-}
-.summary-cta-button:hover {
-    background-color: #e65c00;
-}
-
-/* ***** CAMBIO AQUÍ: Fondo de Membresías ***** */
-#home-memberships {
-    background-color: #f9f9f9; /* Fondo gris claro */
-    color: #000000; /* Texto negro */
-    padding: 60px 20px;
-    text-align: center;
-}
-#home-memberships h2 {
-    font-size: 2.5rem;
-    font-weight: 900;
-    color: #FF6600; /* Título Naranja */
-    text-transform: uppercase;
-    margin-bottom: 20px;
-}
-#home-memberships p {
-    font-size: 1.1rem;
-    max-width: 800px;
-    margin: 0 auto 30px auto;
-    line-height: 1.6;
-    color: #333; /* Texto gris oscuro */
-}
-#home-memberships .cta-button-container {
-    text-align: center;
-}
-#home-memberships .cta-button {
-    background-color: #FF6600; 
-    color: white; 
-    padding: 15px 30px; 
-    border-radius: 5px; 
-    font-weight: 700;
-    font-size: 1.1rem;
-    text-decoration: none;
-    text-transform: uppercase;
-    display: inline-block; 
-    transition: background-color 0.3s ease;
-}
-#home-memberships .cta-button:hover {
     background-color: #e65c00;
 }
