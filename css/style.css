@@ -40,6 +40,15 @@ a {
   #inicio .bloque-inicio h1 {
     font-size: 24px;
   }
+  /* Estilos para el logo principal en #inicio para pantallas medianas */
+  #inicio .bloque-inicio .inicio-logo-circular {
+    max-width: 200px; /* Tamaño máximo para el logo en tabletas */
+    height: 200px; /* Igual ancho y alto */
+    border-radius: 50%; /* ¡HACE EL LOGO CIRCULAR! */
+    object-fit: cover; /* Asegura que el logo llene el círculo */
+    margin-bottom: 20px; /* Espacio debajo del logo */
+  }
+
   .container {
     background-size: cover;
     background-position: center;
@@ -54,7 +63,11 @@ a {
     text-align: center;
   }
   .box__footer .logo img {
-    max-width: 150px;
+    /* Ajustes para hacer el logo del footer circular en pantallas medianas */
+    max-width: 100px; /* Reducido para mejor proporción en móvil */
+    height: 100px; /* Altura igual al ancho para ser circular */
+    border-radius: 50%;
+    object-fit: cover;
   }
   .box__footer h2 {
     margin-top: 30px;
@@ -83,15 +96,16 @@ a {
     padding: 15px;
   }
   .nosotros .container-curriculum .persona .imagen-cara-aracely {
-    width: 100%;
-    max-width: 250px; /* Reducido para que no sea tan grande */
-    height: 250px; /* Altura fija para uniformidad */
+    width: 200px; /* ***** TAMAÑO DE IMAGEN REDUCIDO ***** */
+    height: 200px; /* ***** TAMAÑO DE IMAGEN REDUCIDO ***** */
+    max-width: 100%;
     margin-bottom: 15px;
+    border-radius: 50%; /* Asegura que sean circulares en móvil también */
   }
   .nosotros .container-curriculum .persona .imagen-cara-aracely img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    border-radius: 50%; /* Asegura que sean circulares en móvil también */
   }
   .nosotros .container-curriculum .persona .curriculum-detalle {
     width: 100%;
@@ -120,6 +134,16 @@ a {
   .nosotros .container-curriculum .persona.servicio-item .curriculum-detalle p {
     text-align: center;
   }
+  
+  /* Estilos para las nuevas secciones del Home en móvil */
+  .summary-grid {
+    grid-template-columns: 1fr; /* Una columna en móviles */
+  }
+  /* REGLA AGREGADA: para que las imágenes del index también sean circulares en móvil */
+  .summary-card img {
+      height: 200px; /* ***** TAMAÑO DE IMAGEN REDUCIDO ***** */
+      border-radius: 50%; /* <-- AGREGADO PARA HACER CIRCULAR EN MÓVIL */
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -137,6 +161,14 @@ a {
   }
   #inicio .bloque-inicio h1 {
     font-size: 1.5rem !important; /* Tamaño responsivo */
+  }
+  /* Estilos para el logo principal en #inicio para pantallas pequeñas */
+  #inicio .bloque-inicio .inicio-logo-circular {
+    max-width: 150px; /* Tamaño máximo para el logo en móviles */
+    height: 150px; /* Igual ancho y alto */
+    border-radius: 50%; /* ¡HACE EL LOGO CIRCULAR! */
+    object-fit: cover; /* Asegura que el logo llene el círculo */
+    margin-bottom: 15px; /* Espacio debajo del logo */
   }
   .container {
     background-size: cover;
@@ -159,7 +191,11 @@ header nav .texto-medio a {
     text-align: center;
   }
   .box__footer .logo img {
-    max-width: 100px;
+    /* Ajustes para hacer el logo del footer circular en pantallas pequeñas */
+    max-width: 80px; /* Más pequeño para móviles */
+    height: 80px; /* Altura igual al ancho para ser circular */
+    border-radius: 50%;
+    object-fit: cover;
   }
   .box__footer h2 {
     margin-top: 20px;
@@ -232,18 +268,18 @@ header nav .texto-medio a {
   height: auto; 
 }
 .nosotros .container-curriculum .persona .imagen-cara-aracely {
-  width: 100%; 
-  max-width: 250px; 
+  width: 200px; /* ***** TAMAÑO DE IMAGEN REDUCIDO ***** */
   margin-right: 0;
   margin-bottom: 15px; 
-  height: 250px; /* Altura fija */
+  height: 200px; /* ***** TAMAÑO DE IMAGEN REDUCIDO ***** */
+  border-radius: 50%; /* Asegura que sean circulares en móvil también */
 }
 .nosotros .container-curriculum .persona .imagen-cara-aracely img {
-    max-width: 250px; 
-    height: 250px;
+    max-width: 100%; 
+    height: 100%;
     position: relative; 
     width: 100%;
-    object-fit: cover;
+    border-radius: 50%; /* Asegura que sean circulares en móvil también */
 }
 
 .nosotros .container-curriculum .persona .curriculum-detalle {
@@ -372,10 +408,10 @@ nav .logo-nav {
   display: flex;
   align-items: center;
   margin-left: auto;
-  margin-right: 50px; /* Mantenemos este para escritorio */
+  margin-right: 0; /* CORREGIDO */
 }
 
-/* REGLA DEL LOGO - AQUÍ ESTÁ EL CAMBIO CLAVE */
+/* REGLA DEL LOGO DE LA BARRA DE NAVEGACIÓN (HEADER) */
 nav .logo-nav img {
   right: 15px; /* AJUSTADO A 15px */
   vertical-align: middle;
@@ -385,7 +421,9 @@ nav .logo-nav img {
   top: 50%;
   transform: translateY(-50%);
   height: 50px;  /* Altura fija de 50px */
-  width: auto;   /* El ancho se ajustará automáticamente */
+  width: 50px;   /* Ancho fijo de 50px para hacerlo cuadrado y luego circular */
+  border-radius: 50%; /* ¡HACE EL LOGO CIRCULAR! */
+  object-fit: cover; /* Asegura que el logo llene el círculo, recortando si es necesario */
 }
 
 
@@ -447,14 +485,14 @@ nav .boton-mas button:focus {
 #inicio .bloque-inicio h1 {
   font-family: 'Montserrat', sans-serif; 
   font-size: 3rem; 
-  color: #000000; /* Texto Negro */
+  color: #FF6600; /* ***** COLOR CAMBIADO A NARANJA ***** */
   text-shadow: none; 
   margin-bottom: 25px;
   font-weight: 900; /* Extra-Negrita */
 }
-#inicio .bloque-inicio img {
-  max-width: 100%;
-  height: auto;
+/* --- REGLA DEL LOGO PRINCIPAL EN #inicio ELIMINADA --- */
+#inicio .bloque-inicio .inicio-logo-circular {
+  display: none; /* Logo principal oculto según tu solicitud */
 }
 
 /* SECCIÓN CARRUSEL Y SERVICIOS FLOTANTES - ELIMINADAS */
@@ -678,16 +716,26 @@ font-size: 1rem;
   width: 90%; 
   box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Sombra suave */
 }
+
+/* --- ESTILO PARA IMÁGENES CIRCULARES (MÁS PEQUEÑAS) --- */
 .nosotros .container-curriculum .persona .imagen-cara-aracely {
-  width: 300px;
+  width: 250px;  /* ***** TAMAÑO REDUCIDO ***** */
+  height: 250px; /* ***** TAMAÑO REDUCIDO ***** */
   flex-shrink: 0;
-  background-color: #eee; 
+  background-color: #f9f9f9; 
+  border-radius: 50%; /* HACE EL CONTENEDOR CIRCULAR */
+  margin: 20px; /* Margen reducido */
+  overflow: hidden; 
+  box-sizing: border-box;
 }
 .nosotros .container-curriculum .persona .imagen-cara-aracely img{
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* AHORA LA IMAGEN CUBRE EL CÍRCULO */
+  border-radius: 50%; 
 }
+/* --- FIN DEL CAMBIO --- */
+
 .nosotros .container-curriculum .persona .curriculum-detalle {
   width: 75%;
   padding: 30px;
@@ -714,9 +762,12 @@ footer {
   flex-direction: column;
   padding: 20px;
 }
+/* --- CAMBIO AQUÍ: LOGO DEL FOOTER CIRCULAR --- */
 .box__footer .logo img {
-  width: 100%;
-  max-width: 200px;
+  width: 150px; /* Ancho fijo para escritorio */
+  height: 150px; /* Altura igual para que sea circular */
+  object-fit: cover; /* Asegura que la imagen llene el círculo */
+  border-radius: 50%; /* HACE EL LOGO CIRCULAR */
 }
 .box__footer .terms {
   max-width: 350px;
@@ -863,5 +914,123 @@ footer {
     transition: background-color 0.3s ease;
 }
 .nosotros .container-curriculum .persona.servicio-item .curriculum-detalle .cta-button:hover {
+    background-color: #e65c00;
+}
+
+/* --- ESTILOS PARA LAS NUEVAS SECCIONES DEL HOME --- */
+.home-summary {
+    padding: 60px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+.home-services {
+    background-color: #f9f9f9; /* Fondo gris claro */
+}
+.home-artists {
+    background-color: #FFFFFF; /* Fondo blanco */
+}
+.home-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #FF6600;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+}
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas en escritorio */
+    gap: 30px;
+}
+.summary-card {
+    background-color: #FFFFFF;
+    border: 1px solid #eeeeee;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    text-align: center;
+    padding: 25px;
+    overflow: hidden; /* Para contener la imagen */
+}
+.home-services .summary-card {
+    background-color: #FFFFFF;
+}
+.home-artists .summary-card {
+    background-color: #fdfdfd;
+}
+.summary-card img {
+    width: 250px; /* ***** TAMAÑO DE IMAGEN REDUCIDO ***** */
+    height: 250px; /* ***** TAMAÑO DE IMAGEN REDUCIDO ***** */
+    object-fit: cover; /* Llenar el espacio */
+    border-radius: 50%; /* Círculo */
+    border: 3px solid #FF6600;
+    margin-bottom: 20px;
+}
+.summary-card h3 {
+    font-size: 1.5rem;
+    color: #000000;
+    margin-bottom: 10px;
+}
+.summary-card p {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.6;
+}
+.summary-cta-container {
+    text-align: center;
+    margin-top: 50px;
+}
+.summary-cta-button {
+    background-color: #FF6600; 
+    color: white; 
+    padding: 15px 30px; 
+    border-radius: 5px; 
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-block; 
+    transition: background-color 0.3s ease;
+}
+.summary-cta-button:hover {
+    background-color: #e65c00;
+}
+
+/* ***** CAMBIO AQUÍ: Fondo de Membresías ***** */
+#home-memberships {
+    background-color: #f9f9f9; /* Fondo gris claro */
+    color: #000000; /* Texto negro */
+    padding: 60px 20px;
+    text-align: center;
+}
+#home-memberships h2 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #FF6600; /* Título Naranja */
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+#home-memberships p {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    line-height: 1.6;
+    color: #333; /* Texto gris oscuro */
+}
+#home-memberships .cta-button-container {
+    text-align: center;
+}
+#home-memberships .cta-button {
+    background-color: #FF6600; 
+    color: white; 
+    padding: 15px 30px; 
+    border-radius: 5px; 
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-block; 
+    transition: background-color 0.3s ease;
+}
+#home-memberships .cta-button:hover {
     background-color: #e65c00;
 }
