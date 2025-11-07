@@ -26,7 +26,7 @@ a {
 /* --- ESTILOS PARA LAS NUEVAS SECCIONES DEL HOME --- */
 /* --- (MOVIDO AQUÍ PARA CORREGIR CASCADA) --- */
 .home-summary {
-    padding: 60px 20px;
+    padding: 100px 20px; /* <-- AUMENTADO DE 60px A 100px */
     max-width: 1400px;
     margin: 0 auto;
 }
@@ -149,7 +149,7 @@ a {
   }
 
   #inicio .bloque-inicio {
-    top: 50%;
+    top: 55%;  /* <-- CAMBIADO DE 50% A 55% */
     left: 10%;
     width: 80%;
     text-align: center;
@@ -275,7 +275,7 @@ a {
   }
 
   #inicio .bloque-inicio {
-    top: 50%;
+    top: 55%;  /* <-- CAMBIADO DE 50% A 55% */
     left: 10%;
     width: 80%;
     text-align: center;
@@ -588,7 +588,7 @@ nav .boton-mas button:focus {
 }
 #inicio .bloque-inicio {
   position: absolute;
-  top: 50%;
+  top: 55%;  /* <-- CAMBIADO DE 50% A 55% */
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -621,7 +621,7 @@ nav .boton-mas button:focus {
 
 /*SECCION DE SUGERENCIAS (CONTACTO)*/
 #sugerencias {
-  padding-top: 70px;
+  padding-top: 100px; /* <-- AUMENTADO DE 70px A 100px */
   width: 100%;
   height: 100vh; 
   font-family: 'Montserrat', sans-serif;
@@ -780,7 +780,7 @@ font-size: 1rem;
 /* SECCION NOSOTROS (EQUIPO, SERVICIOS, CLIENTES) */
 .nosotros {
   position: relative;
-  padding-top: 70px;
+  padding-top: 100px; /* <-- AUMENTADO DE 70px A 100px */
   width: 100%;
 }
 .nosotros .imagen-fondo {
@@ -1092,4 +1092,69 @@ footer {
   display: block;
   margin-bottom: 5px;
   color: #000;
+}
+
+/* --- Estilos para Mensajes de Formulario (sugerencias.html) --- */
+#form-success, #form-error {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    font-weight: 500;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+#form-success {
+    background-color: #d1fae5; /* Verde claro */
+    color: #065f46; /* Verde oscuro */
+    border: 1px solid #065f46;
+}
+#form-error {
+    background-color: #fee2e2; /* Rojo claro */
+    color: #991b1b; /* Rojo oscuro */
+    border: 1px solid #991b1b;
+}
+
+/* --- Estilo para Slogan (Añadido) --- */
+.slogan-inicio {
+    font-size: 1.3rem;
+    color: #FF6600; /* Naranja */
+    font-weight: 700; /* Negrita */
+    margin-top: 25px;
+    line-height: 1.6;
+}
+
+.box__footer .terms .slogan-footer {
+    margin-top: 20px;
+    /* El color y la negrita los hereda de .terms */
+}
+/* --- Estilos para Enlaces de Instagram (Añadido) --- */
+.instagram-link {
+    color: #FF6600; /* Naranja */
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+.instagram-link:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+.instagram-link .fab.fa-instagram {
+    font-size: 0.9em;
+    margin-right: 4px;
+}
+/* Anular color naranja en h3 para que tome el color del h3 */
+h3 .instagram-link {
+    color: inherit; 
+    font-weight: inherit;
+}
+h3 .instagram-link:hover {
+    color: #FF6600; /* Naranja al pasar el mouse */
+    text-decoration: none;
+    opacity: 1;
+}
+/* Estilo para los h3 del index */
+.summary-card h3 .instagram-link {
+    color: #000000; /* Color negro del h3 */
+}
+.summary-card h3 .instagram-link:hover {
+    color: #FF6600; /* Naranja al pasar el mouse */
 }

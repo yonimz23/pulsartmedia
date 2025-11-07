@@ -36,56 +36,54 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // =================================================================
-    // MODO OSCURO / CLARO (Eliminado)
-    // =================================================================
-
-
-    // =================================================================
     // FORMULARIO DE CONTACTO (Página: sugerencias.html)
+    // (LÓGICA ACTUALIZADA PARA USAR FETCH CON FORMSPREE)
     // =================================================================
     const sugerenciaForm = document.getElementById('sugerencia-form');
+    const successMessage = document.getElementById('form-success');
+    const errorMessage = document.getElementById('form-error');
 
     if (sugerenciaForm) {
-        sugerenciaForm.addEventListener('submit', function (event) {
-            event.preventDefault(); // Evita que el formulario se envíe por defecto
+        sugerenciaForm.addEventListener('submit', async (e) => {
+            e.preventDefault(); 
 
-            const nombre = document.getElementById('nombre').value;
-            const email = document.getElementById('email').value;
-            const mensaje = document.getElementById('mensaje').value;
+            const formData = new FormData(sugerenciaForm);
+            const submitButton = sugerenciaForm.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.textContent; // Guarda el texto original del botón
+
+            if (successMessage) successMessage.style.display = 'none';
+            if (errorMessage) errorMessage.style.display = 'none';
             
-            if (!nombre || !email || !mensaje) {
-                alert('Por favor, completa todos los campos obligatorios.');
-                return;
+            submitButton.disabled = true;
+            // Busca el <p> dentro del botón para cambiar el texto
+            const buttonTextElement = submitButton.querySelector('p');
+            if(buttonTextElement) buttonTextElement.textContent = 'Enviando...';
+
+            try {
+                const response = await fetch(sugerenciaForm.action, {
+                    method: sugerenciaForm.method,
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    sugerenciaForm.style.display = 'none';
+                    if (successMessage) successMessage.style.display = 'block';
+                } else {
+                    if (errorMessage) errorMessage.style.display = 'block';
+                    submitButton.disabled = false;
+                    if(buttonTextElement) buttonTextElement.textContent = originalButtonText; // Restaura el texto original
+                }
+            } catch (error) {
+                console.error('Error al enviar formulario:', error);
+                if (errorMessage) errorMessage.style.display = 'block';
+                submitButton.disabled = false;
+                if(buttonTextElement) buttonTextElement.textContent = originalButtonText; // Restaura el texto original
             }
-
-            // RECUERDA: Reemplaza "TU_SERVICE_ID" y "TU_TEMPLATE_ID" por tus propios IDs de EmailJS
-            const SERVICE_ID = "TU_SERVICE_ID"; 
-            const TEMPLATE_ID = "TU_TEMPLATE_ID";
-
-            // Envía el formulario utilizando EmailJS
-            emailjs.send(SERVICE_ID, TEMPLATE_ID, {
-                from_name: nombre,
-                message: mensaje,
-                email_id: email
-            }).then(function (response) {
-                const modal = document.getElementById('modal');
-                if(modal) modal.style.display = 'block';
-                sugerenciaForm.reset();
-            }).catch(function (error) {
-                alert('Hubo un error al enviar el formulario. Verifica tus IDs de EmailJS.');
-                console.log('Error:', error);
-            });
         });
-
-        const modal = document.getElementById('modal');
-        const closeBtn = document.querySelector('.close');
-        if (modal && closeBtn) {
-            closeBtn.addEventListener('click', function () {
-                modal.style.display = 'none';
-            });
-        }
     }
-
 
     // =================================================================
     // DESPLEGABLE DE SERVICIOS (Página: servicios.html)

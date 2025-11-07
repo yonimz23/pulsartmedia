@@ -12,13 +12,7 @@
     
     <link rel="shortcut icon" href="img/pulsart-logo.png">
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script type="text/javascript">
-     (function(){
-      // RECUERDA: Reemplaza "TU_USER_ID" con tu User ID de EmailJS
-      emailjs.init("TU_USER_ID"); 
-    })();
-    </script>
+    
     <script src="js/jquery-3.7.0.min.js"></script>
     <script src="js/jquery.touchSwipe.min.js"></script>
     <script src="js/cargarAnimacion.js"></script>
@@ -47,7 +41,7 @@
               <a href="servicios.html">Servicios</a>
               <a href="integrantes.html">Equipo</a>
               <a href="galeria-imagenes.html">Artistas</a>
-              <a href="pulsart-crear.html">Estacion Crear</a>
+              <a href="pulsart-crear.html">Estación Crear</a>
               <a href="sugerencias.html">Contacto</a>
             </ul>
           </div>
@@ -60,7 +54,7 @@
           <h2>Contacto</h2>
           <h3>Envíanos un mensaje:</h3>
 
-          <form id="sugerencia-form">
+          <form id="sugerencia-form" action="https://formspree.io/f/mjkpqrzn" method="POST">
               <p>
                   <label for="nombre" class="colocar_nombre">Nombre
                       <span class="obligatorio">*</span>
@@ -89,16 +83,17 @@
               </p>
 
           </form>
+          
+          <div id="form-success" style="display: none;">
+              ¡Gracias! Hemos recibido tu mensaje. Te contactaremos muy pronto.
+          </div>
+          <div id="form-error" style="display: none;">
+              Hubo un error al enviar tu mensaje. Por favor, revisa tus datos e intenta de nuevo.
+          </div>
+
       </div>
   </div>
     
-  <div id="modal" class="modal">
-      <div class="modal-content">
-        <span class="close">×</span>
-        <h3>Mensaje enviado</h3>
-        <p>Tu mensaje ha sido enviado correctamente. ¡Gracias!</p>
-      </div>
-    </div>
   </section>
         <footer  id="pie">
           <div class="container__footer">
@@ -110,6 +105,7 @@
                       <p><b>
                          Somos una empresa enfocada en proteger y fortalecer ideas, resolviendo los inconvenientes acorde a la necesidad del cliente.
                         </b></p>
+                      <p class="slogan-footer"><b>¡¡PulsArt Media, tu medio, tu impulso!!</b></p>
                   </div>
               </div>
         
@@ -121,7 +117,7 @@
                   <a href="servicios.html"><u>Servicios</u></a>
                   <a href="integrantes.html"><u>Equipo</u></a>
                   <a href="galeria-imagenes.html"><u>Artistas</u></a>
-                  <a href="pulsart-crear.html"><u>Estacion Crear</u></a>
+                  <a href="pulsart-crear.html"><u>Estación Crear</u></a>
                   <a href="sugerencias.html"><u>Contacto</u></a>
               </div>
               

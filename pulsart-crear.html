@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estacion Crear - Membresías Creativas</title>
+    <title>Estación Crear - Membresías Creativas 360°</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -61,9 +61,9 @@
 
     <header class="py-4 px-6 text-center shadow-md bg-white/80 backdrop-blur-sm sticky top-0 z-50">
         
-        <a href="index.html" class="text-brand-primary font-semibold text-sm hover:underline mb-2 block">&larr; Volver a PulsArt Media</a>
-        <h1 class="text-2xl font-bold text-brand-primary">Estacion Crear</h1>
-        <p class="text-md text-gray-600">Membresías Creativas (en alianza con PulsArt Media)</p>
+        <a href="index.html" class="text-brand-primary font-semibold text-sm hover:underline mb-2 block">← Volver a PulsArt Media</a>
+        <h1 class="text-2xl font-bold text-brand-primary">Estación Crear</h1>
+        <p class="text-md text-gray-600">Membresías Creativas 360° (en alianza con PulsArt Media)</p>
     </header>
 
     <main class="container mx-auto px-4 py-8 md:py-16">
@@ -73,7 +73,7 @@
             <p class="max-w-3xl mx-auto text-lg md:text-xl text-gray-600 mb-8">Pierdes tiempo, energía y foco coordinando estudio, fotógrafo, abogado y redes sociales. Nosotros unimos las piezas por ti.</p>
             <div class="p-6 border-2 border-dashed border-gray-300 rounded-lg max-w-4xl mx-auto">
                  <h3 class="text-2xl font-bold text-brand-primary mb-4">Te presentamos el primer Ecosistema Creativo 360º de Paraguay.</h3>
-                 <p class="text-gray-700">Recupera hasta el 50% de tu tiempo y dedícate a lo único que importa: crear. Desde la grabación y el registro legal hasta la estrategia digital y el lanzamiento. Todo en un solo lugar, con un solo equipo.</p>
+                 <p class="text-gray-700">Recupera hasta el 50% de tu tiempo y dedícate a lo único que importa: crear. Desde la grabación y el registro legal hasta la estrategia digital y el lanzamiento. Todo en un solo lugar, con un solo equipo (Alianza PulsArt Media y Estación Crear).</p>
             </div>
         </section>
 
@@ -104,27 +104,6 @@
                     <button data-plan="bosque" class="plan-tab pb-2 text-gray-500">🌲 Bosque</button>
                 </div>
                 <div id="details-content" class="max-w-4xl mx-auto">
-                </div>
-            </div>
-        </section>
-
-        <section id="project-strategist" class="mb-16 md:mb-24 bg-brand-accent/20 p-8 rounded-xl shadow-inner">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-4">✨ Estratega de Proyecto IA</h2>
-            <p class="text-center text-gray-700 mb-8 max-w-3xl mx-auto">Convierte tu idea vaga en un Plan de Acción concreto y descubre qué Membresía te impulsa más rápido. La IA de Gemini analiza tus necesidades y te guía.</p>
-
-            <div class="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md">
-                <label for="project-idea" class="block text-lg font-semibold text-gray-700 mb-2">Describe tu Próximo Proyecto Creativo (ej: Un álbum de cumbia futurista)</label>
-                <textarea id="project-idea" rows="3" class="w-full p-3 border border-gray-300 rounded-md focus:ring-brand-primary focus:border-brand-primary" placeholder="Ej: Necesito grabar y lanzar mi primer sencillo de pop rock, incluyendo un video promocional y registrar las letras."></textarea>
-                <button id="generate-strategy-btn" class="w-full btn-primary font-bold py-3 mt-4 flex items-center justify-center">
-                    <span id="btn-text">Generar Plan Estratégico ✨</span>
-                    <span id="loading-spinner" class="hidden ml-2 h-5 w-5 border-2 border-white border-t-brand-accent rounded-full animate-spin"></span>
-                </button>
-            </div>
-
-            <div id="strategy-output" class="max-w-4xl mx-auto mt-8 hidden">
-                <h3 class="text-2xl font-bold text-brand-primary mb-4 text-center">Plan de Acción Recomendado por IA</h3>
-                <div id="ai-response-card" class="bg-white p-6 rounded-lg shadow-xl border-l-4 border-brand-primary">
-                    <p class="text-gray-500 text-center">Esperando estrategia...</p>
                 </div>
             </div>
         </section>
@@ -164,6 +143,7 @@
             <div class="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-lg border border-gray-200">
                 <h2 class="text-3xl font-bold text-center text-gray-800 mb-2">¿Serás uno de los 20 Fundadores?</h2>
                 <p class="text-center text-gray-600 mb-6">Completa tu pre-inscripción ahora. Nos pondremos en contacto para finalizar el proceso y asegurar tu lugar en la comunidad.</p>
+                
                 <form id="pre-registration-form" action="https://formspree.io/f/mjkpqrzn" method="POST" class="space-y-4">
                     <div>
                         <label for="name" class="block text-sm font-semibold text-gray-700">Nombre Completo</label>
@@ -186,6 +166,29 @@
                             <option value="bosque">🌲 Plan Bosque</option>
                         </select>
                     </div>
+                    
+                    <div>
+                        <label for="launched-song" class="block text-sm font-semibold text-gray-700">¿Ya lanzaste alguna canción?</label>
+                        <select id="launched-song" name="launched-song" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-primary focus:border-brand-primary">
+                            <option value="no">No</option>
+                            <option value="si">Sí</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="song-link" class="block text-sm font-semibold text-gray-700">Ingresar link de la canción (en caso de tener una)</label>
+                        <input type="url" id="song-link" name="song-link" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-brand-primary focus:border-brand-primary" placeholder="https://spotify.com/track/...">
+                    </div>
+
+                    <div>
+                        <label for="project-status" class="block text-sm font-semibold text-gray-700">¿En qué estado se encuentra su proyecto actualmente?</label>
+                        <textarea id="project-status" name="project-status" rows="3" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-brand-primary focus:border-brand-primary" placeholder="Ej: Tengo 5 maquetas grabadas, necesito producción y un plan de lanzamiento..."></textarea>
+                    </div>
+
+                    <div>
+                        <label for="needed-services" class="block text-sm font-semibold text-gray-700">¿Qué servicios del plan son más necesarios para usted?</label>
+                        <textarea id="needed-services" name="needed-services" rows="3" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-brand-primary focus:border-brand-primary" placeholder="Ej: Principalmente el registro de autor, horas de estudio y la sesión de fotos..."></textarea>
+                    </div>
                     <button type="submit" class="w-full btn-primary font-bold py-3 px-4 rounded-md text-lg">Quiero ser Fundador</button>
                 </form>
                 <div id="form-success" class="hidden mt-4 text-center p-4 bg-green-100 text-green-800 rounded-md">
@@ -200,7 +203,7 @@
     </main>
     
     <footer class="text-center py-8 mt-12 border-t border-gray-200">
-        <p class="text-gray-500">&copy; 2025 Estacion Crear. Una alianza con PulsArt Media.</p>
+        <p class="text-gray-500">© 2025 Estación Crear. Una alianza con PulsArt Media.</p>
     </footer>
 
     <script>
@@ -268,14 +271,7 @@
         let myChart;
         let currentPriceType = 'founder';
         
-        // --- ADVERTENCIA ---
-        // La funcionalidad de "Estratega de Proyecto IA" no funcionará
-        // hasta que reemplaces "" con tu API Key de Google Gemini.
-        const apiKey = ""; // <-- ¡DEBES AGREGAR TU API KEY AQUÍ!
-        // ---------------------
-
-        const apiUrlText = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
-        const apiUrlTts = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateText?key=${apiKey}`; // Asumiendo que quieres TTS, aunque el original estaba mal
+        // --- SECCIÓN DE API KEY Y FUNCIONES DE IA ELIMINADAS ---
 
         const formatCurrency = (value) => new Intl.NumberFormat('es-PY', { style: 'currency', currency: 'PYG', maximumFractionDigits: 0 }).format(value);
 
@@ -350,20 +346,8 @@
             const plan = plansData[planKey];
             const contentEl = document.getElementById('details-content');
             
-            let audioButtonHtml = '';
-            if (planKey === 'bosque') {
-                audioButtonHtml = `
-                    <div class="mt-4 text-center">
-                        <button id="tts-button" class="bg-brand-accent text-orange-500 font-bold py-2 px-4 rounded-full shadow-md hover:bg-gray-800 flex items-center justify-center mx-auto transition-colors">
-                            <span id="tts-btn-icon">📢</span>
-                            <span id="tts-btn-text" class="ml-2">Escuchar Mensaje Premium</span>
-                        </button>
-                        <audio id="tts-audio-player" class="hidden w-full mt-4" controls></audio>
-                        <p id="tts-message" class="text-sm text-gray-500 mt-2 hidden">¡Mensaje cargado! Presiona Play.</p>
-                        <p id="tts-error" class="text-sm text-red-500 mt-2 hidden">Error al cargar audio.</p>
-                    </div>
-                `;
-            }
+            // --- BOTÓN DE AUDIO ELIMINADO ---
+            let audioButtonHtml = ''; 
 
             contentEl.innerHTML = `
                 <div class="bg-white p-6 md:p-8 rounded-lg shadow-md border border-gray-200 transition-opacity duration-300">
@@ -389,123 +373,10 @@
                 </div>
             `;
             
-            if (planKey === 'bosque') {
-                document.getElementById('tts-button').addEventListener('click', handleTtsGeneration);
-            }
+            // --- LISTENER DE BOTÓN DE AUDIO ELIMINADO ---
         };
 
-        const callGeminiApi = async (prompt, maxRetries = 5) => {
-            if (!apiKey) {
-                console.error("API Key de Gemini no está configurada.");
-                return "Error: La API Key no está configurada. Por favor, edita el archivo .html y añade tu API Key en la variable 'apiKey'.";
-            }
-            
-            const systemPrompt = "Eres un estratega de negocios y un consultor creativo. Tu tarea es tomar la idea de proyecto de un artista y generar un Plan de Acción concreto de 4 pasos, además de recomendar el Plan de Membresía Creativa (Semilla, Brote, Raíz o Bosque) más adecuado para lograr ese objetivo. La respuesta debe ser en formato Markdown y concisa. Los planes se basan en el nivel de profesionalismo: Semilla (exploración), Brote (lanzamiento de primer trabajo), Raíz (consolidación y escalamiento), Bosque (carrera profesional de negocio, recursos ilimitados).";
-            const payload = {
-                contents: [{ parts: [{ text: prompt }] }],
-                systemInstruction: { parts: [{ text: systemPrompt }] },
-            };
-
-            for (let attempt = 0; attempt < maxRetries; attempt++) {
-                try {
-                    const response = await fetch(apiUrlText, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-
-                    if (response.ok) {
-                        const result = await response.json();
-                        const text = result.candidates?.[0]?.content?.parts?.[0]?.text;
-                        if (text) {
-                            return text;
-                        } else {
-                            throw new Error("Respuesta de API vacía o inválida.");
-                        }
-                    }
-
-                    if (response.status >= 400 && response.status < 500) {
-                        console.error('Error de cliente API Gemini:', response.status, await response.text());
-                        throw new Error(`Error de cliente API: ${response.status}`);
-                    }
-                    
-                } catch (error) {
-                    console.warn(`Intento ${attempt + 1} fallido para callGeminiApi:`, error.message);
-                    if (attempt === maxRetries - 1) {
-                        console.error("Fallaron todos los intentos para callGeminiApi");
-                        throw error; 
-                    }
-                    await new Promise(resolve => setTimeout(resolve, Math.pow(2, attempt) * 1000));
-                }
-            }
-            throw new Error("No se pudo conectar con el Estratega IA después de varios intentos.");
-        };
-
-        const handleStrategyGeneration = async () => {
-            const ideaInput = document.getElementById('project-idea');
-            const outputCard = document.getElementById('ai-response-card');
-            const outputSection = document.getElementById('strategy-output');
-            const btn = document.getElementById('generate-strategy-btn');
-            const btnText = document.getElementById('btn-text');
-            const loadingSpinner = document.getElementById('loading-spinner');
-
-            const idea = ideaInput.value.trim();
-            if (!idea) {
-                outputCard.innerHTML = '<p class="text-red-500 text-center">Por favor, describe tu idea de proyecto.</p>';
-                outputSection.classList.remove('hidden');
-                return;
-            }
-
-            btnText.textContent = 'Analizando...';
-            loadingSpinner.classList.remove('hidden');
-            btn.disabled = true;
-
-            outputSection.classList.remove('hidden');
-            outputCard.innerHTML = '<p class="text-gray-500 text-center flex items-center justify-center"><span class="h-4 w-4 border-2 border-brand-primary border-t-transparent rounded-full animate-spin mr-2"></span> Generando estrategia de proyecto...</p>';
-
-            try {
-                const responseText = await callGeminiApi(`Mi idea de proyecto es: ${idea}`);
-                
-                const htmlContent = responseText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-                                                 .replace(/\n\s*-\s/g, '</li><li class="mb-1 ml-4 list-disc text-gray-700">')
-                                                 .replace(/#+\s*(.*?)\n/g, '<h4 class="text-lg font-semibold text-brand-primary mt-4 mb-2">$1</h4>')
-                                                 .replace(/\n/g, '<br/>')
-                                                 .replace(/<br\/><li>/g, '<li>');
-
-                outputCard.innerHTML = `<div class="p-2">${htmlContent}</div>`;
-            } catch (error) {
-                console.error('API Error:', error);
-                outputCard.innerHTML = '<p class="text-red-500 text-center">Error al conectar con el Estratega IA. Intenta de nuevo más tarde.</p>';
-            } finally {
-                btnText.textContent = 'Generar Plan Estratégico ✨';
-                loadingSpinner.classList.add('hidden');
-                btn.disabled = false;
-            }
-        };
-
-        // --- LA FUNCIÓN DE AUDIO (TTS) ---
-        // La API original en tu archivo no es la correcta para TTS.
-        // La he dejado comentada para no causar errores,
-        // ya que requiere una configuración diferente.
-        
-        const handleTtsGeneration = async () => {
-            const ttsButton = document.getElementById('tts-button');
-            const ttsAudio = document.getElementById('tts-audio-player');
-            const ttsText = document.getElementById('tts-btn-text');
-            const ttsIcon = document.getElementById('tts-btn-icon');
-            const ttsMessage = document.getElementById('tts-message');
-            const ttsError = document.getElementById('tts-error');
-            
-            ttsError.textContent = 'Función de audio no implementada.';
-            ttsError.classList.remove('hidden');
-            ttsIcon.textContent = '🚫';
-
-            console.warn("La función TTS (Text-to-Speech) requiere una API y configuración válidas.");
-            
-            // Si tuvieras una API de TTS funcional, el código iría aquí.
-            // Por ahora, solo mostramos un mensaje de error.
-        };
-
+        // --- FUNCIONES DE IA Y TTS ELIMINADAS ---
 
         document.addEventListener('DOMContentLoaded', () => {
             renderChart(currentPriceType);
@@ -517,7 +388,8 @@
             const form = document.getElementById('pre-registration-form');
             const successMessage = document.getElementById('form-success');
             const errorMessage = document.getElementById('form-error'); 
-            const strategyBtn = document.getElementById('generate-strategy-btn');
+            
+            // --- LISTENER DE BOTÓN DE IA ELIMINADO ---
 
             const spotsLeftEl = document.getElementById('spots-left');
             let spots = 20;
@@ -557,7 +429,7 @@
                 });
             });
 
-            strategyBtn.addEventListener('click', handleStrategyGeneration);
+            // --- LISTENER DE BOTÓN DE IA ELIMINADO ---
 
             form.addEventListener('submit', async (e) => {
                 e.preventDefault(); 
