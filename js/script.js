@@ -88,7 +88,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     // =================================================================
-    // CARRUSEL DE CLIENTES (Eliminado)
+    // DESPLEGABLE DE SERVICIOS (Página: servicios.html)
     // =================================================================
+    $('.servicio-toggle-btn').on('click', function() {
+        // Encuentra el contenido detallado
+        var $detail = $(this).next('.servicio-detail');
+        
+        // Muestra u oculta el contenido con una animación suave
+        $detail.slideToggle();
+        
+        // Cambia el texto del botón y la clase
+        $(this).toggleClass('active');
+        if ($(this).hasClass('active')) {
+            $(this).text('Ver menos');
+        } else {
+            $(this).text('Ver más');
+        }
+    });
 
 });

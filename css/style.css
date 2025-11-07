@@ -1009,6 +1009,7 @@ footer {
     width: 100%; /* El texto ocupa todo el ancho */
     padding: 30px;
     box-sizing: border-box; /* Asegura que el padding no desborde */
+    text-align: center; /* <-- AÑADIDO PARA CENTRAR EL BOTÓN */
 }
 
 .nosotros .container-curriculum .persona.servicio-item .curriculum-detalle h3 {
@@ -1037,4 +1038,58 @@ footer {
 }
 .nosotros .container-curriculum .persona.servicio-item .curriculum-detalle .cta-button:hover {
     background-color: #e65c00;
+}
+
+/* --- Estilos para Servicios Desplegables --- */
+.servicio-toggle-btn {
+    background-color: #FF6600; 
+    color: white; 
+    padding: 10px 18px; 
+    border-radius: 5px; 
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    border: none;
+    margin-top: 15px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+}
+.servicio-toggle-btn:hover {
+    background-color: #e65c00;
+}
+.servicio-toggle-btn.active {
+    background-color: #333; /* Color más oscuro cuando está activo */
+}
+.servicio-detail {
+    margin-top: 25px;
+    text-align: left; /* Para anular el text-align: center del contenedor */
+    border-top: 1px solid #eee;
+    padding-top: 25px;
+}
+.servicio-detail p {
+    text-align: left; /* Asegurar que el párrafo esté alineado a la izquierda */
+    margin-bottom: 15px;
+}
+.servicio-detail ul, 
+.servicio-detail ol {
+    list-style-type: disc;
+    margin-left: 25px;
+    margin-bottom: 20px;
+    margin-top: 15px;
+}
+.servicio-detail ol {
+    list-style-type: decimal;
+}
+.servicio-detail ul li,
+.servicio-detail ol li {
+    text-align: left;
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+.servicio-detail ol li b {
+  display: block;
+  margin-bottom: 5px;
+  color: #000;
 }
