@@ -220,7 +220,7 @@ a {
     width: 200px; /* ***** TAMAÑO DE IMAGEN REDUCIDO ***** */
     height: 200px; /* ***** TAMAÑO DE IMAGEN REDUCIDO ***** */
     max-width: 100%;
-    margin-bottom: 15px;
+    /* margin-bottom: 15px; -> ELIMINADO */
     border-radius: 50%; /* Asegura que sean circulares en móvil también */
   }
   .nosotros .container-curriculum .persona .imagen-cara-aracely img {
@@ -266,6 +266,17 @@ a {
       width: 200px; /* <-- AÑADIDO PARA CORREGIR */
       border-radius: 50%; /* <-- AGREGADO PARA HACER CIRCULAR EN MÓVIL */
   }
+  
+  /* --- ESTILOS MOVILES PARA LINK DE INSTAGRAM --- */
+  .persona-media-container {
+      width: 100%;
+      margin: 0; /* Reset margin for mobile */
+  }
+  .instagram-click-link {
+      margin-top: -10px; 
+      margin-bottom: 15px; /* Espacio antes del texto */
+  }
+
 }
 
 @media screen and (max-width: 480px) {
@@ -392,7 +403,7 @@ header nav .texto-medio a {
 .nosotros .container-curriculum .persona .imagen-cara-aracely {
   width: 200px; /* ***** TAMAÑO DE IMAGEN REDUCIDO ***** */
   margin-right: 0;
-  margin-bottom: 15px; 
+  /* margin-bottom: 15px; -> ELIMINADO */ 
   height: 200px; /* ***** TAMAÑO DE IMAGEN REDUCIDO ***** */
   border-radius: 50%; /* Asegura que sean circulares en móvil también */
 }
@@ -424,7 +435,7 @@ header nav .texto-medio a {
 .nosotros .container-curriculum .persona .curriculum-detalle.marcos_martinez h3 {
   margin-top: 15px;
 }
-/* AQUI ELIMINAMOS EL MARGIN-RIGHT QUE EMPUJABA EL LOGO */
+/* AQUI ELIMINAMOS EL MARGIN-RIGHT CHE EMPUJABA EL LOGO */
   nav .logo-nav {
     margin-right: 0; 
   }
@@ -846,7 +857,8 @@ font-size: 1rem;
   flex-shrink: 0;
   background-color: #f9f9f9; 
   border-radius: 50%; /* HACE EL CONTENEDOR CIRCULAR */
-  margin: 20px; /* Margen reducido */
+  /* margin: 20px; --> ELIMINADO. AHORA EN .persona-media-container */
+  margin: 0;
   overflow: hidden; 
   box-sizing: border-box;
 }
@@ -1127,6 +1139,7 @@ footer {
     margin-top: 20px;
     /* El color y la negrita los hereda de .terms */
 }
+
 /* --- Estilos para Enlaces de Instagram (Añadido) --- */
 .instagram-link {
     color: #FF6600; /* Naranja */
@@ -1157,4 +1170,46 @@ h3 .instagram-link:hover {
 }
 .summary-card h3 .instagram-link:hover {
     color: #FF6600; /* Naranja al pasar el mouse */
+}
+
+/* --- Estilos para Link de Instagram bajo imagen (MODIFICADO) --- */
+.persona-media-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    margin: 20px; /* Mover el margen aquí */
+}
+
+/* Modificar el estilo de la imagen para quitarle el margen */
+.nosotros .container-curriculum .persona .imagen-cara-aracely {
+    margin: 0; /* Quitar el margen original */
+}
+
+.instagram-click-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    background-color: #FFFFFF;  /* CAMBIADO A BLANCO */
+    width: 38px;  /* Ancho fijo */
+    height: 38px; /* Alto fijo */
+    border-radius: 50%; /* Hacerlo un círculo */
+    margin-top: -19px; /* Superposición (mitad de la altura) */
+    z-index: 2;
+    position: relative; /* Para el z-index */
+    transition: all 0.3s ease; /* Transición general */
+    border: 2px solid #fff; /* Borde blanco para separarlo */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Sombra sutil */
+}
+
+.instagram-click-link img {
+    width: 100%; /* Tamaño de la imagen dentro del círculo */
+    height: 80%;
+    object-fit: contain;
+
+}
+
+.instagram-click-link:hover {
+    background-color: #f4f4f4; /* CAMBIADO A GRIS CLARO */
 }

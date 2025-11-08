@@ -100,8 +100,8 @@
                 <div class="border-b border-gray-300 flex justify-center space-x-4 sm:space-x-8 mb-8">
                     <button data-plan="semilla" class="plan-tab pb-2 text-gray-500 tab-active">🌱 Semilla</button>
                     <button data-plan="brote" class="plan-tab pb-2 text-gray-500">🌿 Brote</button>
-                    <button data-plan="raiz" class="plan-tab pb-2 text-gray-500">🌳 Raíz</button>
-                    <button data-plan="bosque" class="plan-tab pb-2 text-gray-500">🌲 Bosque</button>
+                    <button data-plan="raiz" class="plan-tab pb-2 text-gray-500">🪴 Raíz</button>
+                    <button data-plan="bosque" class="plan-tab pb-2 text-gray-500">🌳 Bosque</button>
                 </div>
                 <div id="details-content" class="max-w-4xl mx-auto">
                 </div>
@@ -162,8 +162,8 @@
                         <select id="plan-interest" name="plan-interest" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-primary focus:border-brand-primary">
                             <option value="semilla">🌱 Plan Semilla</option>
                             <option value="brote">🌿 Plan Brote</option>
-                            <option value="raiz">🌳 Plan Raíz</option>
-                            <option value="bosque">🌲 Plan Bosque</option>
+                            <option value="raiz">🪴 Plan Raíz</option>
+                            <option value="bosque">🌳 Plan Bosque</option>
                         </select>
                     </div>
                     
@@ -235,8 +235,9 @@
                     '15% de descuento en servicios y eventos seleccionados'
                 ]
             },
+            // ===== EMOJI ACTUALIZADO AQUÍ =====
             raiz: {
-                name: '🌳 Plan Raíz',
+                name: '🪴 Plan Raíz',
                 idealFor: 'Artistas activos que buscan consolidar su presencia.',
                 prices: { founder: 950000, regular: 1100000 },
                 saving: 2550000,
@@ -250,8 +251,9 @@
                     'Acceso preferencial sin costo a encuentros de miembros'
                 ]
             },
+            // ===== EMOJI ACTUALIZADO AQUÍ =====
             bosque: {
-                name: '🌲 Plan Bosque',
+                name: '🌳 Plan Bosque',
                 idealFor: 'Artistas profesionales, colectivos o proyectos con actividad constante.',
                 prices: { founder: 1500000, regular: 1850000 },
                 saving: 7100000,
@@ -271,8 +273,6 @@
         let myChart;
         let currentPriceType = 'founder';
         
-        // --- SECCIÓN DE API KEY Y FUNCIONES DE IA ELIMINADAS ---
-
         const formatCurrency = (value) => new Intl.NumberFormat('es-PY', { style: 'currency', currency: 'PYG', maximumFractionDigits: 0 }).format(value);
 
         const renderChart = (priceType) => {
@@ -293,15 +293,15 @@
                         {
                             label: 'Inversión Mensual',
                             data: investmentData,
-                            backgroundColor: '#FF6600', /* CAMBIADO: Naranja */
-                            borderColor: '#e65c00', /* CAMBIADO: Naranja oscuro */
+                            backgroundColor: '#FF6600', 
+                            borderColor: '#e65c00', 
                             borderWidth: 1
                         },
                         {
                             label: 'Ahorro Estimado',
                             data: savingsData,
-                            backgroundColor: '#333333', /* CAMBIADO: Gris oscuro */
-                            borderColor: '#000000', /* CAMBIADO: Negro */
+                            backgroundColor: '#333333', 
+                            borderColor: '#000000', 
                             borderWidth: 1
                         }
                     ]
@@ -313,8 +313,10 @@
                         y: {
                             beginAtZero: true,
                             ticks: {
+                                // ===== FORMATO DE GRÁFICO ACTUALIZADO AQUÍ =====
                                 callback: function(value, index, values) {
-                                    return value / 1000 + 'K';
+                                    // Formatea el número con separadores de miles para Paraguay
+                                    return new Intl.NumberFormat('es-PY').format(value);
                                 }
                             }
                         }
@@ -328,6 +330,7 @@
                                         label += ': ';
                                     }
                                     if (context.parsed.y !== null) {
+                                        // Usa la función formatCurrency que ya incluye "Gs." o "PYG"
                                         label += formatCurrency(context.parsed.y);
                                     }
                                     return label;
@@ -346,7 +349,6 @@
             const plan = plansData[planKey];
             const contentEl = document.getElementById('details-content');
             
-            // --- BOTÓN DE AUDIO ELIMINADO ---
             let audioButtonHtml = ''; 
 
             contentEl.innerHTML = `
@@ -373,10 +375,7 @@
                 </div>
             `;
             
-            // --- LISTENER DE BOTÓN DE AUDIO ELIMINADO ---
         };
-
-        // --- FUNCIONES DE IA Y TTS ELIMINADAS ---
 
         document.addEventListener('DOMContentLoaded', () => {
             renderChart(currentPriceType);
@@ -389,8 +388,6 @@
             const successMessage = document.getElementById('form-success');
             const errorMessage = document.getElementById('form-error'); 
             
-            // --- LISTENER DE BOTÓN DE IA ELIMINADO ---
-
             const spotsLeftEl = document.getElementById('spots-left');
             let spots = 20;
             const interval = setInterval(() => {
@@ -428,8 +425,6 @@
                     renderPlanDetails(planKey);
                 });
             });
-
-            // --- LISTENER DE BOTÓN DE IA ELIMINADO ---
 
             form.addEventListener('submit', async (e) => {
                 e.preventDefault(); 
