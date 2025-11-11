@@ -373,7 +373,7 @@ header nav .texto-medio a {
 
 /* REGLA ORIGINAL MODIFICADA */
 #sugerencias .contact_form {
-  width: 60%;
+  width: 100%;
   margin: 0 auto; /* Margin 0 auto para centrar en móvil */
   padding-left: 10px;
   padding-right: 10px;
@@ -387,7 +387,7 @@ header nav .texto-medio a {
 }
 #sugerencias .contact_form input,
 #sugerencias .contact_form textarea {
-  width: 90%;
+  width: 100%;
 }
 #sugerencias .contact_form button {
   width: 100%;
@@ -1255,7 +1255,7 @@ AÑADIDO: NUEVOS ESTILOS PARA PÁGINA DE CONTACTO (sugerencias.html)
 
 /* 3. Columna individual (ahora es un flex container) */
 .contacto-columna {
-    width: 80%;
+    width: 90%;
     height: 80%; /* Permite que la columna se estire */
     display: flex; 
     flex-direction: column;
