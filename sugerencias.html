@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contacta con PulsArt Media. Envíanos tu consulta, llámanos o visita nuestra oficina. Estamos listos para ayudarte.">
+    
     <title>Contacto - PulsArt Media</title>
     <link rel="stylesheet" href="css/style.css">
     
@@ -47,104 +49,146 @@
           </div>
     </nav>
     </header>
-    <section id="sugerencias">
-      
-    <div class="contact_form">
-      <div class="formulario">
-          <h2>Contacto</h2>
-          <h3>Envíanos un mensaje:</h3>
 
-          <form id="sugerencia-form" action="https://formspree.io/f/mjkpqrzn" method="POST">
-              <p>
-                  <label for="nombre" class="colocar_nombre">Nombre
-                      <span class="obligatorio">*</span>
-                  </label>
-                  <input type="text" name="introducir_nombre" id="nombre" required="obligatorio" placeholder="Escribe tu nombre">
-              </p>
+    <section class="nosotros" id="sugerencias">
+        
+        <h1 class="page-title">Contacto</h1>
 
-              <p>
-                  <label for="email" class="colocar_email">Email
-                      <span class="obligatorio">*</span>
-                  </label>
-                  <input type="email" name="introducir_email" id="email" required="obligatorio" placeholder="Escribe tu Email">
-              </p>
+        <div class="contacto-grid">
+            
+            <div class="contacto-columna">
+                <div class="contact_form">
+                    <div class="formulario">
+                        <h2>Contacto</h2> <h3>Envíanos un mensaje:</h3>
 
-              <p>
-                  <label for="mensaje" class="colocar_mensaje">Mensaje
-                      <span class="obligatorio">*</span>
-                  </label>
-                  <textarea name="introducir_mensaje" class="texto_mensaje" id="mensaje" required="obligatorio" placeholder="Deja aquí tu comentario..."></textarea>
-              </p>
+                        <form id="sugerencia-form" action="https://formspree.io/f/mjkpqrzn" method="POST">
+                            <p>
+                                <label for="nombre" class="colocar_nombre">Nombre
+                                    <span class="obligatorio">*</span>
+                                </label>
+                                <input type="text" name="introducir_nombre" id="nombre" required="obligatorio" placeholder="Escribe tu nombre">
+                            </p>
+                            <p>
+                                <label for="email" class="colocar_email">Email
+                                    <span class="obligatorio">*</span>
+                                </label>
+                                <input type="email" name="introducir_email" id="email" required="obligatorio" placeholder="Escribe tu Email">
+                            </p>
 
-              <button type="submit" name="enviar_formulario" id="enviar"><p>Enviar</p></button>
+                            <p>
+                                <label for="motivo" class="colocar_motivo">Motivo de Contacto
+                                    <span class="obligatorio">*</span>
+                                </label>
+                                <select name="motivo_contacto" id="motivo" required="obligatorio">
+                                    <option value="" disabled selected>Selecciona un motivo...</option>
+                                    <option value="cotizacion_servicios">Cotización de Servicios</option>
+                                    <option value="catalogo_artistas">Catálogo de Artistas</option>
+                                    <option value="membresias_360">Membresías 360°</option>
+                                    <option value="consulta_general">Consulta General</option>
+                                    <option value="otro">Otro</option>
+                                </select>
+                            </p>
 
-              <p class="aviso">
-                  <span class="obligatorio"> * </span>los campos son obligatorios.
-              </p>
+                            <p>
+                                <label for="mensaje" class="colocar_mensaje">Mensaje
+                                    <span class="obligatorio">*</span>
+                                </label>
+                                <textarea name="introducir_mensaje" class="texto_mensaje" id="mensaje" required="obligatorio" placeholder="Deja aquí tu comentario..."></textarea>
+                            </p>
 
-          </form>
-          
-          <div id="form-success" style="display: none;">
-              ¡Gracias! Hemos recibido tu mensaje. Te contactaremos muy pronto.
-          </div>
-          <div id="form-error" style="display: none;">
-              Hubo un error al enviar tu mensaje. Por favor, revisa tus datos e intenta de nuevo.
-          </div>
+                            <button type="submit" name="enviar_formulario" id="enviar"><p>Enviar</p></button>
 
-      </div>
-  </div>
+                            <p class="aviso">
+                                <span class="obligatorio"> * </span>los campos son obligatorios.
+                            </p>
+                        </form>
+                        
+                        <div id="form-success" style="display: none;">
+                            ¡Gracias! Hemos recibido tu mensaje. Te contactaremos muy pronto.
+                        </div>
+                        <div id="form-error" style="display: none;">
+                            Hubo un error al enviar tu mensaje. Por favor, revisa tus datos e intenta de nuevo.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contacto-columna info-columna">
+                <h3>Información de Contacto</h3>
+                <p>
+                    Puedes usar el formulario o contactarnos directamente por estos medios. ¡Estamos para ayudarte a impulsar tu proyecto!
+                </p>
+                <p>
+                    <strong><i class="fab fa-whatsapp"></i> Teléfono:</strong> 
+                    <a href="tel:+595982250227">+595 982-250-227</a>
+                </p>
+                <p>
+                    <strong><i class="far fa-envelope"></i> Email:</strong> 
+                    <a href="mailto:PulsArtmediapy@gmail.com">PulsArtmediapy@gmail.com</a>
+                </p>
+                <p>
+                    <strong><i class="far fa-building"></i> Dirección:</strong> 
+                    ROMA 857 - Asunción, Paraguay
+                </p>
+                <p>
+                    <strong><i class="far fa-clock"></i> Horario de Atención:</strong> 
+                    Lunes a Viernes de 9:00 a 18:00 hs.
+                </p>
+
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3607.351644788574!2d-57.6276721245585!3d-25.29215353112117!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x945da7e1893335e9%3A0x67537574761bc99e!2sRoma%20857%2C%20Asunci%C3%B3n%2C%20Paraguay!5e0!3m2!1ses!2s!4v1731340158434!5m2!1ses!2s" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+
+        </div>
+    </section>
+        
+    <footer id="pie">
+      <div class="container__footer">
+            <div class="box__footer">
+                <a href="index.html" class="logo" >
+                    <img src="img/pulsart-logo.png" alt="">
+                </a>
+                <div class="terms">
+                    <p><b>
+                        Somos una empresa enfocada en proteger y fortalecer ideas, resolviendo los inconvenientes acorde a la necesidad del cliente.
+                    </b></p>
+                    <p class="slogan-footer"><b>¡¡PulsArt Media, tu medio, tu impulso!!</b></p>
+                </div>
+            </div>
     
-  </section>
-        <footer  id="pie">
-          <div class="container__footer">
-              <div class="box__footer">
-                  <a href="index.html" class="logo" >
-                      <img src="img/pulsart-logo.png" alt="">
-                    </a>
-                  <div class="terms">
-                      <p><b>
-                         Somos una empresa enfocada en proteger y fortalecer ideas, resolviendo los inconvenientes acorde a la necesidad del cliente.
-                        </b></p>
-                      <p class="slogan-footer"><b>¡¡PulsArt Media, tu medio, tu impulso!!</b></p>
-                  </div>
-              </div>
-        
-             
-        
-              <div class="box__footer">
-                  <h2>Temas de Interés</h2>
-                  <a href="index.html"><u>Inicio</u></a>
-                  <a href="servicios.html"><u>Servicios</u></a>
-                  <a href="integrantes.html"><u>Equipo</u></a>
-                  <a href="galeria-imagenes.html"><u>Artistas</u></a>
-                  <a href="pulsart-crear.html"><u>Membresías 360°</u></a>
-                  <a href="sugerencias.html"><u>Contacto</u></a>
-              </div>
-              
-              <div class="box__footer">
-                  <h2>Redes Sociales</h2>
-                  <a href="https://www.instagram.com/pulsart.mediapy" target="_blank"><i class="fab fa-instagram-square"></i> Instagram</a>
-              </div>
-        
-              <div class="box__footer">
+            <div class="box__footer">
+                <h2>Temas de Interés</h2>
+                <a href="index.html"><u>Inicio</u></a>
+                <a href="servicios.html"><u>Servicios</u></a>
+                <a href="integrantes.html"><u>Equipo</u></a>
+                <a href="galeria-imagenes.html"><u>Artistas</u></a>
+                <a href="pulsart-crear.html"><u>Membresías 360°</u></a>
+                <a href="sugerencias.html"><u>Contacto</u></a>
+            </div>
+            
+            <div class="box__footer">
+                <h2>Redes Sociales</h2>
+                <a href="https://www.instagram.com/pulsart.mediapy" target="_blank"><i class="fab fa-instagram-square"></i> Instagram</a>
+            </div>
+    
+            <div class="box__footer">
                 <h2>Contactenos</h2>
                 <a href="mailto:PulsArtmediapy@gmail.com">PulsArtmediapy@gmail.com</a>
                 <a href="tel:+595982250227">+595 982-250-227</a>
                 <a href="https://goo.gl/maps/CUuVMK8fEQvbxnjZ7">ROMA 857 - Asunción</a>
             </div>
-        
-          </div>
-        
-          <div class="box__copyright">
-              <hr>
-              <p>Todos los derechos reservados © 2025 <b>PulsArt Media</b></p>
-          </div>
-        
-        </footer>
-        <script src="js/script.js"></script>
-
-  <a href="https://api.whatsapp.com/send?phone=595982250227&text=Hola,%20quisiera%20hacer%20una%20consulta." class="whatsapp-float" target="_blank">
-    <img src="img/whatsapp.png" alt="WhatsApp" class="whatsapp-icon">
-  </a>
+        </div>
+    
+        <div class="box__copyright">
+            <hr>
+            <p>Todos los derechos reservados © 2025 <b>PulsArt Media</b></p>
+        </div>
+    </footer>
+    
+    <script src="js/script.js"></script>
+    <a href="https://api.whatsapp.com/send?phone=595982250227&text=Hola,%20quisiera%20hacer%20una%20consulta." class="whatsapp-float" target="_blank">
+        <img src="img/whatsapp.png" alt="WhatsApp" class="whatsapp-icon">
+    </a>
 </body>
 </html>

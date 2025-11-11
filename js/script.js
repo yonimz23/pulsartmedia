@@ -69,8 +69,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
 
                 if (response.ok) {
-                    sugerenciaForm.style.display = 'none';
+                    // RECOMENDACIÓN: No ocultar el formulario, solo resetearlo
+                    // sugerenciaForm.style.display = 'none'; // <-- LÍNEA ORIGINAL COMENTADA
+                    sugerenciaForm.reset(); // <-- LÍNEA AÑADIDA
+                    
                     if (successMessage) successMessage.style.display = 'block';
+                    
+                    // RECOMENDACIÓN: Restaurar el botón también en caso de éxito
+                    submitButton.disabled = false;
+                    if(buttonTextElement) buttonTextElement.textContent = originalButtonText;
+
                 } else {
                     if (errorMessage) errorMessage.style.display = 'block';
                     submitButton.disabled = false;

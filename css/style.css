@@ -198,12 +198,14 @@ a {
     padding-bottom:0px;
   }
 
+  /* REGLA ORIGINAL MODIFICADA */
   #sugerencias .contact_form {
     width: 90%;
-    margin: 30px auto;
+    margin: 0 auto; /* Margin 0 auto para centrar en móvil */
     padding-left: 15px;
     padding-right: 15px;
   }
+  
   #sugerencias .contact_form button {
     width: 100%;
   }
@@ -369,9 +371,10 @@ header nav .texto-medio a {
   height: auto;
 }
 
+/* REGLA ORIGINAL MODIFICADA */
 #sugerencias .contact_form {
-  width: 90%;
-  margin: 30px auto;
+  width: 60%;
+  margin: 0 auto; /* Margin 0 auto para centrar en móvil */
   padding-left: 10px;
   padding-right: 10px;
 }
@@ -384,7 +387,7 @@ header nav .texto-medio a {
 }
 #sugerencias .contact_form input,
 #sugerencias .contact_form textarea {
-  width: 100%;
+  width: 90%;
 }
 #sugerencias .contact_form button {
   width: 100%;
@@ -630,30 +633,40 @@ nav .boton-mas button:focus {
 
 /* SECCIÓN CARRUSEL Y SERVICIOS FLOTANTES - ELIMINADAS */
 
-/*SECCION DE SUGERENCIAS (CONTACTO)*/
+/*
+=================================================================
+SECCION DE SUGERENCIAS (CONTACTO) - ¡MODIFICADA!
+=================================================================
+*/
 #sugerencias {
-  padding-top: 100px; /* <-- AUMENTADO DE 70px A 100px */
+  padding-top: 100px; 
   width: 100%;
-  height: 100vh; 
+  min-height: 80vh; /* Se usa min-height para que la página sea flexible */
   font-family: 'Montserrat', sans-serif;
-  display: flex;
-  align-items: center; 
-  justify-content: center; 
   background-color: #f9f9f9; /* Fondo gris claro para la página */
+  padding-bottom: 100px; /* Espacio extra al final */
+  /* Se eliminó display:flex, align-items y justify-content para permitir el flujo natural */
 }
 #sugerencias .imagen-fondo {
   display: none; 
 }
+
+/* .contact_form AHORA ES UN CONTENEDOR FLEXIBLE */
 .contact_form {
-  width: 500px;
-  height: auto;
-  margin: 0; 
+  width: 100%; /* MODIFICADO: Ocupa el 100% de su columna */
+  height: 100%; /* MODIFICADO: Ocupa el 100% de su columna */
+  margin: 0; /* MODIFICADO: Se quita el margen para que se alinee en la grilla */
   border-radius: 10px;
   padding: 30px;
   background-color: #FFFFFF; /* Formulario Blanco */
   border: 1px solid #dddddd; 
   box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Sombra suave */
+  
+  /* AÑADIDO: Propiedades Flex para estirar el contenido */
+  display: flex;
+  flex-direction: column;
 }
+
 .contact_form input {
   background-color: #FFFFFF; 
   width: 90%;
@@ -671,7 +684,7 @@ nav .boton-mas button:focus {
 .contact_form textarea {
   background-color: #FFFFFF;
   width: 90%;
-  height: 150px;
+  height: 150px; /* Esta altura será la mínima, pero crecerá si es necesario */
   border-radius: 5px;
   border-style: solid;
   border-width: 1px;
@@ -721,12 +734,13 @@ font-size: 1rem;
   padding-bottom: 20px;
    color: #FF6600; /* Naranja */
    font-weight: 900; /* Extra-Negrita */
+   display: none; /* AÑADIDO: Oculta el h2 de "Contacto" dentro del form */
 }
 .contact_form h3 {
   font-size: 16px;
   padding-bottom: 30px;
   color: #000000; 
-  text-align: center;
+  text-align: left; /* MODIFICADO: Alineado a la izquierda */
 }
 .contact_form p {
   font-size: 14px;
@@ -1212,4 +1226,127 @@ h3 .instagram-link:hover {
 
 .instagram-click-link:hover {
     background-color: #f4f4f4; /* CAMBIADO A GRIS CLARO */
+}
+
+
+/*
+=================================================================
+AÑADIDO: NUEVOS ESTILOS PARA PÁGINA DE CONTACTO (sugerencias.html)
+=================================================================
+*/
+
+/* 1. La Grilla de Contacto */
+.contacto-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* 1 columna por defecto (móvil) */
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 2. Media Query para pantallas más grandes (tablets y escritorio) */
+@media (min-width: 900px) {
+    .contacto-grid {
+        grid-template-columns: 1fr 1fr; /* 2 columnas iguales */
+        align-items: start; /* Alinea ambas columnas en la parte superior */
+    }
+}
+
+/* 3. Columna individual (ahora es un flex container) */
+.contacto-columna {
+    width: 80%;
+    height: 80%; /* Permite que la columna se estire */
+    display: flex; 
+    flex-direction: column;
+}
+
+/* 4. Hacemos que el div .formulario se estire */
+.contact_form .formulario {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    flex-grow: 1; /* Crece para llenar .contact_form */
+}
+
+/* 5. Hacemos que la etiqueta <form> se estire */
+.contact_form .formulario form {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    flex-grow: 1; /* Crece para llenar .formulario */
+}
+
+/* 6. Hacemos que el <p> que contiene el textarea crezca */
+.contact_form .formulario p:has(textarea.texto_mensaje) {
+    flex-grow: 1; /* ¡CLAVE! Este <p> se estira para llenar el formulario */
+    display: flex;
+    flex-direction: column;
+}
+
+/* 7. Hacemos que el textarea llene el <p> que ahora es flexible */
+.contact_form .formulario .texto_mensaje {
+    flex-grow: 1; /* El textarea se estira verticalmente */
+    min-height: 150px; /* Le damos una altura mínima por si acaso */
+    height: 100%;
+}
+
+/* 8. Estilos para la Columna de Información */
+.info-columna {
+    /* Esta columna no necesita estirarse, solo la del formulario */
+}
+.info-columna h3 {
+    font-size: 1.8rem;
+    color: #FF6600;
+    margin-bottom: 20px;
+}
+.info-columna p {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    color: #333; /* Texto un poco más suave */
+}
+.info-columna p strong {
+    color: #000;
+    font-weight: 700;
+}
+.info-columna a {
+    color: #FF6600;
+    font-weight: 600;
+}
+.map-container {
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #eee;
+    margin-top: 20px;
+}
+.map-container iframe {
+    width: 100%;
+    height: 300px;
+    border: 0;
+}
+
+/* 9. Estilo para el <select> del formulario */
+#motivo {
+    width: 90%; 
+    height: 40px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    background: #fff; 
+    padding-left: 10px; 
+    margin-top: 10px; 
+    margin-bottom: 20px; 
+    font-family: 'Montserrat', sans-serif;
+    color: #000; /* Texto del select en negro */
+}
+/* Arreglo para placeholder de select (se vea gris al inicio) */
+#motivo:required:invalid {
+  color: #a8a8a8;
+}
+#motivo option[value=""][disabled] {
+  display: none;
+}
+#motivo option {
+  color: #000;
 }
