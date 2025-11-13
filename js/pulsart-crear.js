@@ -20,7 +20,7 @@ const plansData = {
         planKey: 'brote',
         features: [
             '1 asesoría integral semestral de 2 horas',
-            'Registro de hasta 1 expediente al mes (hasta 10 obras)',
+            'Registro de obras de 1 expediente de forma semestral (hasta 10 obras)',
             '2 horas de uso de sala taller o estudio',
             '1 asesoría básica sobre redes sociales o identidad visual',
             '15% de descuento en servicios y eventos seleccionados'
@@ -35,7 +35,7 @@ const plansData = {
         planKey: 'raiz',
         features: [
             'Asesoría integral semestral + seguimiento creativo',
-            'Registro de hasta 2 expedientes al mes (hasta 20 obras)',
+            'Registro de obras de 2 expedientes de forma semestral (hasta 20 obras)',
             '1 sesión fotográfica de estudio (80 fotos) y video promocional',
             '3 horas de uso de sala taller o estudio',
             'Asesoría sobre redes y estrategia digital + seguimiento',
@@ -51,7 +51,7 @@ const plansData = {
         planKey: 'bosque',
         features: [
             'Asesoría integral trimestral + Acompañamiento mensual',
-            'Registro de hasta 4 expedientes de obras mensuales',
+            'Registro de obras de 4 expedientes de forma semestral',
             '4 horas de uso de sala taller o estudio',
             '1 sesión audiovisual completa (foto o video de campaña)',
             'Representación en eventos/booking (según condiciones)',

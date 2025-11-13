@@ -148,16 +148,21 @@ a {
     overflow-x: hidden;
   }
 
+  /* REGLA CORREGIDA */
   #inicio .bloque-inicio {
-    top: 55%;  /* <-- CAMBIADO DE 50% A 55% */
-    left: 10%;
-    width: 80%;
+    top: 100px; /* Posición fija desde arriba (para dejar espacio a la nav) */
+    left: 50%; /* Centrado horizontal */
+    width: 90%; /* Ancho responsivo */
+    transform: translateX(-50%); /* Centrado horizontal */
     text-align: center;
-    margin-left: 0;
     background-color: rgba(255, 255, 255, 0.85);
     padding: 15px;
     border-radius: 10px;
+    margin-left: 0; /* Anulado */
+    max-height: calc(100vh - 130px); /* Altura máxima */
+    overflow-y: auto; /* Scroll si es necesario */
   }
+  
   #inicio .bloque-inicio h1 {
     font-size: 24px;
   }
@@ -287,13 +292,18 @@ a {
     overflow-x: hidden;
   }
 
+  /* REGLA CORREGIDA */
   #inicio .bloque-inicio {
-    top: 55%;  /* <-- CAMBIADO DE 50% A 55% */
-    left: 10%;
-    width: 80%;
+    top: 100px; /* Posición fija desde arriba */
+    left: 50%; /* Centrado horizontal */
+    width: 90%; /* Ancho responsivo */
+    transform: translateX(-50%); /* Centrado horizontal */
     text-align: center;
-    margin-left: 0;
+    margin-left: 0; /* Anulado */
+    max-height: calc(100vh - 130px); /* Altura máxima */
+    overflow-y: auto; /* Scroll si es necesario */
   }
+  
   #inicio .bloque-inicio h1 {
     font-size: 1.5rem !important; /* Tamaño responsivo */
   }
@@ -600,18 +610,26 @@ nav .boton-mas button:focus {
   height: 100vh;
   overflow: hidden;
 }
+
+/* ================================================= */
+/* REGLA CORREGIDA PARA .bloque-inicio (ESCRITORIO)  */
+/* ================================================= */
 #inicio .bloque-inicio {
   position: absolute;
-  top: 55%;  /* <-- CAMBIADO DE 50% A 55% */
+  top: 100px; /* 1. Posición fija desde arriba (para navbar) */
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%); /* 2. Centrado solo horizontal */
   text-align: center;
-  color: #000000; /* Texto Negro */
+  color: #000000; 
   padding: 30px;
-  background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semi-transparente */
+  background-color: rgba(255, 255, 255, 0.8); 
   border-radius: 10px;
   max-width: 900px; 
+  width: 90%; /* 3. Ancho responsivo */
+  max-height: calc(100vh - 130px); /* 4. Altura máxima (deja 100px arriba, 30px abajo) */
+  overflow-y: auto; /* 5. Añade scroll si el contenido es muy alto */
 }
+
 #inicio .bloque-inicio p {
   font-family: 'Montserrat', sans-serif;
   font-size: 1.1rem; 
@@ -621,14 +639,14 @@ nav .boton-mas button:focus {
 #inicio .bloque-inicio h1 {
   font-family: 'Montserrat', sans-serif; 
   font-size: 3rem; 
-  color: #FF6600; /* ***** COLOR CAMBIADO A NARANJA ***** */
+  color: #FF6600; 
   text-shadow: none; 
   margin-bottom: 25px;
-  font-weight: 900; /* Extra-Negrita */
+  font-weight: 900; 
 }
 /* --- REGLA DEL LOGO PRINCIPAL EN #inicio ELIMINADA --- */
 #inicio .bloque-inicio .inicio-logo-circular {
-  display: none; /* Logo principal oculto según tu solicitud */
+  display: none; 
 }
 
 /* SECCIÓN CARRUSEL Y SERVICIOS FLOTANTES - ELIMINADAS */
@@ -1255,10 +1273,11 @@ AÑADIDO: NUEVOS ESTILOS PARA PÁGINA DE CONTACTO (sugerencias.html)
 
 /* 3. Columna individual (ahora es un flex container) */
 .contacto-columna {
-    width: 90%;
-    height: 80%; /* Permite que la columna se estire */
+    width: 100%; /* MODIFICADO: De 90% a 100% para llenar la celda de la grilla */
+    height: 100%; /* Permite que la columna se estire */
     display: flex; 
     flex-direction: column;
+    box-sizing: border-box; /* Importante para que el padding no rompa el ancho */
 }
 
 /* 4. Hacemos que el div .formulario se estire */
@@ -1292,9 +1311,6 @@ AÑADIDO: NUEVOS ESTILOS PARA PÁGINA DE CONTACTO (sugerencias.html)
 }
 
 /* 8. Estilos para la Columna de Información */
-.info-columna {
-    /* Esta columna no necesita estirarse, solo la del formulario */
-}
 .info-columna h3 {
     font-size: 1.8rem;
     color: #FF6600;
@@ -1314,14 +1330,14 @@ AÑADIDO: NUEVOS ESTILOS PARA PÁGINA DE CONTACTO (sugerencias.html)
     color: #FF6600;
     font-weight: 600;
 }
-.map-container {
+.info-columna .map-container {
     width: 100%;
     border-radius: 10px;
     overflow: hidden;
     border: 1px solid #eee;
     margin-top: 20px;
 }
-.map-container iframe {
+.info-columna .map-container iframe {
     width: 100%;
     height: 300px;
     border: 0;
@@ -1349,4 +1365,120 @@ AÑADIDO: NUEVOS ESTILOS PARA PÁGINA DE CONTACTO (sugerencias.html)
 }
 #motivo option {
   color: #000;
+}
+
+/*
+=================================================================
+AÑADIDO: CORRECCIÓN PARA LISTA EN EL INDEX
+=================================================================
+*/
+.bloque-inicio ul.servicios-lista-inicio {
+  list-style: disc; /* Usa viñetas de disco */
+  text-align: left;  /* Alinea la lista a la izquierda */
+  
+  /* Ajusta el padding para que se alinee con el texto de arriba */
+  padding-left: 40px; 
+  
+  margin-bottom: 20px; /* Espacio después de la lista */
+  font-size: 1.1rem; /* Mismo tamaño de fuente que los párrafos */
+  line-height: 1.6;  /* Mismo interlineado */
+  color: #000000; /* Asegura que el texto sea negro */
+}
+
+.bloque-inicio ul.servicios-lista-inicio li {
+  margin-bottom: 5px; /* Espacio entre cada item de la lista */
+}
+/*
+=================================================================
+AÑADIDO: NUEVOS ESTILOS PARA PÁGINA DE PROYECTOS (proyectos.html)
+=================================================================
+*/
+
+/* 1. La grilla de 2 columnas para los proyectos */
+.proyectos-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* 1 columna en móvil */
+    gap: 30px; /* Espacio entre tarjetas */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 2. Media Query para que sean 2 columnas en pantallas más grandes */
+@media (min-width: 768px) {
+    .proyectos-grid {
+        grid-template-columns: 1fr 1fr; /* 2 columnas */
+    }
+}
+
+/* 3. La tarjeta de proyecto individual */
+.proyecto-card {
+    background-color: #FFFFFF;
+    border: 1px solid #eeeeee;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    overflow: hidden; /* Asegura que la imagen no se salga */
+    display: flex;
+    flex-direction: column;
+}
+
+.proyecto-card img {
+    width: 100%;
+    height: 250px; /* Altura fija para la imagen del proyecto */
+    object-fit: cover; /* La imagen cubre el espacio */
+    border-bottom: 1px solid #eee;
+}
+
+/* 4. Contenido de texto de la tarjeta */
+.proyecto-card-content {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Hace que la tarjeta crezca para igualar la altura */
+}
+
+/* 5. Etiqueta de categoría */
+.proyecto-card-tag {
+    display: inline-block;
+    background-color: #FF6600;
+    color: #FFFFFF;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    align-self: flex-start; /* Se alinea a la izquierda */
+}
+
+.proyecto-card-content h3 {
+    font-size: 1.5rem;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.proyecto-card-content p {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.6;
+    flex-grow: 1; /* Empuja el link de abajo hacia el final */
+    margin-bottom: 20px;
+}
+
+/* 6. Link para "Ver Proyecto" */
+.proyecto-card-link {
+    color: #FF6600;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.proyecto-card-link:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+.proyecto-card-link i {
+    font-size: 0.8em;
+    margin-left: 5px;
 }
