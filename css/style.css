@@ -1311,6 +1311,9 @@ AÑADIDO: NUEVOS ESTILOS PARA PÁGINA DE CONTACTO (sugerencias.html)
 }
 
 /* 8. Estilos para la Columna de Información */
+.info-columna {
+    /* Esta columna no necesita estirarse, solo la del formulario */
+}
 .info-columna h3 {
     font-size: 1.8rem;
     color: #FF6600;
@@ -1388,6 +1391,7 @@ AÑADIDO: CORRECCIÓN PARA LISTA EN EL INDEX
 .bloque-inicio ul.servicios-lista-inicio li {
   margin-bottom: 5px; /* Espacio entre cada item de la lista */
 }
+
 /*
 =================================================================
 AÑADIDO: NUEVOS ESTILOS PARA PÁGINA DE PROYECTOS (proyectos.html)
@@ -1422,11 +1426,20 @@ AÑADIDO: NUEVOS ESTILOS PARA PÁGINA DE PROYECTOS (proyectos.html)
     flex-direction: column;
 }
 
+/*
+=================================================================
+¡AQUÍ ESTÁ LA CORRECCIÓN!
+=================================================================
+*/
 .proyecto-card img {
-    width: 100%;
-    height: 250px; /* Altura fija para la imagen del proyecto */
-    object-fit: cover; /* La imagen cubre el espacio */
+    width: 50%; /* 1. Reducido para que no ocupe todo el ancho */
+    height: 250px; 
+    object-fit: cover; 
     border-bottom: 1px solid #eee;
+    
+    /* 2. Añadido para centrar y dar espacio */
+    margin: 15px auto 0 auto; /* 15px de margen superior, centrado horizontal */
+    border-radius: 5px; /* Bordes redondeados */
 }
 
 /* 4. Contenido de texto de la tarjeta */
