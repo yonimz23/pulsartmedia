@@ -150,17 +150,18 @@ a {
 
   /* REGLA CORREGIDA */
   #inicio .bloque-inicio {
-    top: 100px; /* Posición fija desde arriba (para dejar espacio a la nav) */
-    left: 50%; /* Centrado horizontal */
-    width: 90%; /* Ancho responsivo */
-    transform: translateX(-50%); /* Centrado horizontal */
+    position: relative; /* <-- CAMBIADO DE ABSOLUTE A RELATIVE */
+    top: 0; /* <-- ELIMINADO top: 100px; */
+    left: 0; /* <-- ELIMINADO left: 50%; */
+    width: 90%; 
+    transform: none; /* <-- ELIMINADO transform: translateX(-50%); */
     text-align: center;
     background-color: rgba(255, 255, 255, 0.85);
     padding: 15px;
     border-radius: 10px;
-    margin-left: 0; /* Anulado */
-    max-height: calc(100vh - 130px); /* Altura máxima */
-    overflow-y: auto; /* Scroll si es necesario */
+    margin: 0 auto; /* <-- AÑADIDO: para centrar el bloque */
+    max-height: none; /* <-- ELIMINADO max-height */
+    overflow-y: visible; /* <-- ELIMINADO overflow-y: auto */
   }
   
   #inicio .bloque-inicio h1 {
@@ -294,14 +295,15 @@ a {
 
   /* REGLA CORREGIDA */
   #inicio .bloque-inicio {
-    top: 100px; /* Posición fija desde arriba */
-    left: 50%; /* Centrado horizontal */
-    width: 90%; /* Ancho responsivo */
-    transform: translateX(-50%); /* Centrado horizontal */
+    position: relative; /* <-- CAMBIADO DE ABSOLUTE A RELATIVE */
+    top: 0; /* <-- ELIMINADO top: 100px; */
+    left: 0; /* <-- ELIMINADO left: 50%; */
+    width: 90%; 
+    transform: none; /* <-- ELIMINADO transform: translateX(-50%); */
     text-align: center;
-    margin-left: 0; /* Anulado */
-    max-height: calc(100vh - 130px); /* Altura máxima */
-    overflow-y: auto; /* Scroll si es necesario */
+    margin: 0 auto; /* <-- AÑADIDO: para centrar el bloque */
+    max-height: none; /* <-- ELIMINADO max-height */
+    overflow-y: visible; /* <-- ELIMINADO overflow-y: auto */
   }
   
   #inicio .bloque-inicio h1 {
@@ -467,6 +469,12 @@ nav {
   border-bottom: 1px solid #333; /* Borde sutil */
   min-height: 65px; /* Altura mínima para la barra */
 }
+
+/*
+=================================================================
+¡AQUÍ ESTÁ LA CORRECCIÓN! (Quitamos max-height y overflow)
+=================================================================
+*/
 nav .menu-desplegable {
   flex-direction: column;
   position: absolute;
@@ -477,10 +485,11 @@ nav .menu-desplegable {
   background-color: #1a1a1a; /* Gris oscuro */
   display: none;
   text-align: center;
-  max-height: 300px;
+  /* max-height: 300px; */  /* <-- ¡ELIMINADO! */
   max-width: 200px;
-  overflow-x: auto;
+  /* overflow-x: auto; */  /* <-- ¡ELIMINADO! */
 }
+
 nav .menu-desplegable ul {
   list-style: none;
   margin: 10px 0;
@@ -583,11 +592,16 @@ nav .boton-mas button:focus {
 }
 /* Regla de img de botón eliminada */
 
+/*
+=================================================================
+¡AQUÍ ESTÁ LA CORRECCIÓN! (Quitamos height y overflow)
+=================================================================
+*/
 .container {
   width: 100%;
-  height: 100vh;
+  /* height: 100vh; */ /* <-- ELIMINADO */
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */ /* <-- ELIMINADO */
 }
 .container .logo-imagen {
   position: absolute;
@@ -604,30 +618,42 @@ nav .boton-mas button:focus {
   object-fit: cover; 
 }
 /* SECCIÓN INICIO */
+/*
+=================================================================
+¡AQUÍ ESTÁ LA CORRECCIÓN! (Quitamos height y overflow, añadimos padding)
+=================================================================
+*/
 #inicio{
   position: relative;
   width: 100%;
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh; /* <-- CAMBIADO: Ahora es altura MÍNIMA */
+  /* height: 100vh; */ /* <-- ELIMINADO */
+  /* overflow: hidden; */ /* <-- ELIMINADO */
+  
+  /* AÑADIDO: Padding para centrar el bloque y espaciarlo */
+  padding-top: 100px; 
+  padding-bottom: 100px;
+  box-sizing: border-box; /* Asegura que el padding no desborde */
 }
 
 /* ================================================= */
 /* REGLA CORREGIDA PARA .bloque-inicio (ESCRITORIO)  */
 /* ================================================= */
 #inicio .bloque-inicio {
-  position: absolute;
-  top: 100px; /* 1. Posición fija desde arriba (para navbar) */
-  left: 50%;
-  transform: translateX(-50%); /* 2. Centrado solo horizontal */
+  position: relative; /* <-- CAMBIADO: Ya no es absoluto */
+  top: 0; /* <-- ELIMINADO top: 100px; */
+  left: 0; /* <-- ELIMINADO left: 50%; */
+  transform: none; /* <-- ELIMINADO transform: translateX(-50%); */
   text-align: center;
   color: #000000; 
   padding: 30px;
   background-color: rgba(255, 255, 255, 0.8); 
   border-radius: 10px;
   max-width: 900px; 
-  width: 90%; /* 3. Ancho responsivo */
-  max-height: calc(100vh - 130px); /* 4. Altura máxima (deja 100px arriba, 30px abajo) */
-  overflow-y: auto; /* 5. Añade scroll si el contenido es muy alto */
+  width: 90%; 
+  margin: 0 auto; /* <-- AÑADIDO: Para centrar el bloque */
+  /* max-height: calc(100vh - 130px); */ /* <-- ELIMINADO */
+  /* overflow-y: auto; */ /* <-- ELIMINADO */
 }
 
 #inicio .bloque-inicio p {
@@ -659,11 +685,10 @@ SECCION DE SUGERENCIAS (CONTACTO) - ¡MODIFICADA!
 #sugerencias {
   padding-top: 100px; 
   width: 100%;
-  min-height: 80vh; /* Se usa min-height para que la página sea flexible */
+  min-height: 80vh; 
   font-family: 'Montserrat', sans-serif;
-  background-color: #f9f9f9; /* Fondo gris claro para la página */
-  padding-bottom: 100px; /* Espacio extra al final */
-  /* Se eliminó display:flex, align-items y justify-content para permitir el flujo natural */
+  background-color: #f9f9f9; 
+  padding-bottom: 100px; 
 }
 #sugerencias .imagen-fondo {
   display: none; 
@@ -671,16 +696,15 @@ SECCION DE SUGERENCIAS (CONTACTO) - ¡MODIFICADA!
 
 /* .contact_form AHORA ES UN CONTENEDOR FLEXIBLE */
 .contact_form {
-  width: 100%; /* MODIFICADO: Ocupa el 100% de su columna */
-  height: 100%; /* MODIFICADO: Ocupa el 100% de su columna */
-  margin: 0; /* MODIFICADO: Se quita el margen para que se alinee en la grilla */
+  width: 100%; 
+  height: 100%; 
+  margin: 0; 
   border-radius: 10px;
   padding: 30px;
-  background-color: #FFFFFF; /* Formulario Blanco */
+  background-color: #FFFFFF; 
   border: 1px solid #dddddd; 
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Sombra suave */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
   
-  /* AÑADIDO: Propiedades Flex para estirar el contenido */
   display: flex;
   flex-direction: column;
 }
@@ -702,7 +726,7 @@ SECCION DE SUGERENCIAS (CONTACTO) - ¡MODIFICADA!
 .contact_form textarea {
   background-color: #FFFFFF;
   width: 90%;
-  height: 150px; /* Esta altura será la mínima, pero crecerá si es necesario */
+  height: 150px; 
   border-radius: 5px;
   border-style: solid;
   border-width: 1px;
@@ -1428,19 +1452,20 @@ AÑADIDO: NUEVOS ESTILOS PARA PÁGINA DE PROYECTOS (proyectos.html)
 
 /*
 =================================================================
-¡AQUÍ ESTÁ LA CORRECCIÓN!
+¡AQUÍ ESTÁ LA CORRECCIÓN PARA CENTRAR LA IMAGEN!
 =================================================================
 */
 .proyecto-card img {
-    width: 50%; /* 1. Reducido para que no ocupe todo el ancho */
+    width: 50%; /* 1. Ancho más pequeño */
     height: 250px; 
     object-fit: cover; 
-    border-bottom: 1px solid #eee;
     
-    /* 2. Añadido para centrar y dar espacio */
-    margin: 15px auto 0 auto; /* 15px de margen superior, centrado horizontal */
+    /* 2. Centrado y espaciado */
+    margin: 15px auto 0 auto; /* 15px arriba, auto horizontal (centrado), 0 abajo */
     border-radius: 5px; /* Bordes redondeados */
+    border-bottom: 1px solid #eee; /* Mantenemos el borde inferior */
 }
+
 
 /* 4. Contenido de texto de la tarjeta */
 .proyecto-card-content {
@@ -1448,6 +1473,9 @@ AÑADIDO: NUEVOS ESTILOS PARA PÁGINA DE PROYECTOS (proyectos.html)
     display: flex;
     flex-direction: column;
     flex-grow: 1; /* Hace que la tarjeta crezca para igualar la altura */
+    /* AÑADIDO: Centrar contenido */
+    align-items: center;
+    text-align: center;
 }
 
 /* 5. Etiqueta de categoría */
@@ -1460,7 +1488,7 @@ AÑADIDO: NUEVOS ESTILOS PARA PÁGINA DE PROYECTOS (proyectos.html)
     padding: 5px 10px;
     border-radius: 5px;
     margin-bottom: 15px;
-    align-self: flex-start; /* Se alinea a la izquierda */
+    align-self: center; /* Centrado */
 }
 
 .proyecto-card-content h3 {
