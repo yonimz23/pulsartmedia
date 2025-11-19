@@ -450,11 +450,24 @@ header nav .texto-medio a {
 .nosotros .container-curriculum .persona .curriculum-detalle.marcos_martinez h3 {
   margin-top: 15px;
 }
+
 /* AQUI ELIMINAMOS EL MARGIN-RIGHT CHE EMPUJABA EL LOGO */
   nav .logo-nav {
     margin-right: 0; 
   }
+  
+  /* =========================================================
+   * CORRECCIÓN FINAL PARA TÍTULOS GRANDES EN MÓVIL
+   * ========================================================= */
+  .nosotros .page-title {
+    font-size: 1.8rem; /* Reduce el tamaño de fuente para evitar cortes */
+    margin-top: 80px;
+    margin-bottom: 30px;
+    word-wrap: break-word; /* Permite que palabras largas bajen de línea */
+    padding: 0 15px; /* Añade espacio lateral */
+  }
 }
+
 /*Barra de navegación*/
 
 nav {
@@ -696,15 +709,16 @@ SECCION DE SUGERENCIAS (CONTACTO) - ¡MODIFICADA!
 
 /* .contact_form AHORA ES UN CONTENEDOR FLEXIBLE */
 .contact_form {
-  width: 100%; 
-  height: 100%; 
-  margin: 0; 
+  width: 100%; /* MODIFICADO: Ocupa el 100% de su columna */
+  height: 100%; /* MODIFICADO: Ocupa el 100% de su columna */
+  margin: 0; /* MODIFICADO: Se quita el margen para que se alinee en la grilla */
   border-radius: 10px;
   padding: 30px;
-  background-color: #FFFFFF; 
+  background-color: #FFFFFF; /* Formulario Blanco */
   border: 1px solid #dddddd; 
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Sombra suave */
   
+  /* AÑADIDO: Propiedades Flex para estirar el contenido */
   display: flex;
   flex-direction: column;
 }
@@ -726,7 +740,7 @@ SECCION DE SUGERENCIAS (CONTACTO) - ¡MODIFICADA!
 .contact_form textarea {
   background-color: #FFFFFF;
   width: 90%;
-  height: 150px; 
+  height: 150px; /* Esta altura será la mínima, pero crecerá si es necesario */
   border-radius: 5px;
   border-style: solid;
   border-width: 1px;
@@ -1297,7 +1311,7 @@ AÑADIDO: NUEVOS ESTILOS PARA PÁGINA DE CONTACTO (sugerencias.html)
 
 /* 3. Columna individual (ahora es un flex container) */
 .contacto-columna {
-    width: 100%; /* MODIFICADO: De 90% a 100% para llenar la celda de la grilla */
+    width: 90%; /* MODIFICADO: De 90% a 100% para llenar la celda de la grilla */
     height: 100%; /* Permite que la columna se estire */
     display: flex; 
     flex-direction: column;
@@ -1335,9 +1349,6 @@ AÑADIDO: NUEVOS ESTILOS PARA PÁGINA DE CONTACTO (sugerencias.html)
 }
 
 /* 8. Estilos para la Columna de Información */
-.info-columna {
-    /* Esta columna no necesita estirarse, solo la del formulario */
-}
 .info-columna h3 {
     font-size: 1.8rem;
     color: #FF6600;
