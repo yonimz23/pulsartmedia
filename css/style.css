@@ -1,40 +1,262 @@
+/* =========================================
+   RESETEO Y ESTILOS GLOBALES
+   ========================================= */
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box; /* CRÍTICO: Evita desbordamientos por padding */
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden; /* CRÍTICO: Elimina la franja blanca lateral */
 }
 
 body {
-    /* FUENTE PRINCIPAL ACTUALIZADA A MONTSERRAT */
     font-family: 'Montserrat', sans-serif; 
-    font-weight: 400; /* Peso regular por defecto */
-    margin: 0;
-    padding: 0;
-    background-color: #FFFFFF; /* Fondo Blanco */
-    color: #000000; /* Texto Negro */
+    font-weight: 400; 
+    background-color: #FFFFFF; 
+    color: #000000; 
     background-attachment: fixed;
 }
+
 h1, h2, h3 {
-  /* TÍTULOS ACTUALIZADOS A MONTSERRAT BOLD */
   font-family: 'Montserrat', sans-serif; 
-  font-weight: 700; /* Negrita */
+  font-weight: 700; 
 }
+
 a {
   display: inline-block;
   text-decoration: none;
 }
 
-/* --- ESTILOS PARA LAS NUEVAS SECCIONES DEL HOME --- */
-/* --- (MOVIDO AQUÍ PARA CORREGIR CASCADA) --- */
+/* =========================================
+   BARRA DE NAVEGACIÓN (NAVBAR)
+   ========================================= */
+nav {
+  position: fixed;
+  width: 100%;
+  background-color: #000000;
+  color: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 9999;
+  border-bottom: 1px solid #333;
+  min-height: 65px;
+}
+
+nav .menu-desplegable {
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background-color: #1a1a1a;
+  display: none;
+  text-align: center;
+  max-width: 200px;
+}
+
+nav .menu-desplegable ul {
+  list-style: none;
+  margin: 10px 0;
+  padding: 0;
+  flex-direction: column;
+  align-items: center;
+}
+
+nav .menu-desplegable a {
+  color: #FF6600; 
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  display: block;
+  margin: 10px 0;
+  padding: 10px 0;
+  border-top: 1px solid black;
+}
+
+nav .menu-desplegable a:hover {
+  background-color: #FF6600;
+  color: #000000;
+}
+
+.boton-mas:hover + .menu-desplegable,
+.menu-desplegable:hover {
+  display: block;
+}
+
+/* Ícono Hamburguesa */
+nav .boton-mas button#desplegar-menu.hamburger-icon {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around; 
+  width: 45px; 
+  height: 45px; 
+  margin-left: 10px; 
+}
+
+nav .boton-mas button#desplegar-menu.hamburger-icon span {
+  display: block;
+  width: 100%;
+  height: 4px;
+  background-color: #FFFFFF;
+  border-radius: 2px; 
+}
+
+#desplegar-menu img,
+nav .boton-mas button img {
+  display: none; 
+  height: 0;
+}
+
+nav .texto-medio a {
+  text-decoration: none;
+  font-size: 40px; 
+  color: #FF6600;
+  text-shadow: none; 
+  font-weight: 700;
+}
+
+nav .logo-toggle-container {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+nav .logo-nav {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+/* Logo del Header */
+nav .logo-nav img {
+  vertical-align: middle;
+  display: inline-block;
+  z-index: 3;
+  position: relative;
+  top: auto;
+  transform: none;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 15px;
+}
+
+nav .boton-mas button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+nav .boton-mas button:focus {
+  outline: none;
+}
+
+/* =========================================
+   CONTENEDOR GENERAL
+   ========================================= */
+.container {
+  width: 100%;
+  position: relative;
+}
+.container .logo-imagen {
+  position: absolute;
+  top: 0; 
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.container .logo-imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+}
+
+/* =========================================
+   SECCIÓN INICIO (HERO)
+   ========================================= */
+#inicio {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 100px; 
+  padding-bottom: 100px;
+}
+
+#inicio .bloque-inicio {
+  position: relative;
+  top: 0;
+  left: 0;
+  transform: none;
+  text-align: center;
+  color: #000000; 
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.8); 
+  border-radius: 10px;
+  max-width: 900px; 
+  width: 90%; 
+  margin: 0 auto;
+}
+
+#inicio .bloque-inicio p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem; 
+  margin-bottom: 20px; 
+  line-height: 1.6;
+  text-align: justify; /* Texto justificado */
+}
+
+#inicio .bloque-inicio h1 {
+  font-family: 'Montserrat', sans-serif; 
+  font-size: 3rem; 
+  color: #FF6600; 
+  text-shadow: none; 
+  margin-bottom: 25px;
+  font-weight: 900; 
+}
+
+#inicio .bloque-inicio .inicio-logo-circular {
+  display: none; 
+}
+
+/* Lista en el Inicio */
+.bloque-inicio ul.servicios-lista-inicio {
+  list-style: disc;
+  text-align: justify; /* Lista justificada */
+  padding-left: 40px; 
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #000000;
+}
+
+.bloque-inicio ul.servicios-lista-inicio li {
+  margin-bottom: 5px;
+  text-align: justify;
+}
+
+/* =========================================
+   SECCIONES DE RESUMEN (HOME)
+   ========================================= */
 .home-summary {
-    padding: 100px 20px; /* <-- AUMENTADO DE 60px A 100px */
+    padding: 100px 20px;
     max-width: 1400px;
     margin: 0 auto;
 }
 .home-services {
-    background-color: #f9f9f9; /* Fondo gris claro */
+    background-color: #f9f9f9;
 }
 .home-artists {
-    background-color: #FFFFFF; /* Fondo blanco */
+    background-color: #FFFFFF;
 }
 .home-title {
     text-align: center;
@@ -46,9 +268,11 @@ a {
 }
 .summary-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Tres columnas en escritorio */
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
 }
+
+/* ESTILO DE TARJETA MEJORADO (Flex Column para orden vertical) */
 .summary-card {
     background-color: #FFFFFF;
     border: 1px solid #eeeeee;
@@ -56,8 +280,14 @@ a {
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     text-align: center;
     padding: 25px;
-    overflow: hidden; /* Para contener la imagen */
+    overflow: hidden;
+    /* Flexbox para asegurar orden vertical estricto */
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: flex-start; 
 }
+
 .home-services .summary-card {
     background-color: #FFFFFF;
 }
@@ -65,38 +295,40 @@ a {
     background-color: #fdfdfd;
 }
 .summary-card img {
-    width: 250px; /* ***** TAMAÑO DE IMAGEN REDUCIDO ***** */
-    height: 250px; /* ***** TAMAÑO DE IMAGEN REDUCIDO ***** */
-    object-fit: cover; /* Llenar el espacio */
-    border-radius: 50%; /* Círculo */
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
     border: 3px solid #FF6600;
     margin-bottom: 20px;
 }
 
-/* === CORRECCIÓN APLICADA AQUÍ === */
-/* Aseguramos que el título sea naranja y esté centrado */
+/* Nombres de Artistas y Títulos en Home */
 .summary-card h3 {
     font-size: 1.5rem;
-    color: #FF6600; /* Naranja forzado */
+    color: #FF6600; /* Naranja */
     margin-bottom: 10px;
     text-align: center;
+    width: 100%; /* Asegura salto de línea */
 }
 
-/* Aseguramos que el enlace (<a>) también sea naranja y bloque centrado */
 .summary-card a {
-    color: #FF6600 !important; /* Importante para sobreescribir el azul del navegador */
+    color: #FF6600 !important; /* Naranja forzado para enlaces */
     text-decoration: none;
-    display: block; /* Ocupa todo el ancho para centrarse bien */
+    display: block;
     text-align: center;
+    margin-top: auto; /* Empuja botón al final si sobra espacio */
 }
-/* ================================ */
 
 .summary-card p {
     font-size: 1rem;
     color: #333;
     line-height: 1.6;
-    text-align: justify; /* AÑADIDO: Justificación para texto de tarjetas resumen */
+    text-align: justify; /* Texto justificado */
+    width: 100%;
+    margin-bottom: 15px;
 }
+
 .summary-cta-container {
     text-align: center;
     margin-top: 50px;
@@ -117,17 +349,19 @@ a {
     background-color: #e65c00;
 }
 
-/* ***** CAMBIO AQUÍ: Fondo de Membresías ***** */
+/* =========================================
+   SECCIÓN MEMBRESÍAS (HOME)
+   ========================================= */
 #home-memberships {
-    background-color: #f9f9f9; /* Fondo gris claro */
-    color: #000000; /* Texto negro */
+    background-color: #f9f9f9;
+    color: #000000;
     padding: 60px 20px;
     text-align: center;
 }
 #home-memberships h2 {
     font-size: 2.5rem;
     font-weight: 900;
-    color: #FF6600; /* Título Naranja */
+    color: #FF6600;
     text-transform: uppercase;
     margin-bottom: 20px;
 }
@@ -136,8 +370,8 @@ a {
     max-width: 800px;
     margin: 0 auto 30px auto;
     line-height: 1.6;
-    color: #333; /* Texto gris oscuro */
-    text-align: justify; /* AÑADIDO: Justificación para texto de membresías */
+    color: #333;
+    text-align: justify; /* Texto justificado */
 }
 #home-memberships .cta-button-container {
     text-align: center;
@@ -158,567 +392,9 @@ a {
     background-color: #e65c00;
 }
 
-
-@media screen and (max-width: 768px) {
-  body{
-    overflow-x: hidden;
-  }
-
-  /* REGLA CORREGIDA */
-  #inicio .bloque-inicio {
-    position: relative; /* <-- CAMBIADO DE ABSOLUTE A RELATIVE */
-    top: 0; /* <-- ELIMINADO top: 100px; */
-    left: 0; /* <-- ELIMINADO left: 50%; */
-    width: 90%; 
-    transform: none; /* <-- ELIMINADO transform: translateX(-50%); */
-    text-align: center;
-    background-color: rgba(255, 255, 255, 0.85);
-    padding: 15px;
-    border-radius: 10px;
-    margin: 0 auto; /* <-- AÑADIDO: para centrar el bloque */
-    max-height: none; /* <-- ELIMINADO max-height */
-    overflow-y: visible; /* <-- ELIMINADO overflow-y: auto */
-  }
-  
-  #inicio .bloque-inicio h1 {
-    font-size: 24px;
-  }
-  /* Estilos para el logo principal en #inicio para pantallas medianas */
-  #inicio .bloque-inicio .inicio-logo-circular {
-    max-width: 200px; /* Tamaño máximo para el logo en tabletas */
-    height: 200px; /* Igual ancho y alto */
-    border-radius: 50%; /* ¡HACE EL LOGO CIRCULAR! */
-    object-fit: cover; /* Asegura que el logo llene el círculo */
-    margin-bottom: 20px; /* Espacio debajo del logo */
-  }
-
-  .container {
-    background-size: cover;
-    background-position: center;
-  }
-
-  .container__footer {
-    flex-direction: column;
-    align-items: center;
-  }
-  .box__footer {
-    margin-bottom: 30px;
-    text-align: center;
-  }
-  .box__footer .logo img {
-    /* Ajustes para hacer el logo del footer circular en pantallas medianas */
-    width: 100px; /* <-- CORREGIDO DE MAX-WIDTH A WIDTH */
-    height: 100px; /* Altura igual al ancho para ser circular */
-    border-radius: 50%;
-    object-fit: cover;
-  }
-  .box__footer h2 {
-    margin-top: 30px;
-  }
-   #footer{
-    margin-bottom:-20px;
-    padding-bottom:0px;
-  }
-
-  /* REGLA ORIGINAL MODIFICADA */
-  #sugerencias .contact_form {
-    width: 90%;
-    margin: 0 auto; /* Margin 0 auto para centrar en móvil */
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-  
-  #sugerencias .contact_form button {
-    width: 100%;
-  }
-  .nosotros .container-curriculum {
-    top: 80px;
-    padding-bottom: 30px;
-  }
-  .nosotros .container-curriculum .persona {
-    flex-direction: column; /* Cambiado a columna para móvil */
-    align-items: center;
-    padding: 15px;
-  }
-  .nosotros .container-curriculum .persona .imagen-cara-aracely {
-    width: 200px; /* ***** TAMAÑO DE IMAGEN REDUCIDO ***** */
-    height: 200px; /* ***** TAMAÑO DE IMAGEN REDUCIDO ***** */
-    max-width: 100%;
-    /* margin-bottom: 15px; -> ELIMINADO */
-    border-radius: 50%; /* Asegura que sean circulares en móvil también */
-  }
-  .nosotros .container-curriculum .persona .imagen-cara-aracely img {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%; /* Asegura que sean circulares en móvil también */
-  }
-  .nosotros .container-curriculum .persona .curriculum-detalle {
-    width: 100%;
-    text-align: center;
-  }
-  .nosotros .container-curriculum .persona .curriculum-detalle h3 {
-    font-size: 1.5rem !important; /* Tamaño de fuente responsivo */
-    text-align: center;
-    margin-top: 10px;
-  }
-  .nosotros .container-curriculum .persona .curriculum-detalle p {
-    text-align: justify; /* APLICADO: Justificación en móvil/tablet */
-    font-size: 1rem !important; /* Tamaño de fuente responsivo */
-  }
-  .nosotros .container-curriculum .persona .curriculum-detalle.marcos_martinez {
-    order: 1;
-  }
-  .nosotros .container-curriculum .persona .curriculum-detalle.marcos_martinez h3 {
-    margin-top: 15px;
-  }
-  
-  /* Estilos para servicio-item en móvil */
-  .nosotros .container-curriculum .persona.servicio-item .curriculum-detalle h3 {
-    text-align: center;
-  }
-  .nosotros .container-curriculum .persona.servicio-item .curriculum-detalle p {
-    text-align: justify; /* APLICADO: Justificación en móvil/tablet */
-  }
-  
-  /* Estilos para las nuevas secciones del Home en móvil */
-  .summary-grid {
-    grid-template-columns: 1fr; /* Una columna en móviles */
-  }
-  /* REGLA AGREGADA: para que las imágenes del index también sean circulares en móvil */
-  .summary-card img {
-      height: 200px; /* ***** TAMAÑO DE IMAGEN REDUCIDO ***** */
-      width: 200px; /* <-- AÑADIDO PARA CORREGIR */
-      border-radius: 50%; /* <-- AGREGADO PARA HACER CIRCULAR EN MÓVIL */
-  }
-  
-  /* --- ESTILOS MOVILES PARA LINK DE INSTAGRAM --- */
-  .persona-media-container {
-      width: 100%;
-      margin: 0; /* Reset margin for mobile */
-  }
-  .instagram-click-link {
-      margin-top: -10px; 
-      margin-bottom: 15px; /* Espacio antes del texto */
-  }
-
-}
-
-@media screen and (max-width: 480px) {
-  /* Estilos para pantallas con un ancho máximo de 480px (teléfonos móviles en posición vertical) */
-  body{
-    overflow-x: hidden;
-  }
-
-  /* REGLA CORREGIDA */
-  #inicio .bloque-inicio {
-    position: relative; /* <-- CAMBIADO DE ABSOLUTE A RELATIVE */
-    top: 0; /* <-- ELIMINADO top: 100px; */
-    left: 0; /* <-- ELIMINADO left: 50%; */
-    width: 90%; 
-    transform: none; /* <-- ELIMINADO transform: translateX(-50%); */
-    text-align: center;
-    margin: 0 auto; /* <-- AÑADIDO: para centrar el bloque */
-    max-height: none; /* <-- ELIMINADO max-height */
-    overflow-y: visible; /* <-- ELIMINADO overflow-y: auto */
-  }
-  
-  #inicio .bloque-inicio h1 {
-    font-size: 1.5rem !important; /* Tamaño responsivo */
-  }
-  /* Estilos para el logo principal en #inicio para pantallas pequeñas */
-  #inicio .bloque-inicio .inicio-logo-circular {
-    max-width: 150px; /* Tamaño máximo para el logo en móviles */
-    height: 150px; /* Igual ancho y alto */
-    border-radius: 50%; /* ¡HACE EL LOGO CIRCULAR! */
-    object-fit: cover; /* Asegura que el logo llene el círculo */
-    margin-bottom: 15px; /* Espacio debajo del logo */
-  }
-  .container {
-    background-size: cover;
-    background-position: center;
-  }
-/* INICIO DE CORRECCIÓN DE BARRA DE NAVEGACIÓN EN MÓVIL (PULIDO) */
-header nav .texto-medio a {
-   /* padding-left:-100px !important; */ /* <-- PROBLEMA ELIMINADO */
-   font-size: 20px !important; /* REDUCIDO A 20PX PARA CABER */
-   padding-left: 0 !important; /* CORRECCIÓN PARA EL -100PX */
-   white-space: nowrap; /* Evita que el título se rompa */
-}
-/* REGLA ORIGINAL QUE CAUSABA PROBLEMAS (ELIMINADA SU PROPIEDAD PROBLEMÁTICA) */
-/* header nav .texto-medio a {
-    font-size: 30px !important;
-} */
- 
-  .container__footer {
-    flex-direction: column;
-    align-items: center;
-  }
- 
-  .box__footer {
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  .box__footer .logo img {
-    /* Ajustes para hacer el logo del footer circular en pantallas pequeñas */
-    width: 80px; /* <-- CORREGIDO DE MAX-WIDTH A WIDTH */
-    height: 80px; /* Altura igual al ancho para ser circular */
-    border-radius: 50%;
-    object-fit: cover;
-  }
-  .box__footer h2 {
-    margin-top: 20px;
-  }
-  .box__footer ul li {
-    margin-top: 5px;
-  }
-  .box__footer a {
-    font-size: 14px;
-  }
-  .box__footer a .fab {
-    font-size: 18px;
-  }
-  .box__footer .terms {
-    font-size: 16px;
-  }
-  .box__footer h2,
-  .box__footer a,
-  .box__footer .terms {
-    line-height: 1.2;
-  }
-  .box__footer ul {
-    padding-left: 0;
-  }
-  .box__footer ul li::before {
-    content: none;
-  }
-  .box__footer ul li a {
-    padding: 5px;
-  }
-  #footer{
-    margin-bottom:-20px;
-    padding-bottom: 20px;
-  }
-
-#sugerencias .imagen-fondo{
-  width: 100%;
-  height: auto;
-}
-
-/* REGLA ORIGINAL MODIFICADA */
-#sugerencias .contact_form {
-  width: 100%;
-  margin: 0 auto; /* Margin 0 auto para centrar en móvil */
-  padding-left: 10px;
-  padding-right: 10px;
-}
-#sugerencias .contact_form h2 {
-  font-size: 28px;
-}
-#sugerencias .contact_form h3 {
-  font-size: 14px;
-  padding-bottom: 20px;
-}
-#sugerencias .contact_form input,
-#sugerencias .contact_form textarea {
-  width: 100%;
-}
-#sugerencias .contact_form button {
-  width: 100%;
-  font-size: 16px;
-}
-.nosotros .container-curriculum {
-  top: 60px;
-  padding-bottom: 20px;
-}
-.nosotros .container-curriculum .persona {
-  flex-direction: column; 
-  align-items: center;
-  padding: 10px;
-  height: auto; 
-}
-.nosotros .container-curriculum .persona .imagen-cara-aracely {
-  width: 200px; /* ***** TAMAÑO DE IMAGEN REDUCIDO ***** */
-  margin-right: 0;
-  /* margin-bottom: 15px; -> ELIMINADO */ 
-  height: 200px; /* ***** TAMAÑO DE IMAGEN REDUCIDO ***** */
-  border-radius: 50%; /* Asegura que sean circulares en móvil también */
-}
-.nosotros .container-curriculum .persona .imagen-cara-aracely img {
-    max-width: 100%; 
-    height: 100%;
-    position: relative; 
-    width: 100%;
-    border-radius: 50%; /* Asegura que sean circulares en móvil también */
-}
-
-.nosotros .container-curriculum .persona .curriculum-detalle {
-  width: 100%;
-  text-align: center;
-}
-.nosotros .container-curriculum .persona .curriculum-detalle h3 {
-  font-size: 1.5rem !important;
-  text-align: center; 
-  margin-top: 10px;
-}
-.nosotros .container-curriculum .persona .curriculum-detalle p {
-  text-align: justify; /* APLICADO: Justificación en móvil */
-  font-size: 0.9rem !important;
-}
-.nosotros .container-curriculum .persona .curriculum-detalle.marcos_martinez {
-  order: 1;
-}
-
-.nosotros .container-curriculum .persona .curriculum-detalle.marcos_martinez h3 {
-  margin-top: 15px;
-}
-
-/* AQUI ELIMINAMOS EL MARGIN-RIGHT CHE EMPUJABA EL LOGO */
-  nav .logo-nav {
-    margin-right: 0; 
-  }
-  
-  /* =========================================================
-   * CORRECCIÓN FINAL PARA TÍTULOS GRANDES EN MÓVIL
-   * ========================================================= */
-  .nosotros .page-title {
-    font-size: 1.8rem; /* Reduce el tamaño de fuente para evitar cortes */
-    margin-top: 80px;
-    margin-bottom: 30px;
-    word-wrap: break-word; /* Permite que palabras largas bajen de línea */
-    padding: 0 15px; /* Añade espacio lateral */
-  }
-}
-
-/*Barra de navegación*/
-
-nav {
-  position: fixed;
-  width: 100%;
-  background-color: #000000; /* Negro */
-  color: #FFFFFF;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 9999;
-  border-bottom: 1px solid #333; /* Borde sutil */
-  min-height: 65px; /* Altura mínima para la barra */
-}
-
-/*
-=================================================================
-¡AQUÍ ESTÁ LA CORRECCIÓN! (Quitamos max-height y overflow)
-=================================================================
-*/
-nav .menu-desplegable {
-  flex-direction: column;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  z-index: 999;
-  background-color: #1a1a1a; /* Gris oscuro */
-  display: none;
-  text-align: center;
-  /* max-height: 300px; */  /* <-- ¡ELIMINADO! */
-  max-width: 200px;
-  /* overflow-x: auto; */  /* <-- ¡ELIMINADO! */
-}
-
-nav .menu-desplegable ul {
-  list-style: none;
-  margin: 10px 0;
-  padding: 0;
-  flex-direction: column;
-  align-items: center;
-}
-nav .menu-desplegable a {
-  top: 0;
-   color: #FF6600; /* Naranja */ 
-  font-family: 'Montserrat', sans-serif;
-  font-size: 20px;
-  display: block;
-  margin: 10px 0;
-  padding: 10px 0;
-  border-top: 1px solid black;
-}
-nav .menu-desplegable a:hover {
-  background-color: #FF6600; /* Naranja */
-  color: #000000; /* Texto Negro */
-}
-.boton-mas:hover + .menu-desplegable,
-.menu-desplegable:hover {
-  display: block;
-}
-
-/* ÍCONO HAMBURGUESA CSS */
-nav .boton-mas button#desplegar-menu.hamburger-icon {
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 10px; 
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around; 
-  width: 45px; 
-  height: 45px; 
-  box-sizing: border-box; 
-  margin-left: 10px; 
-}
-
-nav .boton-mas button#desplegar-menu.hamburger-icon span {
-  display: block;
-  width: 100%;
-  height: 4px; /* Grosor de la barra */
-  background-color: #FFFFFF; /* Color Blanco */
-  border-radius: 2px; 
-}
-
-#desplegar-menu img,
-nav .boton-mas button img {
-  display: none; 
-  height: 0;
-}
-/* FIN DE ESTILOS DE ICONO */
-
-
-nav .texto-medio a {
-  text-decoration: none;
-  font-size: 40px; 
-  color: #FF6600; /* Naranja */
-  text-shadow: none; 
-  font-weight: 700; /* Negrita */
-}
-nav .logo-toggle-container {
-  display: flex;
-  align-items: center;
-  margin-right: 10px;
-}
-nav .logo-nav {
-  display: flex;
-  align-items: center;
-  margin-left: auto;
-  margin-right: 0; /* CORREGIDO */
-}
-
-/* REGLA DEL LOGO DE LA BARRA DE NAVEGACIÓN (HEADER) */
-/* ELIMINADO: position: absolute y transform: translateY(-50%) */
-nav .logo-nav img {
-  /* right: 15px; */ /* AJUSTADO A 15px -> ELIMINADO: USAR FLEXBOX */
-  vertical-align: middle;
-  display: inline-block;
-  z-index: 3;
-  position: relative; /* CAMBIADO de absolute a relative para flujo */
-  top: auto; /* ANTES 50% */
-  transform: none; /* ANTES translateY(-50%) */
-  height: 50px;  /* Altura fija de 50px */
-  width: 50px;   /* Ancho fijo de 50px para hacerlo cuadrado y luego circular */
-  border-radius: 50%; /* ¡HACE EL LOGO CIRCULAR! */
-  object-fit: cover; /* Asegura que el logo llene el círculo, recortando si es necesario */
-  margin-right: 15px; /* Espacio con el borde */
-}
-
-
-nav .boton-mas button {
-  background: transparent;
-  border: none;
-  cursor: pointer;
-}
-nav .boton-mas button:focus {
-  outline: none;
-}
-/* Regla de img de botón eliminada */
-
-/*
-=================================================================
-¡AQUÍ ESTÁ LA CORRECCIÓN! (Quitamos height y overflow)
-=================================================================
-*/
-.container {
-  width: 100%;
-  /* height: 100vh; */ /* <-- ELIMINADO */
-  position: relative;
-  /* overflow: hidden; */ /* <-- ELIMINADO */
-}
-.container .logo-imagen {
-  position: absolute;
-  top: 0; 
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-.container .logo-imagen img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; 
-}
-/* SECCIÓN INICIO */
-/*
-=================================================================
-¡AQUÍ ESTÁ LA CORRECCIÓN! (Quitamos height y overflow, añadimos padding)
-=================================================================
-*/
-#inicio{
-  position: relative;
-  width: 100%;
-  min-height: 100vh; /* <-- CAMBIADO: Ahora es altura MÍNIMA */
-  /* height: 100vh; */ /* <-- ELIMINADO */
-  /* overflow: hidden; */ /* <-- ELIMINADO */
-  
-  /* AÑADIDO: Padding para centrar el bloque y espaciarlo */
-  padding-top: 100px; 
-  padding-bottom: 100px;
-  box-sizing: border-box; /* Asegura que el padding no desborde */
-}
-
-/* ================================================= */
-/* REGLA CORREGIDA PARA .bloque-inicio (ESCRITORIO)  */
-/* ================================================= */
-#inicio .bloque-inicio {
-  position: relative; /* <-- CAMBIADO: Ya no es absoluto */
-  top: 0; /* <-- ELIMINADO top: 100px; */
-  left: 0; /* <-- ELIMINADO left: 50%; */
-  transform: none; /* <-- ELIMINADO transform: translateX(-50%); */
-  text-align: center;
-  color: #000000; 
-  padding: 30px;
-  background-color: rgba(255, 255, 255, 0.8); 
-  border-radius: 10px;
-  max-width: 900px; 
-  width: 90%; 
-  margin: 0 auto; /* <-- AÑADIDO: Para centrar el bloque */
-  /* max-height: calc(100vh - 130px); */ /* <-- ELIMINADO */
-  /* overflow-y: auto; */ /* <-- ELIMINADO */
-}
-
-#inicio .bloque-inicio p {
-  font-family: 'Montserrat', sans-serif; 
-  font-size: 1.1rem; 
-  margin-bottom: 20px; 
-  line-height: 1.6;
-  text-align: justify; /* APLICADO: Justificación para texto del inicio */
-}
-#inicio .bloque-inicio h1 {
-  font-family: 'Montserrat', sans-serif; 
-  font-size: 3rem; 
-  color: #FF6600; 
-  text-shadow: none; 
-  margin-bottom: 25px;
-  font-weight: 900; 
-}
-/* --- REGLA DEL LOGO PRINCIPAL EN #inicio ELIMINADA --- */
-#inicio .bloque-inicio .inicio-logo-circular {
-  display: none; 
-}
-
-/* SECCIÓN CARRUSEL Y SERVICIOS FLOTANTES - ELIMINADAS */
-
-/*
-=================================================================
-SECCION DE SUGERENCIAS (CONTACTO) - ¡MODIFICADA!
-=================================================================
-*/
+/* =========================================
+   SECCIÓN CONTACTO (SUGERENCIAS)
+   ========================================= */
 #sugerencias {
   padding-top: 100px; 
   width: 100%;
@@ -731,20 +407,61 @@ SECCION DE SUGERENCIAS (CONTACTO) - ¡MODIFICADA!
   display: none; 
 }
 
-/* .contact_form AHORA ES UN CONTENEDOR FLEXIBLE */
+.contacto-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+@media (min-width: 900px) {
+    .contacto-grid {
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+    }
+}
+
+.contacto-columna {
+    width: 100%;
+    height: 100%;
+    display: flex; 
+    flex-direction: column;
+}
+
+/* Formulario de Contacto */
 .contact_form {
-  width: 100%; /* MODIFICADO: Ocupa el 100% de su columna */
-  height: 100%; /* MODIFICADO: Ocupa el 100% de su columna */
-  margin: 0; /* MODIFICADO: Se quita el margen para que se alinee en la grilla */
+  width: 100%;
+  height: 100%;
+  margin: 0;
   border-radius: 10px;
   padding: 30px;
-  background-color: #FFFFFF; /* Formulario Blanco */
+  background-color: #FFFFFF;
   border: 1px solid #dddddd; 
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Sombra suave */
-  
-  /* AÑADIDO: Propiedades Flex para estirar el contenido */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
   display: flex;
   flex-direction: column;
+}
+
+.contact_form .formulario {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    flex-grow: 1;
+}
+
+.contact_form .formulario form {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    flex-grow: 1;
+}
+
+.contact_form .formulario p:has(textarea.texto_mensaje) {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .contact_form input {
@@ -752,9 +469,7 @@ SECCION DE SUGERENCIAS (CONTACTO) - ¡MODIFICADA!
   width: 90%;
   height: 40px;
   border-radius: 5px;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #cccccc; 
+  border: 1px solid #cccccc; 
   margin-top: 10px;
   padding-left: 10px;
   margin-bottom: 20px;
@@ -764,11 +479,9 @@ SECCION DE SUGERENCIAS (CONTACTO) - ¡MODIFICADA!
 .contact_form textarea {
   background-color: #FFFFFF;
   width: 90%;
-  height: 150px; /* Esta altura será la mínima, pero crecerá si es necesario */
+  height: 150px;
   border-radius: 5px;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #cccccc;
+  border: 1px solid #cccccc;
   margin-top: 10px;
   padding-left: 10px;
   margin-bottom: 20px;
@@ -776,20 +489,23 @@ SECCION DE SUGERENCIAS (CONTACTO) - ¡MODIFICADA!
   color: #000000;
   font-family: 'Montserrat', sans-serif;
 }
+.contact_form .formulario .texto_mensaje {
+    flex-grow: 1;
+    min-height: 150px;
+    height: 100%;
+}
 .contact_form label {
   display: block;
-  float: center;
   color: #000000; 
   font-weight: 700;
 }
 .contact_form button {
   height: 45px;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding: 0 5px;
   margin-bottom: 20px;
   margin-top: 10px;
   text-transform: uppercase;
- background-color: #FF6600; /* Naranja */
+  background-color: #FF6600;
   border: none;
   width: 90%; 
   cursor: pointer;
@@ -798,11 +514,11 @@ SECCION DE SUGERENCIAS (CONTACTO) - ¡MODIFICADA!
   font-weight: 700;
 }
 .contact_form button p {
-color: #FFFFFF; /* Texto Blanco */
-font-size: 1rem;
+  color: #FFFFFF;
+  font-size: 1rem;
 }
 .contact_form span {
-   color: #FF6600; /* Naranja */
+   color: #FF6600;
 }
 .contact_form .aviso {
   font-size: 13px;
@@ -812,572 +528,31 @@ font-size: 1rem;
   font-size: 39px;
   text-align: center;
   padding-bottom: 20px;
-   color: #FF6600; /* Naranja */
-   font-weight: 900; /* Extra-Negrita */
-   display: none; /* AÑADIDO: Oculta el h2 de "Contacto" dentro del form */
+   color: #FF6600;
+   font-weight: 900;
+   display: none;
 }
 .contact_form h3 {
   font-size: 16px;
   padding-bottom: 30px;
   color: #000000; 
-  text-align: left; /* MODIFICADO: Alineado a la izquierda */
+  text-align: left;
 }
 .contact_form p {
   font-size: 14px;
  color: #000000; 
 }
-.contact_form ::-webkit-input-placeholder {
-  color: #a8a8a8;
-}
+.contact_form ::-webkit-input-placeholder,
 .contact_form ::-webkit-textarea-placeholder {
   color: #a8a8a8;
 }
-.contact_form .formulario input:focus {
+.contact_form input:focus,
+.contact_form textarea:focus {
   outline: 0;
-    border-color: #FF6600; 
-}
-.contact_form .formulario textarea:focus {
-  outline: 0;
-    border-color: #FF6600; 
-}
-/*Modal de Sugerencias*/
-#sugerencias  .modal {
-    display: none;
-    z-index: 3;
-    position: fixed; 
-    transform: translate(-50%, -50%);
-    left: 50%;
-    top: 50%;
-    width: 500px;
-    height: auto; 
-    overflow: auto;
-  }  
-  #sugerencias  .modal-content {
-    background-color: #fefefe;
-    margin: 0; 
-    padding: 40px;
-    border: 1px solid #888;
-    border-radius: 10px;
-    width: 80%;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-  }
-  #sugerencias .modal-content h3{
-    text-align: center;
-    font-size: 20px;
-  }
-  #sugerencias .modal-content p{
-    font-size: 16px;
-    padding-top: 10px;
-  }
-  #sugerencias .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  #sugerencias  .close:hover,
-  #sugerencias .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-  }
-/* SECCION NOSOTROS (EQUIPO, SERVICIOS, CLIENTES) */
-.nosotros {
-  position: relative;
-  padding-top: 100px; /* <-- AUMENTADO DE 70px A 100px */
-  width: 100%;
-}
-.nosotros .imagen-fondo {
-  display: none; 
-}
-.nosotros .page-title {
-  text-align: center;
-  font-size: 3rem;
-  color: #FF6600;
-  margin-top: 100px; 
-  margin-bottom: 50px;
-  font-weight: 900; /* Extra-Negrita */
-  text-transform: uppercase;
-}
-.nosotros .container-curriculum {
-  max-width: 1300px;
-  width: 100%; 
-  position: relative;
-  top: 0; 
-  display: flex;
-  flex-direction: column; 
-  padding-bottom: 150px; 
-  margin: 0 auto;
-  align-items: center;
-}
-.nosotros .container-curriculum .persona .curriculum-detalle h3 {
- padding: 0; /* Reseteo */
- text-align: left;
- font-size: 1.8rem; /* Tamaño ajustado */
- color: #FF6600; /* Naranja */
- margin-bottom: 15px;
-}
-.nosotros .container-curriculum .persona .curriculum-detalle p {
-  font-family: 'Montserrat', sans-serif;
-  padding: 0;
-  font-size: 1rem; /* Tamaño ajustado */
-  color: #333333; /* Gris oscuro en vez de negro puro */
-  line-height: 1.6;
-  padding-bottom: 10px;
-  text-align: justify; /* APLICADO: Justificación para texto general */
- }
- .nosotros .container-curriculum .persona .curriculum-detalle p b {
-  color: #000000;
-  font-weight: 700;
- }
-.nosotros .container-curriculum .persona {
-  flex-grow: 1;
-  height: auto; 
-  min-height: 350px;
-  display: flex; 
-  margin-bottom: 35px; 
-  background-color: #FFFFFF; /* Fondo Blanco */
-  border-radius: 10px; 
-  border: 1px solid #eeeeee; 
-  overflow: hidden; 
-  width: 90%; 
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Sombra suave */
+  border-color: #FF6600; 
 }
 
-/* --- ESTILO PARA IMÁGENES CIRCULARES (MÁS PEQUEÑAS) --- */
-.nosotros .container-curriculum .persona .imagen-cara-aracely {
-  width: 250px;  /* ***** TAMAÑO REDUCIDO ***** */
-  height: 250px; /* ***** TAMAÑO REDUCIDO ***** */
-  flex-shrink: 0;
-  background-color: #f9f9f9; 
-  border-radius: 50%; /* HACE EL CONTENEDOR CIRCULAR */
-  /* margin: 20px; --> ELIMINADO. AHORA EN .persona-media-container */
-  margin: 0;
-  overflow: hidden; 
-  box-sizing: border-box;
-}
-.nosotros .container-curriculum .persona .imagen-cara-aracely img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* AHORA LA IMAGEN CUBRE EL CÍRCULO */
-  border-radius: 50%; 
-}
-/* --- FIN DEL CAMBIO --- */
-
-.nosotros .container-curriculum .persona .curriculum-detalle {
-  width: 75%;
-  padding: 30px;
-}
-/*FOOTER */
-footer {
-  font-family: 'Montserrat', sans-serif;
-  width: 100%;
-  padding: 50px 0px;
-  padding-top: 15px;
-  background: #000000; /* Fondo Negro */
-  border-top: 1px solid #333; /* Borde gris oscuro */
-}
-.container__footer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  max-width: 1700px;
-  margin: auto;
-  padding-top: 15px;
-}
-.box__footer {
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-}
-/* --- CAMBIO AQUÍ: LOGO DEL FOOTER CIRCULAR --- */
-.box__footer .logo img {
-  width: 150px; /* Ancho fijo para escritorio */
-  height: 150px; /* Altura igual para que sea circular */
-  object-fit: cover; /* Asegura que la imagen llene el círculo */
-  border-radius: 50%; /* HACE EL LOGO CIRCULAR */
-}
-.box__footer .terms {
-  max-width: 350px;
-  margin-top: 20px;
-  font-weight: bold;
-   color: #FFFFFF; /* Texto Blanco */
-  font-size: 18px;
-  text-align: justify; /* APLICADO: Justificación en el footer */
-}
-.box__footer h2 {
-  margin-bottom: 30px;
-   color: #FFFFFF; /* Texto Blanco */
-  font-weight: 700;
-}
-.box__footer ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.box__footer ul li {
-  margin-top: 12px;
-}
-.box__footer a {
-  padding-bottom: 10px;
-  color: #FF6600; /* Naranja */
-  font-weight: 600;
-}
-.box__footer a:hover {
-  opacity: 0.8;
-  text-decoration: underline;
-}
-.box__footer a .fab {
-  font-size: 20px;
-}
-.box__copyright {
-  max-width: 1200px;
-  margin: auto;
-  text-align: center;
-  padding: 0px 40px;
-}
-.box__copyright p {
-  font-size: 25px;
-  margin-top: 20px;
-  color: #fefefe;
-}
-.box__copyright hr {
-  border: none;
-  height: 1px;
-  background-color: #333;
-}
-
-#ubicacion {
-  padding: 50px 20px;
-  text-align: center;
-  background-color: #fff; 
-}
-
-#ubicacion h2 {
-  font-size: 36px;
-  margin-bottom: 30px;
-  color: #333;
-  font-weight: 900;
-  text-transform: uppercase;
-}
-
-.map-container {
-  position: relative;
-  overflow: hidden;
-  padding-top: 56.25%; /* Proporción 16:9 */
-}
-
-.map-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-.whatsapp-float {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 60px;
-    height: 60px;
-    background-color: #25D366; /* Color verde de WhatsApp */
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-    z-index: 1000;
-    overflow: hidden; 
-}
-
-.whatsapp-float:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-}
-
-.whatsapp-icon {
-    width: 70%; 
-    height: 70%;
-    object-fit: contain;
-    filter: brightness(0) invert(1); /* Hace el ícono blanco */
-}
-
-/* ESTILOS PARA PÁGINA DE SERVICIOS (SIN IMAGEN) */
-.nosotros .container-curriculum .persona.servicio-item {
-    min-height: auto; /* Elimina la altura mínima fija */
-    height: auto;
-    display: block; /* Cambia de flex a block */
-    width: 90%;
-}
-
-.nosotros .container-curriculum .persona.servicio-item .curriculum-detalle {
-    width: 100%; /* El texto ocupa todo el ancho */
-    padding: 30px;
-    box-sizing: border-box; /* Asegura que el padding no desborde */
-    text-align: center; /* <-- AÑADIDO PARA CENTRAR EL BOTÓN */
-}
-
-.nosotros .container-curriculum .persona.servicio-item .curriculum-detalle h3 {
-    padding: 0; /* Resetea el padding-left que tenía */
-    text-align: center; /* Centra el título del servicio */
-}
-
-.nosotros .container-curriculum .persona.servicio-item .curriculum-detalle p {
-    text-align: justify; /* APLICADO: Justificación en texto de servicio */
-}
-
-/* Estilo para el botón de "Ver Membresías" */
-.nosotros .container-curriculum .persona.servicio-item .curriculum-detalle .cta-button-container {
-      text-align: center; 
-      margin-top: 20px;
-}
-.nosotros .container-curriculum .persona.servicio-item .curriculum-detalle .cta-button {
-    background-color: #FF6600; 
-    color: white; 
-    padding: 12px 20px; 
-    border-radius: 5px; 
-    font-weight: 700;
-    text-decoration: none;
-    display: inline-block; /* Para que el padding funcione */
-    transition: background-color 0.3s ease;
-}
-.nosotros .container-curriculum .persona.servicio-item .curriculum-detalle .cta-button:hover {
-    background-color: #e65c00;
-}
-
-/* --- Estilos para Servicios Desplegables --- */
-.servicio-toggle-btn {
-    background-color: #FF6600; 
-    color: white; 
-    padding: 10px 18px; 
-    border-radius: 5px; 
-    font-weight: 700;
-    text-decoration: none;
-    display: inline-block;
-    transition: background-color 0.3s ease;
-    cursor: pointer;
-    border: none;
-    margin-top: 15px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.9rem;
-}
-.servicio-toggle-btn:hover {
-    background-color: #e65c00;
-}
-.servicio-toggle-btn.active {
-    background-color: #333; /* Color más oscuro cuando está activo */
-}
-.servicio-detail {
-    margin-top: 25px;
-    text-align: justify; /* APLICADO: Justifica el bloque de detalle */
-    border-top: 1px solid #eee;
-    padding-top: 25px;
-}
-.servicio-detail p {
-    text-align: justify; /* APLICADO: Asegurar que el párrafo esté justificado */
-    margin-bottom: 15px;
-}
-.servicio-detail ul, 
-.servicio-detail ol {
-    list-style-type: disc;
-    margin-left: 25px;
-    margin-bottom: 20px;
-    margin-top: 15px;
-}
-.servicio-detail ol {
-    list-style-type: decimal;
-}
-.servicio-detail ul li,
-.servicio-detail ol li {
-    text-align: justify; /* APLICADO: Justificar elementos de lista */
-    margin-bottom: 10px;
-    line-height: 1.6;
-}
-.servicio-detail ol li b {
-  display: block;
-  margin-bottom: 5px;
-  color: #000;
-}
-
-/* --- Estilos para Mensajes de Formulario (sugerencias.html) --- */
-#form-success, #form-error {
-    margin-top: 20px;
-    padding: 15px;
-    border-radius: 5px;
-    font-weight: 500;
-    text-align: center;
-    font-family: 'Montserrat', sans-serif;
-}
-#form-success {
-    background-color: #d1fae5; /* Verde claro */
-    color: #065f46; /* Verde oscuro */
-    border: 1px solid #065f46;
-}
-#form-error {
-    background-color: #fee2e2; /* Rojo claro */
-    color: #991b1b; /* Rojo oscuro */
-    border: 1px solid #991b1b;
-}
-
-/* --- Estilo para Slogan (Añadido) --- */
-.slogan-inicio {
-    font-size: 1.3rem;
-    color: #FF6600; /* Naranja */
-    font-weight: 700; /* Negrita */
-    margin-top: 25px;
-    line-height: 1.6;
-}
-
-.box__footer .terms .slogan-footer {
-    margin-top: 20px;
-    /* El color y la negrita los hereda de .terms */
-}
-
-/* --- Estilos para Enlaces de Instagram (Añadido) --- */
-.instagram-link {
-    color: #FF6600; /* Naranja */
-    text-decoration: none;
-    transition: opacity 0.3s ease;
-}
-.instagram-link:hover {
-    opacity: 0.8;
-    text-decoration: underline;
-}
-.instagram-link .fab.fa-instagram {
-    font-size: 0.9em;
-    margin-right: 4px;
-}
-/* Anular color naranja en h3 para que tome el color del h3 */
-h3 .instagram-link {
-    color: inherit; 
-    font-weight: inherit;
-}
-h3 .instagram-link:hover {
-    color: #FF6600; /* Naranja al pasar el mouse */
-    text-decoration: none;
-    opacity: 1;
-}
-/* Estilo para los h3 del index */
-.summary-card h3 .instagram-link {
-    color: #000000; /* Color negro del h3 */
-}
-.summary-card h3 .instagram-link:hover {
-    color: #FF6600; /* Naranja al pasar el mouse */
-}
-
-/* --- Estilos para Link de Instagram bajo imagen (MODIFICADO) --- */
-.persona-media-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex-shrink: 0;
-    margin: 20px; /* Mover el margen aquí */
-}
-
-/* Modificar el estilo de la imagen para quitarle el margen */
-.nosotros .container-curriculum .persona .imagen-cara-aracely {
-    margin: 0; /* Quitar el margen original */
-}
-
-.instagram-click-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    background-color: #FFFFFF;  /* CAMBIADO A BLANCO */
-    width: 38px;  /* Ancho fijo */
-    height: 38px; /* Alto fijo */
-    border-radius: 50%; /* Hacerlo un círculo */
-    margin-top: -19px; /* Superposición (mitad de la altura) */
-    z-index: 2;
-    position: relative; /* Para el z-index */
-    transition: all 0.3s ease; /* Transición general */
-    border: 2px solid #fff; /* Borde blanco para separarlo */
-    box-shadow: 0 4px 5px rgba(0,0,0,0.2); /* Sombra sutil */
-}
-
-.instagram-click-link img {
-    width: 100%; /* Tamaño de la imagen dentro del círculo */
-    height: 80%;
-    object-fit: contain;
-
-}
-
-.instagram-click-link:hover {
-    background-color: #f4f4f4; /* CAMBIADO A GRIS CLARO */
-}
-
-
-/*
-=================================================================
-AÑADIDO: NUEVOS ESTILOS PARA PÁGINA DE CONTACTO (sugerencias.html)
-=================================================================
-*/
-
-/* 1. La Grilla de Contacto */
-.contacto-grid {
-    display: grid;
-    grid-template-columns: 1fr; /* 1 columna por defecto (móvil) */
-    gap: 40px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* 2. Media Query para pantallas más grandes (tablets y escritorio) */
-@media (min-width: 900px) {
-    .contacto-grid {
-        grid-template-columns: 1fr 1fr; /* 2 columnas iguales */
-        align-items: start; /* Alinea ambas columnas en la parte superior */
-    }
-}
-
-/* 3. Columna individual (ahora es un flex container) */
-.contacto-columna {
-    width: 100%; /* MODIFICADO: De 90% a 100% para llenar la celda de la grilla */
-    height: 100%; /* Permite que la columna se estire */
-    display: flex; 
-    flex-direction: column;
-    box-sizing: border-box; /* Importante para que el padding no rompa el ancho */
-}
-
-/* 4. Hacemos que el div .formulario se estire */
-.contact_form .formulario {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    flex-grow: 1; /* Crece para llenar .contact_form */
-}
-
-/* 5. Hacemos que la etiqueta <form> se estire */
-.contact_form .formulario form {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    flex-grow: 1; /* Crece para llenar .formulario */
-}
-
-/* 6. Hacemos que el <p> que contiene el textarea crezca */
-.contact_form .formulario p:has(textarea.texto_mensaje) {
-    flex-grow: 1; /* ¡CLAVE! Este <p> se estira para llenar el formulario */
-    display: flex;
-    flex-direction: column;
-}
-
-/* 7. Hacemos que el textarea llene el <p> que ahora es flexible */
-.contact_form .formulario .texto_mensaje {
-    flex-grow: 1; /* El textarea se estira verticalmente */
-    min-height: 150px; /* Le damos una altura mínima por si acaso */
-    height: 100%;
-}
-
-/* 8. Estilos para la Columna de Información */
-.info-columna {
-    /* Esta columna no necesita estirarse, solo la del formulario */
-}
+/* Info Columna (Contacto) */
 .info-columna h3 {
     font-size: 1.8rem;
     color: #FF6600;
@@ -1387,8 +562,8 @@ AÑADIDO: NUEVOS ESTILOS PARA PÁGINA DE CONTACTO (sugerencias.html)
     font-size: 1rem;
     line-height: 1.7;
     margin-bottom: 15px;
-    color: #333; /* Texto un poco más suave */
-    text-align: justify; /* APLICADO: Justificación en info de contacto */
+    color: #333;
+    text-align: justify;
 }
 .info-columna p strong {
     color: #000;
@@ -1411,7 +586,6 @@ AÑADIDO: NUEVOS ESTILOS PARA PÁGINA DE CONTACTO (sugerencias.html)
     border: 0;
 }
 
-/* 9. Estilo para el <select> del formulario */
 #motivo {
     width: 90%; 
     height: 40px; 
@@ -1422,105 +596,292 @@ AÑADIDO: NUEVOS ESTILOS PARA PÁGINA DE CONTACTO (sugerencias.html)
     margin-top: 10px; 
     margin-bottom: 20px; 
     font-family: 'Montserrat', sans-serif;
-    color: #000; /* Texto del select en negro */
+    color: #000;
 }
-/* Arreglo para placeholder de select (se vea gris al inicio) */
-#motivo:required:invalid {
-  color: #a8a8a8;
+#motivo:required:invalid { color: #a8a8a8; }
+#motivo option[value=""][disabled] { display: none; }
+#motivo option { color: #000; }
+
+/* Mensajes Formulario */
+#form-success, #form-error {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    font-weight: 500;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
 }
-#motivo option[value=""][disabled] {
-  display: none;
+#form-success {
+    background-color: #d1fae5;
+    color: #065f46;
+    border: 1px solid #065f46;
 }
-#motivo option {
+#form-error {
+    background-color: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #991b1b;
+}
+
+/* Modal Sugerencias (Legacy) */
+#sugerencias .modal {
+    display: none;
+    z-index: 3;
+    position: fixed; 
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    width: 500px;
+    height: auto; 
+    overflow: auto;
+}  
+#sugerencias .modal-content {
+    background-color: #fefefe;
+    margin: 0; 
+    padding: 40px;
+    border: 1px solid #888;
+    border-radius: 10px;
+    width: 80%;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+#sugerencias .modal-content h3{
+    text-align: center;
+    font-size: 20px;
+}
+#sugerencias .modal-content p{
+    font-size: 16px;
+    padding-top: 10px;
+}
+#sugerencias .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+#sugerencias .close:hover,
+#sugerencias .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* =========================================
+   SECCION NOSOTROS (EQUIPO, SERVICIOS, CLIENTES)
+   ========================================= */
+.nosotros {
+  position: relative;
+  padding-top: 100px;
+  width: 100%;
+}
+.nosotros .imagen-fondo { display: none; }
+
+.nosotros .page-title {
+  text-align: center;
+  font-size: 3rem;
+  color: #FF6600;
+  margin-top: 100px; 
+  margin-bottom: 50px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+.nosotros .container-curriculum {
+  max-width: 1300px;
+  width: 100%; 
+  position: relative;
+  top: 0; 
+  display: flex;
+  flex-direction: column; 
+  padding-bottom: 150px; 
+  margin: 0 auto;
+  align-items: center;
+}
+.nosotros .container-curriculum .persona .curriculum-detalle h3 {
+ padding: 0;
+ text-align: left;
+ font-size: 1.8rem;
+ color: #FF6600;
+ margin-bottom: 15px;
+}
+.nosotros .container-curriculum .persona .curriculum-detalle p {
+  font-family: 'Montserrat', sans-serif;
+  padding: 0;
+  font-size: 1rem;
+  color: #333333;
+  line-height: 1.6;
+  padding-bottom: 10px;
+  text-align: justify;
+}
+.nosotros .container-curriculum .persona .curriculum-detalle p b {
+  color: #000000;
+  font-weight: 700;
+}
+.nosotros .container-curriculum .persona {
+  flex-grow: 1;
+  height: auto; 
+  min-height: 350px;
+  display: flex; 
+  margin-bottom: 35px; 
+  background-color: #FFFFFF;
+  border-radius: 10px; 
+  border: 1px solid #eeeeee; 
+  overflow: hidden; 
+  width: 90%; 
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.nosotros .container-curriculum .persona .imagen-cara-aracely {
+  width: 250px;
+  height: 250px;
+  flex-shrink: 0;
+  background-color: #f9f9f9; 
+  border-radius: 50%;
+  margin: 0;
+  overflow: hidden; 
+}
+.nosotros .container-curriculum .persona .imagen-cara-aracely img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%; 
+}
+
+.nosotros .container-curriculum .persona .curriculum-detalle {
+  width: 75%;
+  padding: 30px;
+}
+
+/* Estilos Servicios (sin imagen) */
+.nosotros .container-curriculum .persona.servicio-item {
+    min-height: auto;
+    height: auto;
+    display: block;
+    width: 90%;
+}
+.nosotros .container-curriculum .persona.servicio-item .curriculum-detalle {
+    width: 100%;
+    padding: 30px;
+    text-align: center;
+}
+.nosotros .container-curriculum .persona.servicio-item .curriculum-detalle h3 {
+    padding: 0;
+    text-align: center;
+}
+.nosotros .container-curriculum .persona.servicio-item .curriculum-detalle p {
+    text-align: justify;
+}
+.nosotros .container-curriculum .persona.servicio-item .curriculum-detalle .cta-button-container {
+      text-align: center; 
+      margin-top: 20px;
+}
+.nosotros .container-curriculum .persona.servicio-item .curriculum-detalle .cta-button {
+    background-color: #FF6600; 
+    color: white; 
+    padding: 12px 20px; 
+    border-radius: 5px; 
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+.nosotros .container-curriculum .persona.servicio-item .curriculum-detalle .cta-button:hover {
+    background-color: #e65c00;
+}
+
+/* Servicios Desplegables */
+.servicio-toggle-btn {
+    background-color: #FF6600; 
+    color: white; 
+    padding: 10px 18px; 
+    border-radius: 5px; 
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    border: none;
+    margin-top: 15px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+}
+.servicio-toggle-btn:hover {
+    background-color: #e65c00;
+}
+.servicio-toggle-btn.active {
+    background-color: #333;
+}
+.servicio-detail {
+    margin-top: 25px;
+    text-align: justify;
+    border-top: 1px solid #eee;
+    padding-top: 25px;
+}
+.servicio-detail p {
+    text-align: justify;
+    margin-bottom: 15px;
+}
+.servicio-detail ul, 
+.servicio-detail ol {
+    list-style-type: disc;
+    margin-left: 25px;
+    margin-bottom: 20px;
+    margin-top: 15px;
+}
+.servicio-detail ol {
+    list-style-type: decimal;
+}
+.servicio-detail ul li,
+.servicio-detail ol li {
+    text-align: justify;
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+.servicio-detail ol li b {
+  display: block;
+  margin-bottom: 5px;
   color: #000;
 }
 
-/*
-=================================================================
-AÑADIDO: CORRECCIÓN PARA LISTA EN EL INDEX
-=================================================================
-*/
-.bloque-inicio ul.servicios-lista-inicio {
-  list-style: disc; /* Usa viñetas de disco */
-  text-align: justify;  /* APLICADO: Justifica la lista */
-  
-  /* Ajusta el padding para que se alinee con el texto de arriba */
-  padding-left: 40px; 
-  
-  margin-bottom: 20px; /* Espacio después de la lista */
-  font-size: 1.1rem; /* Mismo tamaño de fuente que los párrafos */
-  line-height: 1.6;  /* Mismo interlineado */
-  color: #000000; /* Asegura que el texto sea negro */
-}
-
-.bloque-inicio ul.servicios-lista-inicio li {
-  margin-bottom: 5px; /* Espacio entre cada item de la lista */
-  text-align: justify; /* APLICADO: Justifica cada elemento de la lista */
-}
-
-/*
-=================================================================
-AÑADIDO: NUEVOS ESTILOS PARA PÁGINA DE PROYECTOS (proyectos.html)
-=================================================================
-*/
-
-/* 1. La grilla de 2 columnas para los proyectos */
+/* =========================================
+   PROYECTOS (Distribuciones)
+   ========================================= */
 .proyectos-grid {
     display: grid;
-    grid-template-columns: 1fr; /* 1 columna en móvil */
-    gap: 30px; /* Espacio entre tarjetas */
+    grid-template-columns: 1fr;
+    gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
-
-/* 2. Media Query para que sean 2 columnas en pantallas más grandes */
 @media (min-width: 768px) {
     .proyectos-grid {
-        grid-template-columns: 1fr 1fr; /* 2 columnas */
+        grid-template-columns: 1fr 1fr;
     }
 }
-
-/* 3. La tarjeta de proyecto individual */
 .proyecto-card {
     background-color: #FFFFFF;
     border: 1px solid #eeeeee;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    overflow: hidden; /* Asegura que la imagen no se salga */
+    overflow: hidden;
     display: flex;
     flex-direction: column;
 }
-
-/*
-=================================================================
-¡AQUÍ ESTÁ LA CORRECCIÓN PARA CENTRAR LA IMAGEN!
-=================================================================
-*/
 .proyecto-card img {
-    width: 50%; /* 1. Ancho más pequeño */
+    width: 50%;
     height: 250px; 
     object-fit: cover; 
-    
-    /* 2. Centrado y espaciado */
-    margin: 15px auto 0 auto; /* 15px arriba, auto horizontal (centrado), 0 abajo */
-    border-radius: 5px; /* Bordes redondeados */
-    border-bottom: 1px solid #eee; /* Mantenemos el borde inferior */
+    margin: 15px auto 0 auto;
+    border-radius: 5px;
+    border-bottom: 1px solid #eee;
 }
-
-
-/* 4. Contenido de texto de la tarjeta */
 .proyecto-card-content {
     padding: 25px;
     display: flex;
     flex-direction: column;
-    flex-grow: 1; /* Hace que la tarjeta crezca para igualar la altura */
-    /* AÑADIDO: Centrar contenido */
+    flex-grow: 1;
     align-items: center;
     text-align: center;
 }
-
-/* 5. Etiqueta de categoría */
 .proyecto-card-tag {
     display: inline-block;
     background-color: #FF6600;
@@ -1530,25 +891,21 @@ AÑADIDO: NUEVOS ESTILOS PARA PÁGINA DE PROYECTOS (proyectos.html)
     padding: 5px 10px;
     border-radius: 5px;
     margin-bottom: 15px;
-    align-self: center; /* Centrado */
+    align-self: center;
 }
-
 .proyecto-card-content h3 {
     font-size: 1.5rem;
     color: #000000;
     margin-bottom: 10px;
 }
-
 .proyecto-card-content p {
     font-size: 1rem;
     color: #333;
     line-height: 1.6;
-    flex-grow: 1; /* Empuja el link de abajo hacia el final */
+    flex-grow: 1;
     margin-bottom: 20px;
-    text-align: justify; /* APLICADO: Justificación en texto de proyectos */
+    text-align: justify;
 }
-
-/* 6. Link para "Ver Proyecto" */
 .proyecto-card-link {
     color: #FF6600;
     font-weight: 700;
@@ -1556,13 +913,441 @@ AÑADIDO: NUEVOS ESTILOS PARA PÁGINA DE PROYECTOS (proyectos.html)
     font-size: 1rem;
     transition: all 0.2s ease;
 }
-
 .proyecto-card-link:hover {
     color: #000;
     text-decoration: underline;
 }
-
 .proyecto-card-link i {
     font-size: 0.8em;
     margin-left: 5px;
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+footer {
+  font-family: 'Montserrat', sans-serif;
+  width: 100%;
+  padding: 50px 0px;
+  padding-top: 15px;
+  background: #000000;
+  border-top: 1px solid #333;
+}
+.container__footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1700px;
+  margin: auto;
+  padding-top: 15px;
+}
+.box__footer {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+.box__footer .logo img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.box__footer .terms {
+  max-width: 350px;
+  margin-top: 20px;
+  font-weight: bold;
+  color: #FFFFFF;
+  font-size: 18px;
+  text-align: justify;
+}
+.slogan-inicio {
+    font-size: 1.3rem;
+    color: #FF6600;
+    font-weight: 700;
+    margin-top: 25px;
+    line-height: 1.6;
+}
+.box__footer .terms .slogan-footer {
+    margin-top: 20px;
+}
+.box__footer h2 {
+  margin-bottom: 30px;
+  color: #FFFFFF;
+  font-weight: 700;
+}
+.box__footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.box__footer ul li {
+  margin-top: 12px;
+}
+.box__footer a {
+  padding-bottom: 10px;
+  color: #FF6600;
+  font-weight: 600;
+}
+.box__footer a:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+.box__footer a .fab {
+  font-size: 20px;
+}
+.box__copyright {
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+  padding: 0px 40px;
+}
+.box__copyright p {
+  font-size: 25px;
+  margin-top: 20px;
+  color: #fefefe;
+}
+/* Ocultar la línea blanca del footer */
+.box__copyright hr {
+  display: none;
+}
+
+#ubicacion {
+  padding: 50px 20px;
+  text-align: center;
+  background-color: #fff; 
+}
+#ubicacion h2 {
+  font-size: 36px;
+  margin-bottom: 30px;
+  color: #333;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+.map-container {
+  position: relative;
+  overflow: hidden;
+  padding-top: 56.25%;
+}
+.map-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* WhatsApp Float */
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    overflow: hidden; 
+}
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+.whatsapp-icon {
+    width: 70%; 
+    height: 70%;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+}
+
+/* Redes Sociales (Instagram) */
+.instagram-link {
+    color: #FF6600;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+.instagram-link:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+h3 .instagram-link {
+    color: inherit; 
+    font-weight: inherit;
+}
+h3 .instagram-link:hover {
+    color: #FF6600;
+    text-decoration: none;
+    opacity: 1;
+}
+.persona-media-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    margin: 20px;
+}
+.nosotros .container-curriculum .persona .imagen-cara-aracely {
+    margin: 0;
+}
+.instagram-click-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    background-color: #FFFFFF;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    margin-top: -19px;
+    z-index: 2;
+    position: relative;
+    transition: all 0.3s ease;
+    border: 2px solid #fff;
+    box-shadow: 0 4px 5px rgba(0,0,0,0.2);
+}
+.instagram-click-link img {
+    width: 100%;
+    height: 80%;
+    object-fit: contain;
+}
+.instagram-click-link:hover {
+    background-color: #f4f4f4;
+}
+
+/* =========================================
+   MEDIA QUERIES (TABLETS Y ESCRITORIO PEQUEÑO)
+   ========================================= */
+@media screen and (max-width: 768px) {
+  body{
+    overflow-x: hidden;
+  }
+
+  #inicio .bloque-inicio {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 90%; 
+    transform: none;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 15px;
+    border-radius: 10px;
+    margin: 0 auto;
+    max-height: none;
+    overflow-y: visible;
+  }
+  
+  #inicio .bloque-inicio h1 {
+    font-size: 24px;
+  }
+
+  .container {
+    background-size: cover;
+    background-position: center;
+  }
+
+  .container__footer {
+    flex-direction: column;
+    align-items: center;
+  }
+  .box__footer {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  .box__footer .logo img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .box__footer h2 {
+    margin-top: 30px;
+  }
+   #footer{
+    margin-bottom:-20px;
+    padding-bottom:0px;
+  }
+
+  #sugerencias .contact_form {
+    width: 90%;
+    margin: 0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  #sugerencias .contact_form button {
+    width: 100%;
+  }
+  .nosotros .container-curriculum {
+    top: 80px;
+    padding-bottom: 30px;
+  }
+  .nosotros .container-curriculum .persona {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+  }
+  .nosotros .container-curriculum .persona .imagen-cara-aracely {
+    width: 200px;
+    height: 200px;
+    max-width: 100%;
+    border-radius: 50%;
+  }
+  .nosotros .container-curriculum .persona .imagen-cara-aracely img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+  .nosotros .container-curriculum .persona .curriculum-detalle {
+    width: 100%;
+    text-align: center;
+  }
+  .nosotros .container-curriculum .persona .curriculum-detalle h3 {
+    font-size: 1.5rem !important;
+    text-align: center;
+    margin-top: 10px;
+  }
+  .nosotros .container-curriculum .persona .curriculum-detalle p {
+    text-align: justify;
+    font-size: 1rem !important;
+  }
+  
+  .nosotros .container-curriculum .persona.servicio-item .curriculum-detalle h3 {
+    text-align: center;
+  }
+  .nosotros .container-curriculum .persona.servicio-item .curriculum-detalle p {
+    text-align: justify;
+  }
+  
+  .summary-grid {
+    grid-template-columns: 1fr;
+  }
+  .summary-card img {
+      height: 200px;
+      width: 200px;
+      border-radius: 50%;
+  }
+  
+  .persona-media-container {
+      width: 100%;
+      margin: 0;
+  }
+  .instagram-click-link {
+      margin-top: -10px; 
+      margin-bottom: 15px;
+  }
+}
+
+/* =========================================
+   ESTILOS MÓVILES (CELULARES VERTICALES < 480PX)
+   ========================================= */
+@media screen and (max-width: 480px) {
+  
+  body {
+    overflow-x: hidden;
+  }
+
+  /* BLOQUE INICIO (HERO) */
+  #inicio .bloque-inicio {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 90%; 
+    transform: none;
+    text-align: center;
+    margin: 0 auto;
+    max-height: none;
+    overflow-y: visible;
+  }
+  
+  #inicio .bloque-inicio h1 {
+    font-size: 1.8rem !important;
+    line-height: 1.3;
+  }
+
+  /* BARRA DE NAVEGACIÓN MÓVIL */
+  header nav {
+    padding: 0 10px;
+    justify-content: space-between;
+  }
+
+  header nav .texto-medio a {
+     font-size: 20px !important;
+     padding-left: 0 !important; /* FIX LOGO */
+     white-space: nowrap; 
+     margin-left: 10px;
+  }
+
+  nav .logo-nav {
+    margin-right: 0; 
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  nav .logo-nav img {
+    position: relative;
+    top: auto;
+    transform: none;
+    width: 45px !important;
+    height: 45px !important;
+    margin-right: 5px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  /* TÍTULOS AJUSTADOS */
+  .nosotros .page-title,
+  .home-title,
+  #home-memberships h2, 
+  #ubicacion h2 {
+    font-size: 1.8rem !important;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    word-wrap: break-word;
+    padding: 0 10px;
+    line-height: 1.2;
+  }
+
+  #home-memberships {
+      padding: 40px 15px;
+  }
+
+  /* GRID Y TARJETAS */
+  .container__footer {
+    flex-direction: column;
+    align-items: center;
+  }
+ 
+  .box__footer {
+    text-align: center;
+  }
+  .box__footer .terms {
+      text-align: center !important;
+  }
+  .box__copyright {
+      padding: 0 20px; /* FIX PADDING FOOTER */
+  }
+  
+  .summary-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .summary-card img,
+  .nosotros .container-curriculum .persona .imagen-cara-aracely,
+  .nosotros .container-curriculum .persona .imagen-cara-aracely img {
+      width: 200px !important;
+      height: 200px !important;
+      border-radius: 50%;
+  }
+
+  #sugerencias .contact_form {
+    width: 100%;
+    padding: 20px 10px;
+  }
 }
