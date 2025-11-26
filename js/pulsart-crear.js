@@ -254,4 +254,21 @@ document.addEventListener('DOMContentLoaded', () => {
             submitButton.textContent = originalButtonText;
         }
     });
+
+// BOTÓN VOLVER ARRIBA
+const btnBackToTop = document.getElementById("btn-back-to-top");
+
+if(btnBackToTop) {
+    window.onscroll = function() {
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            btnBackToTop.style.display = "block";
+        } else {
+            btnBackToTop.style.display = "none";
+        }
+    };
+
+    btnBackToTop.addEventListener("click", function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
 });
