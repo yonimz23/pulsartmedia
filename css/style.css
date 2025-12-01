@@ -51,12 +51,22 @@ nav .menu-desplegable {
   position: absolute;
   top: 100%;
   left: 0;
-  right: 0;
   z-index: 999;
   background-color: #1a1a1a;
   display: none;
-  text-align: center;
-  max-width: 200px;
+  text-align: left; /* Alineado a la izquierda se lee mejor en listas */
+  
+  /* CAMBIOS AQUÍ: */
+  width: max-content; /* Se adapta al texto más largo */
+  min-width: 200px;   /* Por si los textos son muy cortos, que no quede diminuto */
+  max-width: 300px;   /* Un límite prudente para que no ocupe toda la pantalla */
+  
+  /* Tus bordes curvos (que ya pusimos) */
+  border-radius: 0 0 15px 15px; 
+  overflow: hidden; 
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3); 
+  border: 1px solid #333; 
+  border-top: none; 
 }
 
 nav .menu-desplegable ul {
@@ -67,14 +77,22 @@ nav .menu-desplegable ul {
   align-items: center;
 }
 
+nav .menu-desplegable a:first-child {
+  border-top: none;
+}
+
 nav .menu-desplegable a {
   color: #FF6600; 
   font-family: 'Montserrat', sans-serif;
-  font-size: 20px;
+  font-size: 18px; /* Un pelín más pequeño ayuda a la elegancia */
   display: block;
-  margin: 10px 0;
-  padding: 10px 0;
-  border-top: 1px solid black;
+  margin: 0; /* Quitamos margen para que el área de clic sea completa */
+  padding: 15px 20px; /* Más espacio interno para el dedo/mouse */
+  border-top: 1px solid #333; /* Color más sutil que el negro puro */
+  text-decoration: none;
+  
+  /* CAMBIO AQUÍ: Transición suave */
+  transition: all 0.3s ease;
 }
 
 nav .menu-desplegable a:hover {
@@ -88,31 +106,57 @@ nav .menu-desplegable a:hover {
 }
 
 /* Ícono Hamburguesa */
+/* Ícono Hamburguesa Animado */
 nav .boton-mas button#desplegar-menu.hamburger-icon {
   background: transparent;
   border: none;
   cursor: pointer;
-  padding: 10px; 
+  padding: 0; /* Quitamos padding para centrar mejor */
   display: flex;
   flex-direction: column;
-  justify-content: space-around; 
+  justify-content: center; /* Centramos el contenido verticalmente */
+  align-items: center;     /* Centramos horizontalmente */
   width: 45px; 
   height: 45px; 
   margin-left: 10px; 
+  gap: 6px; /* Espacio exacto entre las líneas */
 }
 
 nav .boton-mas button#desplegar-menu.hamburger-icon span {
   display: block;
-  width: 100%;
-  height: 4px;
+  width: 30px; /* Ancho fijo para las líneas */
+  height: 3px; /* Líneas un poco más finas y elegantes (antes 4px) */
   background-color: #FFFFFF;
-  border-radius: 2px; 
+  border-radius: 3px; 
+  transition: all 0.3s ease-in-out; /* ¡La magia de la animación! */
+  transform-origin: center;
+}
+
+/* Efecto Hover: Se pone naranja al tocarlo */
+nav .boton-mas button#desplegar-menu.hamburger-icon:hover span {
+    background-color: #FF6600;
+}
+
+/* --- ESTADO ABIERTO (LA ANIMACIÓN DE LA X) --- */
+/* Línea 1: Baja y rota 45 grados */
+nav .boton-mas button#desplegar-menu.hamburger-icon.open span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+/* Línea 2: Desaparece hacia la izquierda */
+nav .boton-mas button#desplegar-menu.hamburger-icon.open span:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-10px);
+}
+
+/* Línea 3: Sube y rota -45 grados */
+nav .boton-mas button#desplegar-menu.hamburger-icon.open span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
 }
 
 #desplegar-menu img,
 nav .boton-mas button img {
   display: none; 
-  height: 0;
 }
 
 nav .texto-medio a {
