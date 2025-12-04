@@ -26,10 +26,9 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         botonDesplegar.addEventListener("click", (event) => {
-            if (window.innerWidth < 768) { // Solo en móvil
-                event.stopPropagation();
-                toggleMenu();
-            }
+            // Eliminamos el IF para que funcione en cualquier tamaño
+            event.stopPropagation();
+            toggleMenu();
         });
         
         // Cierra el menú al hacer clic fuera
@@ -128,4 +127,29 @@ document.addEventListener('DOMContentLoaded', function () {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
+
+    // =================================================================
+    // ANIMACIONES AL HACER SCROLL (Intersection Observer)
+    // =================================================================
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target); // Run once
+            }
+        });
+    }, observerOptions);
+
+    // Select elements to animate
+    const elementsToAnimate = document.querySelectorAll('.bloque-inicio, .summary-card, .persona, .proyecto-card, section h2, .membership-content, .hero-box, .chart-card, .details-card, .benefit-item, .aliado-item');
+    elementsToAnimate.forEach(el => {
+        el.classList.add('fade-in-section');
+        observer.observe(el);
+    });
 });

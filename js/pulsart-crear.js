@@ -1,62 +1,64 @@
 const plansData = {
-    semilla: {
-        name: '🌱 Plan Semilla',
-        idealFor: 'Artistas emergentes o en etapa de exploración.',
+    basico: {
+        name: '🟡 Plan Básico',
+        idealFor: 'Para artistas en etapa de exploración.',
         prices: { founder: 350000, regular: 450000 },
-        saving: 600000,
-        planKey: 'semilla',
+        saving: 650000,
+        planKey: 'basico',
         features: [
-            '1 asesoría de 1 hora para orientación de proyecto (semestral)',
-            '1 sesión fotográfica de estudio (50 fotos)',
-            '1 hora de uso de estudio o salón multitasking',
-            '10% de descuento en eventos y servicios seleccionados'
+            '1 asesoría de orientación de proyecto semestral',
+            '1 sesión fotográfica de estudio por semestre (30 fotos)',
+            '1 hora de uso de sala o estudio por mes',
+            '10% de descuento en servicios y talleres EC + PA'
         ]
     },
-    brote: {
-        name: '🌿 Plan Brote',
-        idealFor: 'Artistas en desarrollo que quieren avanzar con apoyo técnico y creativo.',
+    desarrollo: {
+        name: '🟠 Plan Desarrollo',
+        idealFor: 'Para artistas que buscan desarrollar y lanzar su propuesta.',
         prices: { founder: 550000, regular: 650000 },
-        saving: 1050000,
-        planKey: 'brote',
+        saving: 1150000,
+        planKey: 'desarrollo',
         features: [
-            '1 asesoría integral semestral de 2 horas',
-            'Registro de obras de 1 expediente de forma semestral (hasta 10 obras)',
-            '2 horas de uso de sala taller o estudio',
-            '1 asesoría básica sobre redes sociales o identidad visual',
-            '15% de descuento en servicios y eventos seleccionados'
+            '1 asesoría integral del proyecto por semestre',
+            '1 sesión fotográfica de estudio por semestre (hasta 80 fotos)',
+            'Registro de obras de 1 expediente por mes (10 obras)',
+            '2 horas de uso de sala o estudio',
+            '1 asesoría sobre redes sociales o identidad visual por semestre',
+            '15% de descuento en servicios EC + PA'
         ]
     },
-    // ===== EMOJI ACTUALIZADO AQUÍ =====
-    raiz: {
-        name: '🪴 Plan Raíz',
-        idealFor: 'Artistas activos que buscan consolidar su presencia.',
+    pro: {
+        name: '🔴 Plan Pro',
+        idealFor: 'Para artistas activos que buscan consolidar su carrera.',
         prices: { founder: 950000, regular: 1100000 },
         saving: 2550000,
-        planKey: 'raiz',
+        planKey: 'pro',
         features: [
-            'Asesoría integral semestral + seguimiento creativo',
-            'Registro de obras de 2 expedientes de forma semestral (hasta 20 obras)',
-            '1 sesión fotográfica de estudio (80 fotos) y video promocional',
-            '3 horas de uso de sala taller o estudio',
-            'Asesoría sobre redes y estrategia digital + seguimiento',
-            'Acceso preferencial sin costo a encuentros de miembros'
+            'Asesoría integral semestral + seguimiento mensual',
+            'Registro de hasta 2 expedientes mensuales (20 obras)',
+            'Sesión fotográfica + video promocional por semestre',
+            '3 horas de uso de sala o estudio por mes',
+            'Asesoría sobre redes y estrategia digital',
+            'Acceso a encuentros de networking y co-creación',
+            'Para músicos: acceso preferencial a programaciones y shows',
+            '15% de descuento en servicios EC + PA'
         ]
     },
-    // ===== EMOJI ACTUALIZADO AQUÍ =====
-    bosque: {
-        name: '🌳 Plan Bosque',
-        idealFor: 'Artistas profesionales, colectivos o proyectos con actividad constante.',
+    premium: {
+        name: '⚫ Plan Premium',
+        idealFor: 'Para artistas profesionales, colectivos o proyectos con actividad constante.',
         prices: { founder: 1500000, regular: 1850000 },
         saving: 7100000,
-        planKey: 'bosque',
+        planKey: 'premium',
         features: [
-            'Asesoría integral trimestral + Acompañamiento mensual',
-            'Registro de obras de 4 expedientes de forma semestral',
-            '4 horas de uso de sala taller o estudio',
-            '1 sesión audiovisual completa (foto o video de campaña)',
-            'Representación en eventos/booking (según condiciones)',
-            'Diseño de pieza gráfica mensual para redes',
-            '20% de descuento en servicios y participación prioritaria'
+            'Asesoría integral trimestral + acompañamiento semanal',
+            'Registro de hasta 4 expedientes de obras mensuales (40 obras)',
+            '4 horas de uso de sala o estudio mensual',
+            'Sesión audiovisual o fotográfica (3h) trimestral',
+            'Representación para eventos y booking, mercados musicales',
+            'Asesoría permanente sobre redes y distribución digital',
+            'Participación prioritaria en convocatorias y eventos',
+            '20% de descuento en servicios EC + PA'
         ]
     }
 };
@@ -68,7 +70,7 @@ const formatCurrency = (value) => new Intl.NumberFormat('es-PY', { style: 'curre
 
 const renderChart = (priceType) => {
     const ctx = document.getElementById('plansChart').getContext('2d');
-    const labels = Object.values(plansData).map(p => p.name.split(' ')[1]);
+    const labels = Object.values(plansData).map(p => p.name.split(' ')[2]); 
     const investmentData = Object.values(plansData).map(p => p.prices[priceType]);
     const savingsData = Object.values(plansData).map(p => p.saving);
 
@@ -104,9 +106,7 @@ const renderChart = (priceType) => {
                 y: {
                     beginAtZero: true,
                     ticks: {
-                        // ===== FORMATO DE GRÁFICO ACTUALIZADO AQUÍ =====
-                        callback: function(value, index, values) {
-                            // Formatea el número con separadores de miles para Paraguay
+                        callback: function(value) {
                             return new Intl.NumberFormat('es-PY').format(value);
                         }
                     }
@@ -121,7 +121,6 @@ const renderChart = (priceType) => {
                                 label += ': ';
                             }
                             if (context.parsed.y !== null) {
-                                // Usa la función formatCurrency que ya incluye "Gs." o "PYG"
                                 label += formatCurrency(context.parsed.y);
                             }
                             return label;
@@ -140,37 +139,42 @@ const renderPlanDetails = (planKey) => {
     const plan = plansData[planKey];
     const contentEl = document.getElementById('details-content');
     
-    let audioButtonHtml = ''; 
-
+    // AQUÍ ESTABA EL ERROR: Se usaban clases de Tailwind (bg-white, p-6, etc.)
+    // CORRECCIÓN: Ahora usamos la clase .details-card que definimos en tu CSS.
+    
     contentEl.innerHTML = `
-        <div class="bg-white p-6 md:p-8 rounded-lg shadow-md border border-gray-200 transition-opacity duration-300">
-            <h3 class="text-2xl font-bold text-brand-primary">${plan.name}</h3>
-            <p class="text-gray-600 mb-4 italic">${plan.idealFor}</p>
-            <div class="mb-6 text-center">
-                <p class="text-gray-500 text-sm">Precio Fundador</p>
-                <p class="text-4xl font-bold text-gray-800">${formatCurrency(plan.prices.founder)}<span class="text-lg font-normal text-gray-500">/mes</span></p>
-                <p class="text-sm text-gray-500">Precio Regular: ${formatCurrency(plan.prices.regular)}</p>
+        <div class="details-card">
+            <h3 style="font-size: 1.8rem; color: #FF6600; font-weight: 700; margin-bottom: 10px;">${plan.name}</h3>
+            <p style="font-style: italic; color: #666; margin-bottom: 20px;">${plan.idealFor}</p>
+            
+            <div class="text-center" style="margin-bottom: 25px;">
+                <p style="font-size: 0.9rem; color: #666;">Precio Lanzamiento</p>
+                <p style="font-size: 2.5rem; font-weight: 900; color: #000; line-height: 1.2;">
+                    ${formatCurrency(plan.prices.founder)}
+                    <span style="font-size: 1rem; font-weight: 400; color: #888;">/mes</span>
+                </p>
+                <p style="font-size: 0.9rem; color: #888;">Precio Regular: ${formatCurrency(plan.prices.regular)}</p>
             </div>
-            <ul class="space-y-3">
+
+            <ul class="feature-list">
                 ${plan.features.map(feature => `
-                    <li class="flex items-start">
-                        <span class="text-green-500 mr-2 mt-1">✓</span>
+                    <li>
+                        <span class="check-icon">✓</span>
                         <span>${feature}</span>
                     </li>
                 `).join('')}
             </ul>
-             <div class="mt-6 bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 rounded-r-lg">
-                <p class="font-bold">Ahorras en este plan aprox. ${formatCurrency(plan.saving)}</p>
+            
+             <div class="saving-box">
+                <p>Ahorras en este plan aprox. ${formatCurrency(plan.saving)}</p>
             </div>
-            ${audioButtonHtml}
         </div>
     `;
-    
 };
 
 document.addEventListener('DOMContentLoaded', () => {
     renderChart(currentPriceType);
-    renderPlanDetails('semilla');
+    renderPlanDetails('basico');
 
     const founderBtn = document.getElementById('founderPriceBtn');
     const regularBtn = document.getElementById('regularPriceBtn');
@@ -188,24 +192,20 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             clearInterval(interval);
         }
-    }, 3000);
+    }, 5000);
 
     founderBtn.addEventListener('click', () => {
         currentPriceType = 'founder';
         renderChart(currentPriceType);
-        founderBtn.classList.add('bg-brand-primary', 'text-white');
-        founderBtn.classList.remove('text-gray-600');
-        regularBtn.classList.remove('bg-brand-primary', 'text-white');
-        regularBtn.classList.add('text-gray-600');
+        founderBtn.classList.add('active');
+        regularBtn.classList.remove('active');
     });
 
     regularBtn.addEventListener('click', () => {
         currentPriceType = 'regular';
         renderChart(currentPriceType);
-        regularBtn.classList.add('bg-brand-primary', 'text-white');
-        regularBtn.classList.remove('text-gray-600');
-        founderBtn.classList.remove('bg-brand-primary', 'text-white');
-        founderBtn.classList.add('text-gray-600');
+        regularBtn.classList.add('active');
+        founderBtn.classList.remove('active');
     });
     
     planTabs.forEach(tab => {
@@ -255,20 +255,41 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-// BOTÓN VOLVER ARRIBA
-const btnBackToTop = document.getElementById("btn-back-to-top");
+    // BOTÓN VOLVER ARRIBA (Lógica duplicada si ya está en script.js, pero inofensiva)
+    const btnBackToTop = document.getElementById("btn-back-to-top");
 
-if(btnBackToTop) {
-    window.onscroll = function() {
-        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-            btnBackToTop.style.display = "block";
-        } else {
-            btnBackToTop.style.display = "none";
-        }
+    if(btnBackToTop) {
+        window.onscroll = function() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                btnBackToTop.style.display = "block";
+            } else {
+                btnBackToTop.style.display = "none";
+            }
+        };
+
+        btnBackToTop.addEventListener("click", function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
     };
 
-    btnBackToTop.addEventListener("click", function() {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target); // Run once
+            }
+        });
+    }, observerOptions);
+
+    // Select elements to animate
+    const elementsToAnimate = document.querySelectorAll('.bloque-inicio, .summary-card, .persona, .proyecto-card, section h2, .membership-content, .hero-box, .chart-card, .details-card, .benefit-item, .aliado-item');
+    elementsToAnimate.forEach(el => {
+        el.classList.add('fade-in-section');
+        observer.observe(el);
     });
-}
 });

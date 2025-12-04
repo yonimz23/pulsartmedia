@@ -380,6 +380,17 @@
             background-color: #FF6600; 
             transform: translateY(-3px);
         }
+        /* Animaciones al hacer Scroll */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    will-change: opacity, visibility;
+}
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: none;
+}
     </style>
 </head>
 <body>
@@ -534,220 +545,14 @@
                 </div>
             </section>
         </div>
-    </main>                </div>
-            </section>
-
-            <section id="founders">
-                <h2 class="text-4xl text-black">Conviértete en Miembro Fundador.</h2>
-                <p style="max-width: 600px; margin: 10px auto;">Una comunidad se construye con pioneros. Los primeros 20 artistas tendrán un estatus y beneficios únicos, para siempre.</p>
-                
-                <div id="founder-spots">
-                    <p>Cupos de Fundador restantes:</p>
-                    <div class="counter-box">
-                        <span id="spots-left">20</span> / 20
-                    </div>
-                </div>
-
-                <div class="benefits-grid">
-                    <div class="benefit-item">
-                        <h3>Precio Congelado</h3>
-                        <p>Tu precio de fundador se congela por 12 meses, con opción a renovar. Inmune a futuros aumentos.</p>
-                    </div>
-                    <div class="benefit-item">
-                        <h3>Acceso "Golden Hour"</h3>
-                        <p>Reserva espacios y servicios con 2 semanas de anticipación preferencial sobre el resto de miembros.</p>
-                    </div>
-                    <div class="benefit-item">
-                        <h3>Masterclass Exclusiva</h3>
-                        <p>Acceso garantizado a una sesión anual de alto valor con un profesional invitado de la industria.</p>
-                    </div>
-                    <div class="benefit-item">
-                        <h3>Kit y Badge</h3>
-                        <p>Recibe un kit de bienvenida premium y un badge digital para destacar tu estatus.</p>
-                    </div>
-                </div>
-            </section>
-            
-            <section id="cta">
-                <div class="text-center">
-                    <h2 class="text-3xl text-bold mb-4">¿Serás uno de los 20 Fundadores?</h2>
-                    <p class="mb-4">Completa tu pre-inscripción ahora. Nos pondremos en contacto para finalizar el proceso y asegurar tu lugar.</p>
-                </div>
-                
-                <form id="pre-registration-form" action="https://formspree.io/f/mjkpqrzn" method="POST">
-                    <div class="form-group">
-                        <label for="name">Nombre Completo</label>
-                        <input type="text" id="name" name="name" required class="form-control">
-                    </div>
-                     <div class="form-group">
-                        <label for="email">Correo Electrónico</label>
-                        <input type="email" id="email" name="email" required class="form-control">
-                    </div>
-                     <div class="form-group">
-                        <label for="phone">Teléfono</label>
-                        <input type="tel" id="phone" name="phone" required class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="plan-interest">Plan de Interés</label>
-                        <select id="plan-interest" name="plan-interest" class="form-control">
-                            <option value="semilla">🌱 Plan Semilla</option>
-                            <option value="brote">🌿 Plan Brote</option>
-                            <option value="raiz">🪴 Plan Raíz</option>
-                            <option value="bosque">🌳 Plan Bosque</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="launched-song">¿Ya lanzaste alguna canción?</label>
-                        <select id="launched-song" name="launched-song" class="form-control">
-                            <option value="no">No</option>
-                            <option value="si">Sí</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="song-link">Link de tu música (opcional)</label>
-                        <input type="url" id="song-link" name="song-link" class="form-control" placeholder="Spotify, YouTube...">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="project-status">Estado actual del proyecto</label>
-                        <textarea id="project-status" name="project-status" rows="3" class="form-control" placeholder="Ej: Tengo maquetas grabadas..."></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="needed-services">¿Qué servicios necesitas más?</label>
-                        <textarea id="needed-services" name="needed-services" rows="3" class="form-control" placeholder="Ej: Registro de autor y fotos..."></textarea>
-                    </div>
-
-                    <button type="submit" class="btn-submit">Quiero ser Fundador</button>
-                </form>
-
-                <div id="form-success" class="msg-box msg-success hidden">
-                    ¡Gracias! Hemos recibido tu pre-inscripción. Te contactaremos muy pronto.
-                </div>
-                <div id="form-error" class="msg-box msg-error hidden">
-                    Hubo un error al enviar tu solicitud. Por favor intenta de nuevo.
-                </div>
-            </section>
-        </div>
     </main>
     
     <footer>
         <p>© 2025 Estación Crear. Una alianza con PulsArt Media.</p>
     </footer>
 
-    <script>
-        // Lógica simple para reemplazar pulsart-crear.js y no depender de más archivos externos si no quieres
-        const plansData = {
-            semilla: { name: '🌱 Plan Semilla', idealFor: 'Artistas emergentes.', prices: { founder: 350000, regular: 450000 }, saving: 600000, features: ['1 asesoría de orientación', '1 sesión de fotos (50 fotos)', '1 hora de estudio', '10% descuento en eventos'] },
-            brote: { name: '🌿 Plan Brote', idealFor: 'Artistas en desarrollo.', prices: { founder: 550000, regular: 650000 }, saving: 1050000, features: ['1 asesoría de 2 horas', 'Registro de 1 expediente', '2 horas de estudio', 'Asesoría básica redes', '15% descuento'] },
-            raiz: { name: '🪴 Plan Raíz', idealFor: 'Artistas consolidando presencia.', prices: { founder: 950000, regular: 1100000 }, saving: 2550000, features: ['Asesoría semestral + seguimiento', 'Registro de 2 expedientes', 'Sesión fotos (80) + Video', '3 horas estudio', 'Estrategia digital'] },
-            bosque: { name: '🌳 Plan Bosque', idealFor: 'Proyectos profesionales.', prices: { founder: 1500000, regular: 1850000 }, saving: 7100000, features: ['Asesoría trimestral + mensual', 'Registro de 4 expedientes', '4 horas estudio', 'Sesión audiovisual completa', 'Representación/Booking', 'Diseño gráfico mensual'] }
-        };
-
-        let myChart;
-        let currentPriceType = 'founder';
-        const formatCurrency = (value) => new Intl.NumberFormat('es-PY', { style: 'currency', currency: 'PYG', maximumFractionDigits: 0 }).format(value);
-
-        function renderChart(priceType) {
-            const ctx = document.getElementById('plansChart').getContext('2d');
-            const labels = Object.values(plansData).map(p => p.name.split(' ')[1]);
-            const data = Object.values(plansData).map(p => p.prices[priceType]);
-            const savings = Object.values(plansData).map(p => p.saving);
-
-            if (myChart) myChart.destroy();
-
-            myChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: labels,
-                    datasets: [
-                        { label: 'Inversión Mensual', data: data, backgroundColor: '#FF6600' },
-                        { label: 'Ahorro Estimado', data: savings, backgroundColor: '#333' }
-                    ]
-                },
-                options: { responsive: true, maintainAspectRatio: false }
-            });
-        }
-
-        function renderDetails(planKey) {
-            const plan = plansData[planKey];
-            const html = `
-                <div class="details-card">
-                    <h3 class="text-2xl text-primary text-bold">${plan.name}</h3>
-                    <p style="font-style: italic; color: #666;">${plan.idealFor}</p>
-                    <div class="text-center" style="margin: 20px 0;">
-                        <p style="font-size: 0.9rem;">Precio Fundador</p>
-                        <p class="text-3xl text-black">${formatCurrency(plan.prices.founder)}<small>/mes</small></p>
-                        <p style="font-size: 0.8rem; color: #888;">Regular: ${formatCurrency(plan.prices.regular)}</p>
-                    </div>
-                    <ul class="feature-list">
-                        ${plan.features.map(f => `<li><span class="check-icon">✓</span>${f}</li>`).join('')}
-                    </ul>
-                    <div class="saving-box">Ahorras aprox. ${formatCurrency(plan.saving)}</div>
-                </div>`;
-            document.getElementById('details-content').innerHTML = html;
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            renderChart('founder');
-            renderDetails('semilla');
-
-            document.getElementById('founderPriceBtn').addEventListener('click', function() {
-                currentPriceType = 'founder';
-                this.classList.add('active');
-                document.getElementById('regularPriceBtn').classList.remove('active');
-                renderChart('founder');
-            });
-
-            document.getElementById('regularPriceBtn').addEventListener('click', function() {
-                currentPriceType = 'regular';
-                this.classList.add('active');
-                document.getElementById('founderPriceBtn').classList.remove('active');
-                renderChart('regular');
-            });
-
-            document.querySelectorAll('.plan-tab').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    document.querySelectorAll('.plan-tab').forEach(b => b.classList.remove('tab-active'));
-                    this.classList.add('tab-active');
-                    renderDetails(this.dataset.plan);
-                });
-            });
-            
-            // Contador fake para urgencia
-            let spots = 20;
-            const spotsEl = document.getElementById('spots-left');
-            setInterval(() => {
-                if(spots > 14) { spots--; spotsEl.textContent = spots; }
-            }, 5000);
-
-            // Formulario con Fetch
-            const form = document.getElementById('pre-registration-form');
-            form.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                const btn = form.querySelector('button');
-                const originalText = btn.textContent;
-                btn.disabled = true;
-                btn.textContent = 'Enviando...';
-                
-                try {
-                    const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: {'Accept': 'application/json'} });
-                    if (res.ok) {
-                        form.classList.add('hidden');
-                        document.getElementById('form-success').classList.remove('hidden');
-                    } else {
-                        throw new Error('Error');
-                    }
-                } catch (err) {
-                    document.getElementById('form-error').classList.remove('hidden');
-                    btn.disabled = false;
-                    btn.textContent = originalText;
-                }
-            });
-        });
-    </script>
+    <script src="js/pulsart-crear.js?v=2"></script>
+    <script src="js/script.js?v=2"></script>
     <button id="btn-back-to-top" title="Volver arriba">↑</button>
 </body>
 </html>
