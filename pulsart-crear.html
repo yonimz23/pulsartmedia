@@ -94,15 +94,17 @@
             line-height: 1.2;
             color: #1a1a1a;
             margin-bottom: 20px;
+            text-transform: uppercase;
         }
         @media (min-width: 768px) {
             #hero h2 { font-size: 3.5rem; }
         }
         #hero p.hero-sub {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: #555;
             max-width: 800px;
             margin: 0 auto 40px auto;
+            text-align: justify;
         }
         .hero-box {
             border: 2px dashed #ddd;
@@ -111,6 +113,15 @@
             max-width: 900px;
             margin: 0 auto;
             background-color: #fff;
+        }
+        .hero-box h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--brand-primary);
+            margin-bottom: 15px;
+        }
+        .hero-box p {
+            text-align: justify;
         }
 
         /* Plans Section */
@@ -163,7 +174,7 @@
         .tabs-container {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 10px;
             border-bottom: 1px solid #ddd;
             margin-bottom: 30px;
             flex-wrap: wrap;
@@ -171,9 +182,9 @@
         .plan-tab {
             background: none;
             border: none;
-            padding: 10px 20px;
+            padding: 10px 15px;
             font-family: 'Montserrat', sans-serif;
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: #666;
             cursor: pointer;
             border-bottom: 3px solid transparent;
@@ -203,11 +214,13 @@
             margin-bottom: 12px;
             display: flex;
             align-items: start;
+            text-align: left;
         }
         .check-icon {
             color: #2ecc71;
             margin-right: 10px;
             font-weight: bold;
+            flex-shrink: 0;
         }
         .saving-box {
             background-color: #fff3cd;
@@ -253,8 +266,30 @@
             padding: 20px;
             border-radius: 10px;
         }
-        .benefit-item h3 { margin-top: 0; color: #000; } /* Accent color */
-        .benefit-item p { font-size: 0.9rem; color: #fff; }
+        .benefit-item h3 { margin-top: 0; color: #000; margin-bottom: 10px;} 
+        .benefit-item p { font-size: 0.9rem; color: #fff; line-height: 1.4; }
+
+        /* Aliados Section */
+        #aliados {
+            text-align: center;
+            padding: 40px 20px;
+            margin-bottom: 40px;
+        }
+        .aliados-list {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .aliado-item {
+            font-weight: 700;
+            color: #666;
+            font-size: 1.2rem;
+            border: 1px solid #ddd;
+            padding: 10px 20px;
+            border-radius: 50px;
+        }
 
         /* Form Section */
         #cta {
@@ -280,7 +315,7 @@
             border-radius: 5px;
             font-family: 'Montserrat', sans-serif;
             font-size: 1rem;
-            box-sizing: border-box; /* Importante para padding */
+            box-sizing: border-box; 
         }
         .form-control:focus {
             outline: none;
@@ -320,30 +355,31 @@
             color: #888;
             font-size: 0.9rem;
         }
+        
         #btn-back-to-top {
-    display: none; /* Oculto por defecto */
-    position: fixed;
-    bottom: 90px; /* 90px para que quede ARRIBA del botón de WhatsApp */
-    right: 20px;
-    z-index: 99;
-    border: none;
-    outline: none;
-    background-color: #333; /* Gris oscuro elegante */
-    color: white;
-    cursor: pointer;
-    padding: 10px;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    font-size: 20px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-    transition: background-color 0.3s, transform 0.3s;
-}
+            display: none; 
+            position: fixed;
+            bottom: 90px; 
+            right: 20px;
+            z-index: 99;
+            border: none;
+            outline: none;
+            background-color: #333; 
+            color: white;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            transition: background-color 0.3s, transform 0.3s;
+        }
 
-#btn-back-to-top:hover {
-    background-color: #FF6600; /* Naranja al pasar el mouse */
-    transform: translateY(-3px);
-}
+        #btn-back-to-top:hover {
+            background-color: #FF6600; 
+            transform: translateY(-3px);
+        }
     </style>
 </head>
 <body>
@@ -351,33 +387,42 @@
     <header>
         <div class="container">
             <a href="index.html" class="back-link">← Volver a PulsArt Media</a>
-            <h1>PulsArt Media + Estación Crear</h1>
-            <p>Membresías: CONECTA 360°</p>
+            <h1>CONECTA 360°</h1>
+            <p>Membresía para profesionales de las Industrias Creativas</p>
         </div>
     </header>
 
     <main>
         <div class="container">
             <section id="hero">
-                <h2>Membresías: CONECTA 360°</h2>
-                <p class="hero-sub">El primer ecosistema creativo 360° de Paraguay que CONECTA todos los servicios para Artistas en un solo lugar. Una alianza de PulsArt Media y Estación Crear. Pierdes tiempo, energía y foco coordinando estudio, fotógrafo, abogado y redes sociales. Nosotros unimos las piezas por ti.</p>
-                <div class="hero-box">
-                     <h3 class="text-2xl text-bold text-primary mb-4" style="font-size: 1.5rem;">Te presentamos el primer Ecosistema Creativo 360º de Paraguay.</h3>
-                     <p>Recupera hasta el 50% de tu tiempo y dedícate a lo único que importa: crear. Desde la grabación y el registro legal hasta la estrategia digital y el lanzamiento. Todo en un solo lugar, con un solo equipo.</p>
+                <h2>Membresía CONECTA 360°</h2>
+                <p class="hero-sub text-center" style="font-weight: 700; margin-bottom: 20px;">Un programa de Estación Crear y PulsArt Media.</p>
+                <p class="hero-sub">
+                    CONECTA 360 es un programa de acompañamiento profesional para artistas, emprendedores y personas creativas en Paraguay. La plataforma cultural Estación Crear, PulsArt Media y sus aliados, desarrollan este programa que integra servicios creativos, asesorías especializadas y beneficios exclusivos para impulsar el desarrollo sostenible de proyectos artísticos y culturales.
+                </p>
+                
+                <div class="hero-box mt-4">
+                     <h3>¿Cómo Funciona?</h3>
+                     <p>
+                        Brindamos acompañamiento profesional integral, servicios especializados y beneficios. Tendrás acceso a mentorías, espacios de formación, producción, servicios de gestión legal, registro de obras, comunicación profesional y oportunidades de visibilidad mediante una suscripción mensual a un costo muy inferior al valor real.
+                     </p>
+                     <p style="margin-top: 15px; font-weight: 600;">
+                        Ser miembro de CONECTA 360 es formar parte de una comunidad donde podés sentirte acompañadx para desarrollar tu carrera, marca personal o emprendimiento.
+                     </p>
                 </div>
             </section>
 
             <section id="plans">
                 <div class="text-center mb-4">
-                    <h2 class="text-3xl text-bold">Encuentra el Plan Perfecto</h2>
-                    <p>Compara el valor y elige el impulso que necesitas hoy.</p>
+                    <h2 class="text-3xl text-bold">Nuestros Planes</h2>
+                    <p>Elegí el plan que mejor se adapte a tu etapa profesional.</p>
                 </div>
                 
                 <div class="chart-card">
                      <div class="price-toggle">
                         <span class="text-bold">Ver precios:</span>
                         <div class="toggle-container">
-                            <button id="founderPriceBtn" class="toggle-btn active">Fundador</button>
+                            <button id="founderPriceBtn" class="toggle-btn active">Lanzamiento</button>
                             <button id="regularPriceBtn" class="toggle-btn">Regular</button>
                         </div>
                     </div>
@@ -388,14 +433,108 @@
 
                 <div id="plan-details">
                     <div class="tabs-container">
-                        <button data-plan="semilla" class="plan-tab tab-active">🌱 Semilla</button>
-                        <button data-plan="brote" class="plan-tab">🌿 Brote</button>
-                        <button data-plan="raiz" class="plan-tab">🪴 Raíz</button>
-                        <button data-plan="bosque" class="plan-tab">🌳 Bosque</button>
+                        <button data-plan="basico" class="plan-tab tab-active">🟡 Plan Básico</button>
+                        <button data-plan="desarrollo" class="plan-tab">🟠 Plan Desarrollo</button>
+                        <button data-plan="pro" class="plan-tab">🔴 Plan Pro</button>
+                        <button data-plan="premium" class="plan-tab">⚫ Plan Premium</button>
                     </div>
                     <div id="details-content">
-                        </div>
+                        <!-- El contenido se llena con JS -->
+                    </div>
                 </div>
+            </section>
+
+            <section id="founders">
+                <h2 class="text-4xl text-black">Beneficios Exclusivos Miembros Fundadores</h2>
+                <p style="max-width: 600px; margin: 10px auto;">Las primeras veinte personas tendrán el estatus de miembro fundador con estos beneficios únicos:</p>
+                
+                <div id="founder-spots">
+                    <p>Cupos de Fundador restantes:</p>
+                    <div class="counter-box">
+                        <span id="spots-left">20</span> / 20
+                    </div>
+                </div>
+
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <h3>Pago Congelado</h3>
+                        <p>Beneficio del precio de lanzamiento congelado por 12 meses.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <h3>Kit de Bienvenida</h3>
+                        <p>Credencial de membresía premium y kit de merchandising exclusivo.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <h3>Acceso "Golden Hour"</h3>
+                        <p>Derecho a reservar espacios y servicios con anticipación preferencial sobre el resto de los miembros.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <h3>Masterclass Exclusiva</h3>
+                        <p>Acceso garantizado a una sesión anual de alto valor con un profesional de la industria (invitado especial).</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="aliados">
+                <h3 class="text-2xl text-bold">Aliados Confirmados</h3>
+                <div class="aliados-list">
+                    <div class="aliado-item">MELÓMANA ESTRATÉGICA</div>
+                    <div class="aliado-item">AMI</div>
+                    <div class="aliado-item">IKATU PRODUCCIONES</div>
+                </div>
+            </section>
+            
+            <section id="cta">
+                <div class="text-center">
+                    <h2 class="text-3xl text-bold mb-4">¿Te interesa ser parte?</h2>
+                    <p class="mb-4">Completa tu pre-inscripción ahora. Nos pondremos en contacto para finalizar el proceso y asegurar tu lugar.</p>
+                </div>
+                
+                <form id="pre-registration-form" action="https://formspree.io/f/mjkpqrzn" method="POST">
+                    <div class="form-group">
+                        <label for="name">Nombre Completo</label>
+                        <input type="text" id="name" name="name" required class="form-control">
+                    </div>
+                     <div class="form-group">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" required class="form-control">
+                    </div>
+                     <div class="form-group">
+                        <label for="phone">Teléfono</label>
+                        <input type="tel" id="phone" name="phone" required class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="plan-interest">Plan de Interés</label>
+                        <select id="plan-interest" name="plan-interest" class="form-control">
+                            <option value="basico">🟡 Plan Básico</option>
+                            <option value="desarrollo">🟠 Plan Desarrollo</option>
+                            <option value="pro">🔴 Plan Pro</option>
+                            <option value="premium">⚫ Plan Premium</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="project-type">¿Qué tipo de proyecto tienes?</label>
+                        <input type="text" id="project-type" name="project-type" class="form-control" placeholder="Músico, banda, gestor, etc.">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="comments">Comentarios o dudas</label>
+                        <textarea id="comments" name="comments" rows="3" class="form-control"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Quiero Pre-inscribirme</button>
+                </form>
+
+                <div id="form-success" class="msg-box msg-success hidden">
+                    ¡Gracias! Hemos recibido tu pre-inscripción. Te contactaremos muy pronto.
+                </div>
+                <div id="form-error" class="msg-box msg-error hidden">
+                    Hubo un error al enviar tu solicitud. Por favor intenta de nuevo.
+                </div>
+            </section>
+        </div>
+    </main>                </div>
             </section>
 
             <section id="founders">
